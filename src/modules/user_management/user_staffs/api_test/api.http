@@ -1,4 +1,4 @@
-@hostname = http://127.0.0.1:5000/api/v1/user-branch-admins
+@hostname = http://127.0.0.1:5000/api/v1/user-staffs
 @token = Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidG9rZW4iOiIzYXIyczFjZCIsInVzZXJfYWdlbnQiOiJ2c2NvZGUtcmVzdGNsaWVudCIsImlhdCI6MTcxNTQxODkzOH0.fp9Ar3jaNvQLo7C0lwV2JqtAILulCWUwNcSnBZfg2SY
 
 # all
@@ -31,9 +31,9 @@ content-type: application/json
 Authorization: {{token}}
 
 {
-    "id": 3,
-    "name": "Abid",
-    "email": "abid@gamil.com",
+    "id": 4,
+    "name": "Hasib",
+    "email": "hasib@gamil.com",
     "phone_number": "01779876546",
     "image": "/assets/dashboard/images/avatar.png"
 }
