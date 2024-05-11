@@ -10,6 +10,16 @@ content-type: application/json
     "password": "12345678"
 }
 
+# register
+###
+POST {{hostname}}/register HTTP/1.1
+content-type: application/json
+
+{
+    "email": "user1@gmail.com",
+    "password": "12345678"
+}
+
 # auth user
 ###
 GET {{hostname}}/info HTTP/1.1
