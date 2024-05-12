@@ -1,6 +1,7 @@
 const { expect, test } = require('@jest/globals');
 const { app_config } = require('../../../../configs/app.config');
 let end_point = 'admin-users';
+const target = require('./1_1_run');
 
 // test_method(end_point, 'error 500', 500, {});
 
@@ -11,7 +12,7 @@ test_method(end_point, 'data not found', 404, {
 });
 
 test_method(end_point, 'admin user details successfully fetched', 200, {
-    id: 1,
+    id: target.id,
 });
 
 function test_method(end_point, title, tobe, body) {
@@ -25,3 +26,4 @@ function test_method(end_point, title, tobe, body) {
             });
     });
 }
+module.exports = test_method;

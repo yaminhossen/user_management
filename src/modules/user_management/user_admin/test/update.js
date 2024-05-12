@@ -1,15 +1,32 @@
 const { expect, test } = require('@jest/globals');
 const { app_config } = require('../../../../configs/app.config');
-let end_point = 'admin-users/soft-delete';
+let end_point = 'admin-users/update';
+const target = require('./1_1_run.test').default;
 
 // test_method(end_point, 'error 500', 500, {});
 
 test_method(end_point + 's', 'url not found', 404, {});
 
-test_method(end_point, 'id field validation check', 422, {});
+test_method(end_point, 'id field validation check', 422, {
+    name: 'user1',
+    email: '1',
+});
+test_method(end_point, 'name field validation check', 422, {
+    email: 'user1',
+    id: '1',
+});
 
-test_method(end_point, 'admin user successfully deactive', 200, {
-    id: 1,
+test_method(end_point, 'email field validation check', 422, {
+    name: 'user1',
+    id: '1',
+});
+console.log('target', target);
+test_method(end_point, 'admin user successfully updated', 201, {
+    id: target.id,
+    name: 'user1 update',
+    email: 'user1@gmail.com',
+    phone_number: '35897593784',
+    image: 'avatar.png',
 });
 
 function test_method(end_point, title, tobe, body) {
@@ -29,3 +46,4 @@ function test_method(end_point, title, tobe, body) {
             });
     });
 }
+module.exports = test_method;

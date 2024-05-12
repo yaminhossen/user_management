@@ -1,6 +1,7 @@
 const { expect, test } = require('@jest/globals');
 const { app_config } = require('../../../../configs/app.config');
 let end_point = 'admin-users/destroy';
+const target = require('./1_1_run.test.js');
 
 // test_method(end_point, 'error 500', 500, {});
 
@@ -9,7 +10,7 @@ test_method(end_point + 's', 'url not found', 404, {});
 test_method(end_point, 'id field validation check', 422, {});
 
 // test_method(end_point, 'admin user successfully deleted', 200, {
-//     id: 36,
+//     id: target.id,
 // });
 
 test_method(end_point, 'admin user not found', 403, {
@@ -33,3 +34,4 @@ function test_method(end_point, title, tobe, body) {
             });
     });
 }
+module.exports = test_method;

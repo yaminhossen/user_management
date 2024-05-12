@@ -1,7 +1,7 @@
 const { expect, test } = require('@jest/globals');
 const { app_config } = require('../../../../configs/app.config');
 let end_point = 'admin-users/block';
-import target from './1_1_target';
+const target = require('./1_1_run.test');
 
 // test_method(end_point, 'error 500', 500, {});
 
@@ -30,3 +30,4 @@ function test_method(end_point, title, tobe, body) {
             });
     });
 }
+module.exports = test_method;

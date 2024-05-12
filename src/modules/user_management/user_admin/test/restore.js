@@ -1,32 +1,16 @@
 const { expect, test } = require('@jest/globals');
 const { app_config } = require('../../../../configs/app.config');
-let end_point = 'admin-users/store';
+const target = require('./1_1_run');
+let end_point = 'admin-users/restore';
 
 // test_method(end_point, 'error 500', 500, {});
 
 test_method(end_point + 's', 'url not found', 404, {});
 
-test_method(end_point, 'password field validation check', 422, {
-    email: 'user4@gmail.com',
-    name: 'user4',
-});
+test_method(end_point, 'id field validation check', 422, {});
 
-test_method(end_point, 'email field validation check', 422, {
-    name: 'user4',
-    password: '1234',
-});
-
-test_method(end_point, 'name field validation check', 422, {
-    email: 'user4@gmail.com',
-    password: '1234',
-});
-
-test_method(end_point, 'admin user successfully created', 201, {
-    name: 'user4',
-    email: 'user4@gmail.com',
-    phone_number: '35897593784',
-    image: 'avatar.png',
-    password: '1234',
+test_method(end_point, 'admin user successfully restore', 200, {
+    id: target.id,
 });
 
 function test_method(end_point, title, tobe, body) {
@@ -46,3 +30,4 @@ function test_method(end_point, title, tobe, body) {
             });
     });
 }
+module.exports = test_method;
