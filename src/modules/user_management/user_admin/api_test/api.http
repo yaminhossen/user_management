@@ -2,11 +2,11 @@
 
 # all
 ###
-GET {{hostname}} HTTP/1.1
+GET {{hostname}}?orderByCol=id&orderByAsc=true&show_active_data=true&paginate=10   HTTP/1.1
 
 # get
 ###
-GET {{hostname}}/1343 HTTP/1.1
+GET {{hostname}}/1 HTTP/1.1
 
 # store
 ###
@@ -28,10 +28,11 @@ POST {{hostname}}/update HTTP/1.1
 content-type: application/json
 
 {
-    "id":"65125d782678f323a32fb2a8",
-    "title": "random User",
-    "serial": 11,
-    "time": "Wed, 21 Oct 2015 18:27:50 GMT"
+     "id": 2,
+     "name": "user2update",
+    "email": "user2update@gmail.com",
+    "phone_number": "35897593784",
+    "image": "avatar.png"
 }
 
 # delete
@@ -40,7 +41,7 @@ POST  {{hostname}}/soft-delete HTTP/1.1
 content-type: application/json
 
 {
-    "id": "1"
+    "id": 2
 }
 
 # restore
@@ -49,15 +50,24 @@ POST  {{hostname}}/restore HTTP/1.1
 content-type: application/json
 
 {
-    "id": "6517befe584d780b51e04b2d",
+    "id": 3
+}
+
+# block
+###
+POST  {{hostname}}/block HTTP/1.1
+content-type: application/json
+
+{
+    "id": 3
 }
 
 
 # destroy
 ###
-POST  {{hostname}}/destroys HTTP/1.1
+POST  {{hostname}}/destroy HTTP/1.1
 content-type: application/json
 
 {
-    "id": "45"
+    "id": 2
 }

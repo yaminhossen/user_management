@@ -33,7 +33,12 @@ async function validate(req: Request) {
 
     return result;
 }
-
+// async function store(
+//     fastify_instance: FastifyInstance,
+//     req: FastifyRequest,
+// ): Promise<responseObject> {
+//     throw new Error('500 test');
+// }
 async function store(
     fastify_instance: FastifyInstance,
     req: FastifyRequest,
@@ -67,7 +72,7 @@ async function store(
     /** store data into database */
     try {
         (await data.update(inputs)).save();
-        return response(200, 'data created', data);
+        return response(201, 'data created', data);
     } catch (error: any) {
         let uid = await error_trace(models, error, req.url, req.body);
         throw new custom_error('server error', 500, error.message, uid);

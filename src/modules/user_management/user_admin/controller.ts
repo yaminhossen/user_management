@@ -12,6 +12,7 @@ import { responseObject } from '../../common_types/object';
 import update from './services/update';
 import restore from './services/restore';
 import destroy from './services/destroy';
+import block from './services/block';
 import data_import from './services/import';
 
 export default function (fastify: FastifyInstance) {
@@ -48,6 +49,11 @@ export default function (fastify: FastifyInstance) {
 
         destroy: async function (req: FastifyRequest, res: FastifyReply) {
             let data = await destroy(fastify, req);
+            res.code(data.status).send(data);
+        },
+
+        block: async function (req: FastifyRequest, res: FastifyReply) {
+            let data = await block(fastify, req);
             res.code(data.status).send(data);
         },
 

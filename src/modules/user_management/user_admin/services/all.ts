@@ -2,14 +2,55 @@ import { FindAndCountOptions, Model, literal } from 'sequelize';
 import db from '../models/db';
 import { FastifyInstance, FastifyRequest } from 'fastify';
 import response from '../helpers/response';
-import { anyObject, responseObject } from '../../../common_types/object';
 import error_trace from '../helpers/error_trace';
 import custom_error from '../helpers/custom_error';
+import { body, validationResult, query, param } from 'express-validator';
+import {
+    anyObject,
+    responseObject,
+    Request,
+} from '../../../common_types/object';
+
+async function validate(req: Request) {
+    console.log('req', req.query);
+
+    await query('orderByCol')
+        .not()
+        .isEmpty()
+        .withMessage('the orderByCol field is required')
+        .run(req);
+
+    await query('orderByAsc')
+        .not()
+        .isEmpty()
+        .withMessage('the orderByAsc field is required')
+        .run(req);
+    await query('show_active_data')
+        .not()
+        .isEmpty()
+        .withMessage('the show_active_data field is required')
+        .run(req);
+    await query('paginate')
+        .not()
+        .isEmpty()
+        .withMessage('the paginate field is required')
+        .run(req);
+
+    let result = await validationResult(req);
+
+    return result;
+}
 
 async function all(
     fastify_instance: FastifyInstance,
     req: FastifyRequest,
 ): Promise<responseObject> {
+    /** validation */
+    let validate_result = await validate(req as Request);
+    if (!validate_result.isEmpty()) {
+        return response(422, 'validation error', validate_result.array());
+    }
+    /** initializations */
     let models = await db();
     let query_param = req.query as any;
 

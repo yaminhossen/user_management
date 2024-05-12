@@ -24,7 +24,7 @@ async function validate(req: Request) {
         .withMessage('the name field is required')
         .run(req);
 
-    await body('preferred_name')
+    await body('email')
         .not()
         .isEmpty()
         .withMessage('the preferred name field is required')
@@ -34,6 +34,13 @@ async function validate(req: Request) {
 
     return result;
 }
+
+// async function update(
+//     fastify_instance: FastifyInstance,
+//     req: FastifyRequest,
+// ): Promise<responseObject> {
+//     throw new Error('500 test');
+// }
 
 async function update(
     fastify_instance: FastifyInstance,
@@ -67,7 +74,7 @@ async function update(
         if (data) {
             data.update(inputs);
             await data.save();
-            return response(200, 'data updated', data);
+            return response(201, 'data updated', data);
         } else {
             throw new custom_error('Forbidden', 403, 'operation not possible');
         }

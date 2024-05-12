@@ -1,3 +1,82 @@
 {"level":60,"time":1715418863941,"pid":15184,"hostname":"DESKTOP-9421701","file":"","time":"5/11/2024 3:14:23 PM","message":"WHERE parameter \"id\" has invalid \"undefined\" value"}
 {"level":60,"time":1715420302645,"pid":14120,"hostname":"DESKTOP-9421701","file":"","time":"5/11/2024 3:38:22 PM","message":"Unexpected token } in JSON at position 161"}
 {"level":60,"time":1715499303519,"pid":11672,"hostname":"DESKTOP-9421701","file":"","time":"5/12/2024 1:35:03 PM","message":"Data too long for column 'password' at row 1"}
+{"level":60,"time":1715506959397,"pid":14908,"hostname":"DESKTOP-9421701","file":"services\\store.ts:40:11)","time":"5/12/2024 3:42:39 PM","message":"500 test"}
+{"level":60,"time":1715507018127,"pid":14908,"hostname":"DESKTOP-9421701","file":"services\\store.ts:40:11)","time":"5/12/2024 3:43:38 PM","message":"500 test"}
+{"level":60,"time":1715507539925,"pid":14908,"hostname":"DESKTOP-9421701","file":"services\\store.ts:40:11)","time":"5/12/2024 3:52:19 PM","message":"500 test"}
+{"level":60,"time":1715507734342,"pid":7520,"hostname":"DESKTOP-9421701","file":"services\\update.ts:42:11)","time":"5/12/2024 3:55:34 PM","message":"500 test"}
+{"level":60,"time":1715507782654,"pid":7520,"hostname":"DESKTOP-9421701","file":"services\\update.ts:42:11)","time":"5/12/2024 3:56:22 PM","message":"500 test"}
+{"level":60,"time":1715507840885,"pid":7520,"hostname":"DESKTOP-9421701","file":"services\\update.ts:42:11)","time":"5/12/2024 3:57:20 PM","message":"500 test"}
+{"level":60,"time":1715507887368,"pid":7520,"hostname":"DESKTOP-9421701","file":"services\\update.ts:42:11)","time":"5/12/2024 3:58:07 PM","message":"500 test"}
+{"level":60,"time":1715509304961,"pid":15176,"hostname":"DESKTOP-9421701","file":"services\\details.ts:12:11)","time":"5/12/2024 4:21:44 PM","message":"500 test"}
+{"level":60,"time":1715509448884,"pid":17700,"hostname":"DESKTOP-9421701","file":"services\\details.ts:32:19)","time":"5/12/2024 4:24:08 PM","message":"data not found"}
+{"level":60,"time":1715509776607,"pid":4988,"hostname":"DESKTOP-9421701","file":"services\\details.ts:32:19)","time":"5/12/2024 4:29:36 PM","message":"data not found"}
+{"level":60,"time":1715511346670,"pid":3376,"hostname":"DESKTOP-9421701","file":"services\\details.ts:32:19)","time":"5/12/2024 4:55:46 PM","message":"data not found"}
+{"level":60,"time":1715511346676,"pid":3376,"hostname":"DESKTOP-9421701","file":"services\\details.ts:32:19)","time":"5/12/2024 4:55:46 PM","message":"data not found"}
+{"level":60,"time":1715511346734,"pid":3376,"hostname":"DESKTOP-9421701","file":"services\\details.ts:32:19)","time":"5/12/2024 4:55:46 PM","message":"data not found"}
+{"level":60,"time":1715511346778,"pid":3376,"hostname":"DESKTOP-9421701","file":"services\\details.ts:32:19)","time":"5/12/2024 4:55:46 PM","message":"data not found"}
+{"level":60,"time":1715511346802,"pid":3376,"hostname":"DESKTOP-9421701","file":"services\\details.ts:32:19)","time":"5/12/2024 4:55:46 PM","message":"data not found"}
+{"level":60,"time":1715511346823,"pid":3376,"hostname":"DESKTOP-9421701","file":"services\\details.ts:32:19)","time":"5/12/2024 4:55:46 PM","message":"data not found"}
+{"level":60,"time":1715511346838,"pid":3376,"hostname":"DESKTOP-9421701","file":"services\\details.ts:32:19)","time":"5/12/2024 4:55:46 PM","message":"data not found"}
+{"level":60,"time":1715511415682,"pid":3376,"hostname":"DESKTOP-9421701","file":"services\\details.ts:32:19)","time":"5/12/2024 4:56:55 PM","message":"data not found"}
+{"level":60,"time":1715511415773,"pid":3376,"hostname":"DESKTOP-9421701","file":"services\\details.ts:32:19)","time":"5/12/2024 4:56:55 PM","message":"data not found"}
+{"level":60,"time":1715511415857,"pid":3376,"hostname":"DESKTOP-9421701","file":"services\\details.ts:32:19)","time":"5/12/2024 4:56:55 PM","message":"data not found"}
+{"level":60,"time":1715511416022,"pid":3376,"hostname":"DESKTOP-9421701","file":"services\\details.ts:32:19)","time":"5/12/2024 4:56:56 PM","message":"data not found"}
+{"level":60,"time":1715511416305,"pid":3376,"hostname":"DESKTOP-9421701","file":"services\\details.ts:32:19)","time":"5/12/2024 4:56:56 PM","message":"data not found"}
+{"level":60,"time":1715511416454,"pid":3376,"hostname":"DESKTOP-9421701","file":"services\\details.ts:32:19)","time":"5/12/2024 4:56:56 PM","message":"data not found"}
+{"level":60,"time":1715511416487,"pid":3376,"hostname":"DESKTOP-9421701","file":"services\\details.ts:32:19)","time":"5/12/2024 4:56:56 PM","message":"data not found"}
+{"level":60,"time":1715511889650,"pid":3376,"hostname":"DESKTOP-9421701","file":"services\\soft_delete.ts:38:19)","time":"5/12/2024 5:04:49 PM","message":"WHERE parameter \"id\" has invalid \"undefined\" value"}
+{"level":60,"time":1715511889887,"pid":3376,"hostname":"DESKTOP-9421701","file":"services\\details.ts:32:19)","time":"5/12/2024 5:04:49 PM","message":"data not found"}
+{"level":60,"time":1715511889857,"pid":3376,"hostname":"DESKTOP-9421701","file":"services\\restore.ts:38:19)","time":"5/12/2024 5:04:49 PM","message":"WHERE parameter \"id\" has invalid \"undefined\" value"}
+{"level":60,"time":1715511889942,"pid":3376,"hostname":"DESKTOP-9421701","file":"services\\details.ts:32:19)","time":"5/12/2024 5:04:49 PM","message":"data not found"}
+{"level":60,"time":1715511890051,"pid":3376,"hostname":"DESKTOP-9421701","file":"services\\destroy.ts:34:19)","time":"5/12/2024 5:04:50 PM","message":"WHERE parameter \"id\" has invalid \"undefined\" value"}
+{"level":60,"time":1715511890177,"pid":3376,"hostname":"DESKTOP-9421701","file":"services\\details.ts:32:19)","time":"5/12/2024 5:04:50 PM","message":"data not found"}
+{"level":60,"time":1715511890216,"pid":3376,"hostname":"DESKTOP-9421701","file":"services\\block.ts:38:19)","time":"5/12/2024 5:04:50 PM","message":"WHERE parameter \"id\" has invalid \"undefined\" value"}
+{"level":60,"time":1715511890308,"pid":3376,"hostname":"DESKTOP-9421701","file":"services\\details.ts:32:19)","time":"5/12/2024 5:04:50 PM","message":"data not found"}
+{"level":60,"time":1715511890311,"pid":3376,"hostname":"DESKTOP-9421701","file":"services\\block.ts:31:19)","time":"5/12/2024 5:04:50 PM","message":"operation not possible"}
+{"level":60,"time":1715511890410,"pid":3376,"hostname":"DESKTOP-9421701","file":"services\\details.ts:32:19)","time":"5/12/2024 5:04:50 PM","message":"data not found"}
+{"level":60,"time":1715511890435,"pid":3376,"hostname":"DESKTOP-9421701","file":"services\\details.ts:32:19)","time":"5/12/2024 5:04:50 PM","message":"data not found"}
+{"level":60,"time":1715511890563,"pid":3376,"hostname":"DESKTOP-9421701","file":"services\\details.ts:32:19)","time":"5/12/2024 5:04:50 PM","message":"data not found"}
+{"level":60,"time":1715511957234,"pid":3376,"hostname":"DESKTOP-9421701","file":"services\\block.ts:38:19)","time":"5/12/2024 5:05:57 PM","message":"WHERE parameter \"id\" has invalid \"undefined\" value"}
+{"level":60,"time":1715511957608,"pid":3376,"hostname":"DESKTOP-9421701","file":"services\\block.ts:31:19)","time":"5/12/2024 5:05:57 PM","message":"operation not possible"}
+{"level":60,"time":1715511957781,"pid":3376,"hostname":"DESKTOP-9421701","file":"services\\destroy.ts:34:19)","time":"5/12/2024 5:05:57 PM","message":"WHERE parameter \"id\" has invalid \"undefined\" value"}
+{"level":60,"time":1715511957858,"pid":3376,"hostname":"DESKTOP-9421701","file":"services\\soft_delete.ts:38:19)","time":"5/12/2024 5:05:57 PM","message":"WHERE parameter \"id\" has invalid \"undefined\" value"}
+{"level":60,"time":1715511957870,"pid":3376,"hostname":"DESKTOP-9421701","file":"services\\destroy.ts:27:19)","time":"5/12/2024 5:05:57 PM","message":"operation not possible"}
+{"level":60,"time":1715511957873,"pid":3376,"hostname":"DESKTOP-9421701","file":"services\\update.ts:79:19)","time":"5/12/2024 5:05:57 PM","message":"operation not possible"}
+{"level":60,"time":1715511957882,"pid":3376,"hostname":"DESKTOP-9421701","file":"services\\restore.ts:38:19)","time":"5/12/2024 5:05:57 PM","message":"WHERE parameter \"id\" has invalid \"undefined\" value"}
+{"level":60,"time":1715511957889,"pid":3376,"hostname":"DESKTOP-9421701","file":"services\\details.ts:32:19)","time":"5/12/2024 5:05:57 PM","message":"data not found"}
+{"level":60,"time":1715511957918,"pid":3376,"hostname":"DESKTOP-9421701","file":"services\\soft_delete.ts:31:19)","time":"5/12/2024 5:05:57 PM","message":"operation not possible"}
+{"level":60,"time":1715511957927,"pid":3376,"hostname":"DESKTOP-9421701","file":"services\\details.ts:32:19)","time":"5/12/2024 5:05:57 PM","message":"data not found"}
+{"level":60,"time":1715511957929,"pid":3376,"hostname":"DESKTOP-9421701","file":"services\\restore.ts:31:19)","time":"5/12/2024 5:05:57 PM","message":"operation not possible"}
+{"level":60,"time":1715512449384,"pid":1436,"hostname":"DESKTOP-9421701","file":"services\\soft_delete.ts:38:19)","time":"5/12/2024 5:14:09 PM","message":"WHERE parameter \"id\" has invalid \"undefined\" value"}
+{"level":60,"time":1715512449389,"pid":1436,"hostname":"DESKTOP-9421701","file":"services\\block.ts:54:19)","time":"5/12/2024 5:14:09 PM","message":"operation not possible"}
+{"level":60,"time":1715512449391,"pid":1436,"hostname":"DESKTOP-9421701","file":"services\\restore.ts:54:19)","time":"5/12/2024 5:14:09 PM","message":"operation not possible"}
+{"level":60,"time":1715512449394,"pid":1436,"hostname":"DESKTOP-9421701","file":"services\\details.ts:32:19)","time":"5/12/2024 5:14:09 PM","message":"data not found"}
+{"level":60,"time":1715512449399,"pid":1436,"hostname":"DESKTOP-9421701","file":"services\\destroy.ts:50:19)","time":"5/12/2024 5:14:09 PM","message":"operation not possible"}
+{"level":60,"time":1715512449407,"pid":1436,"hostname":"DESKTOP-9421701","file":"services\\update.ts:79:19)","time":"5/12/2024 5:14:09 PM","message":"operation not possible"}
+{"level":60,"time":1715512449432,"pid":1436,"hostname":"DESKTOP-9421701","file":"services\\soft_delete.ts:31:19)","time":"5/12/2024 5:14:09 PM","message":"operation not possible"}
+{"level":60,"time":1715512449435,"pid":1436,"hostname":"DESKTOP-9421701","file":"services\\details.ts:32:19)","time":"5/12/2024 5:14:09 PM","message":"data not found"}
+{"level":60,"time":1715513075736,"pid":10708,"hostname":"DESKTOP-9421701","file":"services\\destroy.ts:50:19)","time":"5/12/2024 5:24:35 PM","message":"operation not possible"}
+{"level":60,"time":1715513075743,"pid":10708,"hostname":"DESKTOP-9421701","file":"services\\restore.ts:54:19)","time":"5/12/2024 5:24:35 PM","message":"operation not possible"}
+{"level":60,"time":1715513075762,"pid":10708,"hostname":"DESKTOP-9421701","file":"services\\block.ts:54:19)","time":"5/12/2024 5:24:35 PM","message":"operation not possible"}
+{"level":60,"time":1715513075828,"pid":10708,"hostname":"DESKTOP-9421701","file":"services\\update.ts:79:19)","time":"5/12/2024 5:24:35 PM","message":"operation not possible"}
+{"level":60,"time":1715513075908,"pid":10708,"hostname":"DESKTOP-9421701","file":"services\\details.ts:32:19)","time":"5/12/2024 5:24:35 PM","message":"data not found"}
+{"level":60,"time":1715513075914,"pid":10708,"hostname":"DESKTOP-9421701","file":"services\\soft_delete.ts:38:19)","time":"5/12/2024 5:24:35 PM","message":"WHERE parameter \"id\" has invalid \"undefined\" value"}
+{"level":60,"time":1715513075971,"pid":10708,"hostname":"DESKTOP-9421701","file":"services\\details.ts:32:19)","time":"5/12/2024 5:24:35 PM","message":"data not found"}
+{"level":60,"time":1715513075974,"pid":10708,"hostname":"DESKTOP-9421701","file":"services\\soft_delete.ts:31:19)","time":"5/12/2024 5:24:35 PM","message":"operation not possible"}
+{"level":60,"time":1715513289930,"pid":10708,"hostname":"DESKTOP-9421701","file":"services\\soft_delete.ts:38:19)","time":"5/12/2024 5:28:09 PM","message":"WHERE parameter \"id\" has invalid \"undefined\" value"}
+{"level":60,"time":1715513289972,"pid":10708,"hostname":"DESKTOP-9421701","file":"services\\details.ts:32:19)","time":"5/12/2024 5:28:09 PM","message":"data not found"}
+{"level":60,"time":1715513290261,"pid":10708,"hostname":"DESKTOP-9421701","file":"services\\soft_delete.ts:31:19)","time":"5/12/2024 5:28:10 PM","message":"operation not possible"}
+{"level":60,"time":1715513290307,"pid":10708,"hostname":"DESKTOP-9421701","file":"services\\details.ts:32:19)","time":"5/12/2024 5:28:10 PM","message":"data not found"}
+{"level":60,"time":1715513290339,"pid":10708,"hostname":"DESKTOP-9421701","file":"services\\block.ts:54:19)","time":"5/12/2024 5:28:10 PM","message":"operation not possible"}
+{"level":60,"time":1715513290350,"pid":10708,"hostname":"DESKTOP-9421701","file":"services\\update.ts:79:19)","time":"5/12/2024 5:28:10 PM","message":"operation not possible"}
+{"level":60,"time":1715513290375,"pid":10708,"hostname":"DESKTOP-9421701","file":"services\\restore.ts:54:19)","time":"5/12/2024 5:28:10 PM","message":"operation not possible"}
+{"level":60,"time":1715513381881,"pid":10708,"hostname":"DESKTOP-9421701","file":"services\\block.ts:54:19)","time":"5/12/2024 5:29:41 PM","message":"operation not possible"}
+{"level":60,"time":1715513382142,"pid":10708,"hostname":"DESKTOP-9421701","file":"services\\details.ts:32:19)","time":"5/12/2024 5:29:42 PM","message":"data not found"}
+{"level":60,"time":1715513382223,"pid":10708,"hostname":"DESKTOP-9421701","file":"services\\update.ts:79:19)","time":"5/12/2024 5:29:42 PM","message":"operation not possible"}
+{"level":60,"time":1715513382261,"pid":10708,"hostname":"DESKTOP-9421701","file":"services\\details.ts:32:19)","time":"5/12/2024 5:29:42 PM","message":"data not found"}
+{"level":60,"time":1715513382268,"pid":10708,"hostname":"DESKTOP-9421701","file":"services\\soft_delete.ts:38:19)","time":"5/12/2024 5:29:42 PM","message":"WHERE parameter \"id\" has invalid \"undefined\" value"}
+{"level":60,"time":1715513382302,"pid":10708,"hostname":"DESKTOP-9421701","file":"services\\destroy.ts:50:19)","time":"5/12/2024 5:29:42 PM","message":"operation not possible"}
+{"level":60,"time":1715513382305,"pid":10708,"hostname":"DESKTOP-9421701","file":"services\\restore.ts:54:19)","time":"5/12/2024 5:29:42 PM","message":"operation not possible"}
+{"level":60,"time":1715513382321,"pid":10708,"hostname":"DESKTOP-9421701","file":"services\\soft_delete.ts:31:19)","time":"5/12/2024 5:29:42 PM","message":"operation not possible"}
+{"level":60,"time":1715513382337,"pid":10708,"hostname":"DESKTOP-9421701","file":"services\\destroy.ts:50:19)","time":"5/12/2024 5:29:42 PM","message":"operation not possible"}
