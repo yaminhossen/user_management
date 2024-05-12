@@ -63,8 +63,7 @@ async function update(
         user_id: body.user_id,
         user_table_name: body.user_table_name,
         date: body.date,
-        device: body.device
-
+        device: body.device,
     };
 
     /** print request data into console */

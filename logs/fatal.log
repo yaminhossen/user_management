@@ -1,2 +1,3 @@
 {"level":60,"time":1715418863941,"pid":15184,"hostname":"DESKTOP-9421701","file":"","time":"5/11/2024 3:14:23 PM","message":"WHERE parameter \"id\" has invalid \"undefined\" value"}
 {"level":60,"time":1715420302645,"pid":14120,"hostname":"DESKTOP-9421701","file":"","time":"5/11/2024 3:38:22 PM","message":"Unexpected token } in JSON at position 161"}
+{"level":60,"time":1715499303519,"pid":11672,"hostname":"DESKTOP-9421701","file":"","time":"5/12/2024 1:35:03 PM","message":"Data too long for column 'password' at row 1"}

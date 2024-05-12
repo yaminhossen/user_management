@@ -18,10 +18,15 @@ async function validate(req: Request) {
         .withMessage('the name field is required')
         .run(req);
 
-    await body('preferred_name')
+    await body('email')
         .not()
         .isEmpty()
-        .withMessage('the preferred name field is required')
+        .withMessage('the email field is required')
+        .run(req);
+    await body('password')
+        .not()
+        .isEmpty()
+        .withMessage('the password field is required')
         .run(req);
 
     let result = await validationResult(req);
@@ -42,11 +47,17 @@ async function store(
     /** initializations */
     let models = await db();
     let body = req.body as anyObject;
-    let data = new models.User();
+    let data = new models.UserAdminsModel();
+    const bcrypt = require('bcrypt');
+    const saltRounds = 10;
+    let password = await bcrypt.hash(body.password, saltRounds);
 
     let inputs: InferCreationAttributes<typeof data> = {
         name: body.name,
-        preferred_name: body.preferred_name,
+        email: body.email,
+        phone_number: body.phone_number,
+        image: body.image,
+        password: password,
     };
 
     /** print request data into console */

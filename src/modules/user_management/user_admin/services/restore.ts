@@ -14,16 +14,17 @@ async function restore(
     let body = req.body as { [key: string]: any };
 
     try {
-        let data = await models.User.findOne({
+        let data = await models.UserAdminsModel.findOne({
             where: {
                 id: body.id,
             },
         });
 
         if (data) {
-            await data.update({
-                status: 1,
-            });
+            // await data.update({
+            //     status: 'active',
+            // });
+            data.status = 'active';
             await data.save();
             return response(200, 'data restored', data);
         } else {

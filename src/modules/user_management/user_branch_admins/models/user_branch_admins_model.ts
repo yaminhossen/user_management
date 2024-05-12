@@ -40,7 +40,7 @@ class DataModel extends Model<Infer, InferCreation> {
 
     declare status?: number;
     declare creator?: number;
-    
+
     declare created_at?: CreationOptional<Date>;
     declare updated_at?: CreationOptional<Date>;
 }

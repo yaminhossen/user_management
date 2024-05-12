@@ -66,8 +66,7 @@ async function update(
         name: body.name,
         email: body.email,
         phone_number: body.phone_number,
-        image: body.image
-
+        image: body.image,
     };
 
     /** print request data into console */

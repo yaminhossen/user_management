@@ -23,18 +23,29 @@ import {
     // ForeignKey,
 } from 'sequelize';
 
-const tableName = 'user_models';
-const modelName = 'UserModel';
+const tableName = 'user_admins';
+const modelName = 'UserAdminModels';
 
 type Infer = InferAttributes<DataModel>;
 type InferCreation = InferCreationAttributes<DataModel>;
+// enum status {
+//     active = 'active',
+//     deactive = 'deactive',
+//     block = 'block',
+// }
+type status = 'active' | 'deactive' | 'block';
 
 class DataModel extends Model<Infer, InferCreation> {
     declare id?: CreationOptional<number>;
-    declare name: string;
-    declare preferred_name: string | null;
 
-    declare status?: number;
+    declare name: string;
+    declare email: string | null;
+    declare phone_number?: string | null;
+    declare image?: string | null;
+    declare password?: string;
+    declare status?: status;
+
+    declare creator?: number;
 
     declare created_at?: CreationOptional<Date>;
     declare updated_at?: CreationOptional<Date>;
@@ -49,17 +60,28 @@ function init(sequelize: Sequelize) {
                 primaryKey: true,
             },
             name: {
-                type: new DataTypes.STRING(128),
-                allowNull: false,
+                type: new DataTypes.STRING(120),
+                allowNull: true,
             },
-            preferred_name: {
-                type: new DataTypes.STRING(128),
+            email: {
+                type: new DataTypes.STRING(120),
+                allowNull: true,
+            },
+            phone_number: {
+                type: new DataTypes.STRING(20),
+                allowNull: true,
+            },
+            image: {
+                type: new DataTypes.STRING(120),
+                allowNull: true,
+            },
+            password: {
+                type: new DataTypes.TEXT(),
                 allowNull: true,
             },
             status: {
-                type: new DataTypes.TINYINT(),
-                allowNull: true,
-                defaultValue: 1,
+                type: new DataTypes.ENUM('active', 'deactive', 'block'),
+                defaultValue: 'active',
             },
             created_at: DataTypes.DATE,
             updated_at: DataTypes.DATE,

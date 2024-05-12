@@ -14,7 +14,7 @@ async function destroy(
     let body = req.body as { [key: string]: any };
 
     try {
-        let data = await models.User.findOne({
+        let data = await models.UserAdminsModel.findOne({
             where: {
                 id: body.id,
             },

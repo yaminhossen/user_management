@@ -2,7 +2,7 @@
 
 # all
 ###
-GET {{hostname}}?t=343&d=43d HTTP/1.1
+GET {{hostname}} HTTP/1.1
 
 # get
 ###
@@ -14,9 +14,11 @@ POST  {{hostname}}/store HTTP/1.1
 content-type: application/json
 
 {
-    "name": "lll",
-    "preferred_name": "lll",
-    "status": 1
+    "name": "user4",
+    "email": "user4@gmail.com",
+    "phone_number": "35897593784",
+    "image": "avatar.png",
+    "password": "1234"
 }
 
 

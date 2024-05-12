@@ -48,11 +48,13 @@ async function update(
     /** initializations */
     let models = await db();
     let body = req.body as anyObject;
-    let model = new models.User();
+    let model = new models.UserAdminsModel();
 
     let inputs: InferCreationAttributes<typeof model> = {
         name: body.name,
-        preferred_name: body.preferred_name,
+        email: body.email,
+        phone_number: body.phone_number,
+        image: body.image,
     };
 
     /** print request data into console */
@@ -61,7 +63,7 @@ async function update(
 
     /** store data into database */
     try {
-        let data = await models.User.findByPk(body.id);
+        let data = await models.UserAdminsModel.findByPk(body.id);
         if (data) {
             data.update(inputs);
             await data.save();

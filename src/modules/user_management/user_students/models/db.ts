@@ -30,8 +30,10 @@ interface models {
 }
 const db = async function (): Promise<models> {
     const UserStudentsModel = user_students_model.init(sequelize);
-    const UserStudentEducationalBackgroundsModel = user_student_educational_backgrounds_model.init(sequelize);
-    const UserStudentInformationsModel = user_student_informations_model.init(sequelize);
+    const UserStudentEducationalBackgroundsModel =
+        user_student_educational_backgrounds_model.init(sequelize);
+    const UserStudentInformationsModel =
+        user_student_informations_model.init(sequelize);
     // const Project = project_model.init(sequelize);
 
     await sequelize.sync();

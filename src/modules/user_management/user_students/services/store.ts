@@ -70,7 +70,7 @@ async function store(
         email: body.email,
         phone_number: body.phone_number,
         image: body.image,
-        password: body.password
+        password: body.password,
     };
 
     /** print request data into console */

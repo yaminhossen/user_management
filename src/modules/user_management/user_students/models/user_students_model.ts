@@ -32,7 +32,6 @@ type InferCreation = InferCreationAttributes<DataModel>;
 class DataModel extends Model<Infer, InferCreation> {
     declare id?: CreationOptional<number>;
 
-
     declare parent_id: number;
     declare name: string;
     declare email: string | null;
@@ -42,7 +41,7 @@ class DataModel extends Model<Infer, InferCreation> {
 
     declare status?: number;
     declare creator?: number;
-    
+
     declare created_at?: CreationOptional<Date>;
     declare updated_at?: CreationOptional<Date>;
 }

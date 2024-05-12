@@ -14,16 +14,17 @@ async function soft_delete(
     let body = req.body as { [key: string]: any };
 
     try {
-        let data = await models.User.findOne({
+        let data = await models.UserAdminsModel.findOne({
             where: {
                 id: body.id,
             },
         });
 
         if (data) {
-            await data.update({
-                status: 0,
-            });
+            // await data.update({
+            //     status: 0,
+            // });
+            data.status = 'deactive';
             await data.save();
             return response(200, 'data deactivated', data);
         } else {
