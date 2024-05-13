@@ -191,3 +191,7 @@
 {"level":60,"time":1715518009649,"pid":10708,"hostname":"DESKTOP-9421701","error":"404","url":"/api/v1/admin-users/stores"}
 {"level":60,"time":1715518009765,"pid":10708,"hostname":"DESKTOP-9421701","error":"404","url":"/api/v1/admin-users/updates"}
 {"level":60,"time":1715518009801,"pid":10708,"hostname":"DESKTOP-9421701","error":"404","url":"/api/v1/admin-users/destroys"}
+{"level":60,"time":1715589486168,"pid":9960,"hostname":"DESKTOP-9421701","error":"404","url":"/api/v1/user-branch-admins/destroys"}
+{"level":60,"time":1715591656095,"pid":15220,"hostname":"DESKTOP-9421701","error":"404","url":"/api/v1/user-staffs"}
+{"level":60,"time":1715591666674,"pid":15220,"hostname":"DESKTOP-9421701","error":"404","url":"/api/v1/user-staffs"}
+{"level":60,"time":1715591666974,"pid":15220,"hostname":"DESKTOP-9421701","error":"404","url":"/api/v1/user-staffs"}

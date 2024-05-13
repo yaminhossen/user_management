@@ -28,9 +28,9 @@ POST {{hostname}}/update HTTP/1.1
 content-type: application/json
 
 {
-     "id": 2,
-     "name": "user2update",
-    "email": "user2update@gmail.com",
+     "id": 5,
+     "name": "user5update",
+    "email": "user5update@gmail.com",
     "phone_number": "35897593784",
     "image": "avatar.png"
 }

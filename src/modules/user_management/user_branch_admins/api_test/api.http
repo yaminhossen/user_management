@@ -1,5 +1,5 @@
 @hostname = http://127.0.0.1:5000/api/v1/user-branch-admins
-@token = Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidG9rZW4iOiIzYXIyczFjZCIsInVzZXJfYWdlbnQiOiJ2c2NvZGUtcmVzdGNsaWVudCIsImlhdCI6MTcxNTQxODkzOH0.fp9Ar3jaNvQLo7C0lwV2JqtAILulCWUwNcSnBZfg2SY
+@token = Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidG9rZW4iOiJ2c2tkNzd0eCIsInVzZXJfYWdlbnQiOiJ2c2NvZGUtcmVzdGNsaWVudCIsImlhdCI6MTcxNTU4MDk0M30.OVIrHvw1RJzPv7M5C88B7PbspaPKWh49wOZIqC86so4
 
 # all
 ###
@@ -7,7 +7,7 @@ GET {{hostname}} HTTP/1.1
 
 # get
 ###
-GET {{hostname}}/1 HTTP/1.1
+GET {{hostname}}/2 HTTP/1.1
 
 # store
 ###
@@ -16,10 +16,11 @@ content-type: application/json
 Authorization: {{token}}
 
 {
-    "name": "Yamin",
-    "email": "yamin@gamil.com",
+    "name": "Tamim",
+    "email": "tamim@gamil.com",
     "phone_number": "01779876546",
     "image": "/assets/dashboard/images/avatar.png",
+    "status": "active",
     "password": "1234"
 }
 
@@ -31,11 +32,13 @@ content-type: application/json
 Authorization: {{token}}
 
 {
-    "id": 3,
-    "name": "Abid",
-    "email": "abid@gamil.com",
+    "id": 2,
+    "name": "Hamim",
+    "email": "hamim@gamil.com",
     "phone_number": "01779876546",
-    "image": "/assets/dashboard/images/avatar.png"
+    "image": "/assets/dashboard/images/avatar.png",
+    "status": "active",
+    "password": "1234"
 }
 
 # delete
@@ -44,7 +47,7 @@ POST  {{hostname}}/soft-delete HTTP/1.1
 content-type: application/json
 
 {
-    "id": "1"
+    "id": 2
 }
 
 # restore
@@ -53,15 +56,15 @@ POST  {{hostname}}/restore HTTP/1.1
 content-type: application/json
 
 {
-    "id": "6517befe584d780b51e04b2d",
+    "id": 2
 }
 
 
 # destroy
 ###
-POST  {{hostname}}/destroys HTTP/1.1
+POST  {{hostname}}/destroy HTTP/1.1
 content-type: application/json
 
 {
-    "id": "45"
+    "id": 2
 }

@@ -1,5 +1,5 @@
 @hostname = http://127.0.0.1:5000/api/v1/user-staffs
-@token = Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidG9rZW4iOiIzYXIyczFjZCIsInVzZXJfYWdlbnQiOiJ2c2NvZGUtcmVzdGNsaWVudCIsImlhdCI6MTcxNTQxODkzOH0.fp9Ar3jaNvQLo7C0lwV2JqtAILulCWUwNcSnBZfg2SY
+@token = Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidG9rZW4iOiJ2c2tkNzd0eCIsInVzZXJfYWdlbnQiOiJ2c2NvZGUtcmVzdGNsaWVudCIsImlhdCI6MTcxNTU4MDk0M30.OVIrHvw1RJzPv7M5C88B7PbspaPKWh49wOZIqC86so4
 
 # all
 ###
