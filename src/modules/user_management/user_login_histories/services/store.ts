@@ -15,23 +15,23 @@ async function validate(req: Request) {
     await body('user_id')
         .not()
         .isEmpty()
-        .withMessage('the parent id field is required')
+        .withMessage('the user_id field is required')
         .run(req);
     await body('user_table_name')
         .not()
         .isEmpty()
-        .withMessage('the name field is required')
+        .withMessage('the user_table_name field is required')
         .run(req);
 
     await body('date')
         .not()
         .isEmpty()
-        .withMessage('the preferred name field is required')
+        .withMessage('the date field is required')
         .run(req);
     await body('device')
         .not()
         .isEmpty()
-        .withMessage('the preferred name field is required')
+        .withMessage('the device field is required')
         .run(req);
 
     let result = await validationResult(req);

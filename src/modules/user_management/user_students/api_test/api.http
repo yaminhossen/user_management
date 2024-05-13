@@ -20,7 +20,8 @@ Authorization: {{token}}
     "email": "yamin@gamil.com",
     "phone_number": "01779876546",
     "image": "/assets/dashboard/images/avatar.png",
-    "password": "1234"
+    "password": "1234",
+    "parent_id":1
 }
 
 

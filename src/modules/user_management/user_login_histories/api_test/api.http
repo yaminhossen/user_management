@@ -16,11 +16,10 @@ content-type: application/json
 Authorization: {{token}}
 
 {
-    "name": "Yamin",
-    "email": "yamin@gamil.com",
-    "phone_number": "01779876546",
-    "image": "/assets/dashboard/images/avatar.png",
-    "password": "1234"
+    "user_id": 1,
+    "user_table_name": "user_staffs",
+    "date": "12:12:2024",
+    "device": "phone"
 }
 
 

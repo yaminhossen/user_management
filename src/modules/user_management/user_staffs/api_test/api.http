@@ -16,11 +16,13 @@ content-type: application/json
 Authorization: {{token}}
 
 {
-    "name": "Yamin",
-    "email": "yamin@gamil.com",
+    "name": "user1",
+    "email": "user1@gmail.com",
     "phone_number": "01779876546",
+    "parmenent_address": "khulna, jessore",
+    "present_address": "dhaka, mirpur",
     "image": "/assets/dashboard/images/avatar.png",
-    "password": "1234"
+    "password": "$2a$12$.aO5lxRR2qnICFEhMGaK8.aoAut89QnkhMn4hASjuvXfDA9StWAp6"
 }
 
 

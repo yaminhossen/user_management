@@ -32,8 +32,12 @@ type InferCreation = InferCreationAttributes<DataModel>;
 class DataModel extends Model<Infer, InferCreation> {
     declare id?: CreationOptional<number>;
 
-    declare user_staff_id: number;
-    declare name: string;
+    declare user_staff_id?: number;
+    declare parmenent_address: string;
+    declare present_address: string;
+    declare guardian_contact_number?: string;
+    declare ismarried?: boolean;
+    declare graduation?: string;
 
     declare status?: number;
     declare creator?: number;
@@ -51,11 +55,27 @@ function init(sequelize: Sequelize) {
                 primaryKey: true,
             },
             user_staff_id: {
-                type: new DataTypes.BIGINT(),
+                type: new DataTypes.BIGINT().UNSIGNED,
                 allowNull: true,
             },
-            name: {
+            parmenent_address: {
                 type: new DataTypes.STRING(50),
+                allowNull: true,
+            },
+            present_address: {
+                type: new DataTypes.STRING(50),
+                allowNull: true,
+            },
+            guardian_contact_number: {
+                type: new DataTypes.STRING(20),
+                allowNull: true,
+            },
+            ismarried: {
+                type: new DataTypes.BOOLEAN(),
+                allowNull: true,
+            },
+            graduation: {
+                type: new DataTypes.STRING(20),
                 allowNull: true,
             },
 

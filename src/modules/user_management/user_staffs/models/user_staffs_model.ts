@@ -71,7 +71,7 @@ function init(sequelize: Sequelize) {
                 allowNull: true,
             },
             password: {
-                type: new DataTypes.TEXT(),
+                type: new DataTypes.STRING(150),
                 allowNull: true,
             },
 

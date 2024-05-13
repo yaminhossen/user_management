@@ -21,22 +21,32 @@ async function validate(req: Request) {
     await body('email')
         .not()
         .isEmpty()
-        .withMessage('the preferred name field is required')
+        .withMessage('the email field is required')
         .run(req);
     await body('phone_number')
         .not()
         .isEmpty()
-        .withMessage('the preferred name field is required')
+        .withMessage('the phone_number field is required')
         .run(req);
     await body('image')
         .not()
         .isEmpty()
-        .withMessage('the preferred name field is required')
+        .withMessage('the image field is required')
         .run(req);
     await body('password')
         .not()
         .isEmpty()
-        .withMessage('the preferred name field is required')
+        .withMessage('the password field is required')
+        .run(req);
+    await body('parmenent_address')
+        .not()
+        .isEmpty()
+        .withMessage('the parmenent_address field is required')
+        .run(req);
+    await body('present_address')
+        .not()
+        .isEmpty()
+        .withMessage('the present_address field is required')
         .run(req);
 
     let result = await validationResult(req);
@@ -58,6 +68,7 @@ async function store(
     let models = await db();
     let body = req.body as anyObject;
     let data = new models.UserStaffsModel();
+    let user_staff = new models.UserStaffInformationsModel();
 
     let inputs: InferCreationAttributes<typeof data> = {
         name: body.name,
@@ -65,6 +76,15 @@ async function store(
         phone_number: body.phone_number,
         image: body.image,
         password: body.password,
+    };
+    let user_staff_information_inputs: InferCreationAttributes<
+        typeof user_staff
+    > = {
+        parmenent_address: body.parmenent_address,
+        present_address: body.present_address,
+        guardian_contact_number: body.guardian_contact_number,
+        ismarried: body.ismarried,
+        graduation: body.graduation,
     };
 
     /** print request data into console */
@@ -74,7 +94,15 @@ async function store(
     /** store data into database */
     try {
         (await data.update(inputs)).save();
-        return response(200, 'data created', data);
+        if (data) {
+            (
+                await user_staff.update({
+                    ...user_staff_information_inputs,
+                    user_staff_id: data.id,
+                })
+            ).save();
+        }
+        return response(200, 'data created', { data, user_staff });
     } catch (error: any) {
         let uid = await error_trace(models, error, req.url, req.body);
         throw new custom_error('server error', 500, error.message, uid);
