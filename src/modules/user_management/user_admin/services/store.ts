@@ -11,6 +11,7 @@ import { InferCreationAttributes } from 'sequelize';
 import custom_error from '../helpers/custom_error';
 import error_trace from '../helpers/error_trace';
 
+/** validation rules */
 async function validate(req: Request) {
     await body('name')
         .not()
@@ -23,6 +24,7 @@ async function validate(req: Request) {
         .isEmpty()
         .withMessage('the email field is required')
         .run(req);
+
     await body('password')
         .not()
         .isEmpty()

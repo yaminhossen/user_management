@@ -18,7 +18,7 @@ content-type: application/json
     "email": "user4@gmail.com",
     "phone_number": "35897593784",
     "image": "avatar.png",
-    "password": "1234"
+    "password": "12345678"
 }
 
 
@@ -28,11 +28,12 @@ POST {{hostname}}/update HTTP/1.1
 content-type: application/json
 
 {
-     "id": 5,
-     "name": "user5update",
-    "email": "user5update@gmail.com",
+    "id": 6,
+    "name": "user6update",
+    "email": "user6update@gmail.com",
     "phone_number": "35897593784",
-    "image": "avatar.png"
+    "image": "avatar.png",
+    "password": "12345678"
 }
 
 # delete
@@ -41,7 +42,7 @@ POST  {{hostname}}/soft-delete HTTP/1.1
 content-type: application/json
 
 {
-    "id": 2
+    "id": 6
 }
 
 # restore
@@ -50,7 +51,7 @@ POST  {{hostname}}/restore HTTP/1.1
 content-type: application/json
 
 {
-    "id": 3
+    "id": 6
 }
 
 # block
@@ -59,7 +60,7 @@ POST  {{hostname}}/block HTTP/1.1
 content-type: application/json
 
 {
-    "id": 3
+    "id": 6
 }
 
 
@@ -69,5 +70,5 @@ POST  {{hostname}}/destroy HTTP/1.1
 content-type: application/json
 
 {
-    "id": 2
+    "id": 7
 }

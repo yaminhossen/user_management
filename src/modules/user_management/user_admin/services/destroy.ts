@@ -10,6 +10,8 @@ import {
 import response from '../helpers/response';
 import error_trace from '../helpers/error_trace';
 import custom_error from '../helpers/custom_error';
+
+/** validation rules */
 async function validate(req: Request) {
     await body('id')
         .not()
@@ -45,7 +47,7 @@ async function destroy(
 
         if (data) {
             await data.destroy();
-            return response(200, 'data deleted', data);
+            return response(200, 'data permanently deleted', {});
         } else {
             throw new custom_error('Forbidden', 403, 'operation not possible');
         }

@@ -195,3 +195,4 @@
 {"level":60,"time":1715591656095,"pid":15220,"hostname":"DESKTOP-9421701","error":"404","url":"/api/v1/user-staffs"}
 {"level":60,"time":1715591666674,"pid":15220,"hostname":"DESKTOP-9421701","error":"404","url":"/api/v1/user-staffs"}
 {"level":60,"time":1715591666974,"pid":15220,"hostname":"DESKTOP-9421701","error":"404","url":"/api/v1/user-staffs"}
+{"level":60,"time":1715690215708,"pid":4012,"hostname":"DESKTOP-9421701","error":"404","url":"/api/v1/user-login-history/destroys"}

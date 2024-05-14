@@ -3,7 +3,7 @@
 
 # all
 ###
-GET {{hostname}} HTTP/1.1
+GET {{hostname}}?orderByCol=id&orderByAsc=true&show_active_data=true&paginate=10 HTTP/1.1
 
 # get
 ###
@@ -61,9 +61,9 @@ content-type: application/json
 
 # destroy
 ###
-POST  {{hostname}}/destroys HTTP/1.1
+POST  {{hostname}}/destroy HTTP/1.1
 content-type: application/json
 
 {
-    "id": "45"
+    "id": 6
 }

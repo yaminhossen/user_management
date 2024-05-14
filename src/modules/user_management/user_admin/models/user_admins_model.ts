@@ -28,11 +28,6 @@ const modelName = 'UserAdminModels';
 
 type Infer = InferAttributes<DataModel>;
 type InferCreation = InferCreationAttributes<DataModel>;
-// enum status {
-//     active = 'active',
-//     deactive = 'deactive',
-//     block = 'block',
-// }
 type status = 'active' | 'deactive' | 'block';
 
 class DataModel extends Model<Infer, InferCreation> {
@@ -76,7 +71,7 @@ function init(sequelize: Sequelize) {
                 allowNull: true,
             },
             password: {
-                type: new DataTypes.TEXT(),
+                type: new DataTypes.STRING(100),
                 allowNull: true,
             },
             status: {

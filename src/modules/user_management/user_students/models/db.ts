@@ -37,32 +37,25 @@ const db = async function (): Promise<models> {
     // const Project = project_model.init(sequelize);
 
     await sequelize.sync();
-
-    // Project.hasOne(User, {
-    //     sourceKey: 'user_id',
-    //     foreignKey: 'id',
-    //     as: 'user',
-    // });
-
-    // User.hasMany(Project, {
-    //     sourceKey: 'id',
-    //     foreignKey: 'user_id',
-    //     as: 'projects',
-    // });
-
-    // User.hasOne(Project, {
-    //     sourceKey: 'id',
-    //     foreignKey: 'user_id',
-    //     as: 'project',
-    // });
-
-    // Project.belongsToMany(User, {
-    //     through: 'project_user',
-    // });
-    // User.belongsToMany(Project, {
-    //     through: 'project_user',
-    // });
-
+    UserStudentsModel.hasOne(UserStudentEducationalBackgroundsModel, {
+        sourceKey: 'id',
+        foreignKey: 'user_student_id',
+        as: 'educational_background',
+    });
+    UserStudentsModel.hasOne(UserStudentInformationsModel, {
+        sourceKey: 'id',
+        foreignKey: 'user_student_id',
+        as: 'student_info',
+    });
+    UserStudentsModel.hasMany(UserStudentInformationsModel, {
+        sourceKey: 'id',
+        foreignKey: 'user_student_id',
+        as: 'student_infos',
+    });
+    UserStudentInformationsModel.belongsTo(UserStudentsModel, {
+        foreignKey: 'user_student_id',
+        as: 'student',
+    });
     let models: models = {
         UserStudentsModel,
         UserStudentEducationalBackgroundsModel,

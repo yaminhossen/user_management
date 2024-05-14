@@ -11,6 +11,7 @@ import { InferCreationAttributes } from 'sequelize';
 import custom_error from '../helpers/custom_error';
 import error_trace from '../helpers/error_trace';
 
+/** validation rules */
 async function validate(req: Request) {
     await body('id')
         .not()
@@ -27,7 +28,7 @@ async function validate(req: Request) {
     await body('email')
         .not()
         .isEmpty()
-        .withMessage('the preferred name field is required')
+        .withMessage('the email field is required')
         .run(req);
 
     let result = await validationResult(req);
@@ -57,12 +58,22 @@ async function update(
     let body = req.body as anyObject;
     let model = new models.UserAdminsModel();
 
+    let password = null;
+    if (body.password) {
+        const bcrypt = require('bcrypt');
+        const saltRounds = 10;
+        password = await bcrypt.hash(body.password, saltRounds);
+    }
+
     let inputs: InferCreationAttributes<typeof model> = {
         name: body.name,
         email: body.email,
         phone_number: body.phone_number,
         image: body.image,
     };
+    if (password) {
+        inputs.password = password;
+    }
 
     /** print request data into console */
     // console.clear();
@@ -76,7 +87,11 @@ async function update(
             await data.save();
             return response(201, 'data updated', data);
         } else {
-            throw new custom_error('Forbidden', 403, 'operation not possible');
+            throw new custom_error(
+                'data not found',
+                404,
+                'operation not possible',
+            );
         }
     } catch (error: any) {
         let uid = await error_trace(models, error, req.url, req.body);

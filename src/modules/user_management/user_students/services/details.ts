@@ -10,13 +10,31 @@ async function details(
     req: FastifyRequest,
 ): Promise<responseObject> {
     let models = await db();
+    let educationalBackgroundsModel =
+        models.UserStudentEducationalBackgroundsModel;
+    let informationsModel = models.UserStudentInformationsModel;
+    let studentsModel = models.UserStudentsModel;
     let params = req.params as any;
 
     try {
-        let data = await models.UserStudentsModel.findOne({
+        let data = await studentsModel.findOne({
             where: {
                 id: params.id,
             },
+            include: [
+                {
+                    model: educationalBackgroundsModel,
+                    as: 'educational_background',
+                },
+                {
+                    model: informationsModel,
+                    as: 'student_info',
+                },
+                {
+                    model: informationsModel,
+                    as: 'student_infos',
+                },
+            ],
         });
 
         if (data) {

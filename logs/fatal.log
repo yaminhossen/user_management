@@ -124,3 +124,8 @@
 {"level":60,"time":1715518009820,"pid":10708,"hostname":"DESKTOP-9421701","file":"services\\destroy.ts:50:19)","time":"5/12/2024 6:46:49 PM","message":"operation not possible"}
 {"level":60,"time":1715518009825,"pid":10708,"hostname":"DESKTOP-9421701","file":"","time":"5/12/2024 6:46:49 PM","message":"Body cannot be empty when content-type is set to 'application/json'"}
 {"level":60,"time":1715597552152,"pid":17452,"hostname":"DESKTOP-9421701","file":"services\\store.ts:108:15)","time":"5/13/2024 4:52:32 PM","message":"Unknown column 'parmenent_address' in 'field list'"}
+{"level":60,"time":1715683678538,"pid":5952,"hostname":"DESKTOP-9421701","file":"services\\details.ts:54:19)","time":"5/14/2024 4:47:58 PM","message":"UserStudentInformationsModel is associated to UserStudentsModel multiple times. To identify the correct association, you must use the 'as' keyword to specify the alias of the association you want to include."}
+{"level":60,"time":1715683761814,"pid":17168,"hostname":"DESKTOP-9421701","file":"services\\details.ts:54:19)","time":"5/14/2024 4:49:21 PM","message":"UserStudentsModel is not associated to UserStudentsModel!"}
+{"level":60,"time":1715686594023,"pid":14036,"hostname":"DESKTOP-9421701","file":"services\\update.ts:89:19)","time":"5/14/2024 5:36:34 PM","message":"operation not possible"}
+{"level":60,"time":1715686667656,"pid":14036,"hostname":"DESKTOP-9421701","file":"","time":"5/14/2024 5:37:47 PM","message":"data must be a string or Buffer and salt must either be a salt string or a number of rounds"}
+{"level":60,"time":1715689221168,"pid":8344,"hostname":"DESKTOP-9421701","file":"services\\all.ts:110:15)","time":"5/14/2024 6:20:21 PM","message":"Unknown column 'email' in 'field list'"}

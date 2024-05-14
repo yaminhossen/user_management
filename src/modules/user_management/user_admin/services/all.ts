@@ -11,6 +11,7 @@ import {
     Request,
 } from '../../../common_types/object';
 
+/** validation rules */
 async function validate(req: Request) {
     console.log('req', req.query);
 
@@ -25,11 +26,13 @@ async function validate(req: Request) {
         .isEmpty()
         .withMessage('the orderByAsc field is required')
         .run(req);
+
     await query('show_active_data')
         .not()
         .isEmpty()
         .withMessage('the show_active_data field is required')
         .run(req);
+
     await query('paginate')
         .not()
         .isEmpty()
@@ -61,23 +64,27 @@ async function all(
     let show_active_data = query_param.show_active_data || 'true';
     let paginate = parseInt((req.query as any).paginate) || 10;
     let select_fields: string[] = [];
+    let exclude_fields: string[] = ['password'];
 
     if (query_param.select_fields) {
         select_fields = query_param.select_fields.replace(/\s/g, '').split(',');
         select_fields = [...select_fields, 'id', 'status'];
+    } else {
+        select_fields = ['id', 'email', 'status', 'name', 'phone_number'];
     }
 
     let query: FindAndCountOptions = {
         order: [[orderByCol, orderByAsc == 'true' ? 'ASC' : 'DESC']],
         where: {
-            status: show_active_data == 'true' ? 1 : 0,
+            status: show_active_data == 'true' ? 'active' : 'deactive',
         },
         // include: [models.Project],
     };
 
-    if (select_fields.length) {
-        query.attributes = select_fields;
-    }
+    query.attributes = {
+        include: select_fields,
+        exclude: exclude_fields,
+    };
 
     if (search_key) {
         query.where = {

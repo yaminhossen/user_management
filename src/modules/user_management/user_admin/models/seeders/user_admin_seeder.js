@@ -33,11 +33,11 @@ module.exports = {
                 updated_at: '2024-02-14',
             });
         }
-        set_data(1, 'user1', 'user1@gmail.com', '01784493854', 'avatar.png');
-        set_data(2, 'user2', 'user2@gmail.com', '01784493855', 'avatar.png');
-        set_data(3, 'user3', 'user3@gmail.com', '01784493856', 'avatar.png');
+        set_data(1, 'admin1', 'admin1@gmail.com', '01784493854', 'avatar.png');
+        set_data(2, 'admin2', 'admin2@gmail.com', '01784493855', 'avatar.png');
+        set_data(3, 'admin3', 'admin3@gmail.com', '01784493856', 'avatar.png');
 
-        queryInterface.bulkDelete('user_admins');
+        await queryInterface.bulkDelete('user_admins', null, {});
         await queryInterface.bulkInsert('user_admins', data, {});
     },
 
