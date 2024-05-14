@@ -28,6 +28,7 @@ const modelName = 'UserStudentEducationalBackgroundsModel';
 
 type Infer = InferAttributes<DataModel>;
 type InferCreation = InferCreationAttributes<DataModel>;
+type status = 'active' | 'deactive';
 
 class DataModel extends Model<Infer, InferCreation> {
     declare id?: CreationOptional<number>;
@@ -36,8 +37,8 @@ class DataModel extends Model<Infer, InferCreation> {
     declare previous_institute: string | null;
     declare year_of_leaving: Date;
     declare result: string | null;
+    declare status?: status;
 
-    declare status?: number;
     declare creator?: number;
 
     declare created_at?: CreationOptional<Date>;
@@ -68,12 +69,11 @@ function init(sequelize: Sequelize) {
                 type: new DataTypes.STRING(20),
                 allowNull: true,
             },
-
             status: {
-                type: new DataTypes.TINYINT(),
-                allowNull: true,
-                defaultValue: 1,
+                type: new DataTypes.ENUM('active', 'deactive'),
+                defaultValue: 'active',
             },
+
             creator: {
                 type: new DataTypes.TINYINT(),
                 allowNull: true,

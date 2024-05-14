@@ -28,14 +28,19 @@ const modelName = 'UserParentInformationsModel';
 
 type Infer = InferAttributes<DataModel>;
 type InferCreation = InferCreationAttributes<DataModel>;
+type status = 'active' | 'deactive';
 
 class DataModel extends Model<Infer, InferCreation> {
     declare id?: CreationOptional<number>;
 
     declare user_parent_id: number;
-    declare name: string;
+    declare parmenent_address: string;
+    declare present_address: string;
+    declare guardian_contact_number?: string;
+    declare ismarried?: boolean;
+    declare graduation?: string;
+    declare status?: status;
 
-    declare status?: number;
     declare creator?: number;
 
     declare created_at?: CreationOptional<Date>;
@@ -54,16 +59,31 @@ function init(sequelize: Sequelize) {
                 type: new DataTypes.BIGINT(),
                 allowNull: true,
             },
-            name: {
+            parmenent_address: {
                 type: new DataTypes.STRING(50),
                 allowNull: true,
             },
-
-            status: {
-                type: new DataTypes.TINYINT(),
+            present_address: {
+                type: new DataTypes.STRING(50),
                 allowNull: true,
-                defaultValue: 1,
             },
+            guardian_contact_number: {
+                type: new DataTypes.STRING(20),
+                allowNull: true,
+            },
+            ismarried: {
+                type: new DataTypes.BOOLEAN(),
+                allowNull: true,
+            },
+            graduation: {
+                type: new DataTypes.STRING(20),
+                allowNull: true,
+            },
+            status: {
+                type: new DataTypes.ENUM('active', 'deactive'),
+                defaultValue: 'active',
+            },
+
             creator: {
                 type: new DataTypes.TINYINT(),
                 allowNull: true,
