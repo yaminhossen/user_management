@@ -21,6 +21,9 @@ async function details(
             where: {
                 id: params.id,
             },
+            attributes: {
+                exclude: ['password'],
+            },
             include: [
                 {
                     model: educationalBackgroundsModel,
