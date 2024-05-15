@@ -20,23 +20,23 @@ async function validate(req: Request) {
     await body('user_id')
         .not()
         .isEmpty()
-        .withMessage('the parent id field is required')
+        .withMessage('the user_id field is required')
         .run(req);
     await body('user_table_name')
         .not()
         .isEmpty()
-        .withMessage('the name field is required')
+        .withMessage('the user_table_name field is required')
         .run(req);
 
     await body('date')
         .not()
         .isEmpty()
-        .withMessage('the preferred name field is required')
+        .withMessage('the date field is required')
         .run(req);
     await body('device')
         .not()
         .isEmpty()
-        .withMessage('the preferred name field is required')
+        .withMessage('the device field is required')
         .run(req);
     let result = await validationResult(req);
 
@@ -58,6 +58,13 @@ async function update(
     let body = req.body as anyObject;
     let model = new models.UserLoginHistoriesModel();
 
+    // let password = null;
+    // if (body.password) {
+    //     const bcrypt = require('bcrypt');
+    //     const saltRounds = 10;
+    //     password = await bcrypt.hash(body.password, saltRounds);
+    // }
+
     let inputs: InferCreationAttributes<typeof model> = {
         id: body.id,
         user_id: body.user_id,
@@ -65,7 +72,6 @@ async function update(
         date: body.date,
         device: body.device,
     };
-
     /** print request data into console */
     // console.clear();
     // (fastify_instance as any).print(inputs);
@@ -78,7 +84,11 @@ async function update(
             await data.save();
             return response(200, 'data updated', data);
         } else {
-            throw new custom_error('Forbidden', 403, 'operation not possible');
+            throw new custom_error(
+                'data not found',
+                404,
+                'operation not possible',
+            );
         }
     } catch (error: any) {
         let uid = await error_trace(models, error, req.url, req.body);

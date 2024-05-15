@@ -129,3 +129,4 @@
 {"level":60,"time":1715686594023,"pid":14036,"hostname":"DESKTOP-9421701","file":"services\\update.ts:89:19)","time":"5/14/2024 5:36:34 PM","message":"operation not possible"}
 {"level":60,"time":1715686667656,"pid":14036,"hostname":"DESKTOP-9421701","file":"","time":"5/14/2024 5:37:47 PM","message":"data must be a string or Buffer and salt must either be a salt string or a number of rounds"}
 {"level":60,"time":1715689221168,"pid":8344,"hostname":"DESKTOP-9421701","file":"services\\all.ts:110:15)","time":"5/14/2024 6:20:21 PM","message":"Unknown column 'email' in 'field list'"}
+{"level":60,"time":1715692192592,"pid":8452,"hostname":"DESKTOP-9421701","file":"services\\restore.ts:55:19)","time":"5/14/2024 7:09:52 PM","message":"operation not possible"}

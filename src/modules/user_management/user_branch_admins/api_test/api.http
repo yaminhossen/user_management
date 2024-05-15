@@ -47,7 +47,7 @@ POST  {{hostname}}/soft-delete HTTP/1.1
 content-type: application/json
 
 {
-    "id": 2
+    # "id": 2
 }
 
 # restore
