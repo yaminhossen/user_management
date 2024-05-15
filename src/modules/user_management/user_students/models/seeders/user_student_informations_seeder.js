@@ -148,7 +148,7 @@ module.exports = {
             '@student1234',
         );
 
-        queryInterface.bulkDelete('user_student_informations');
+        await queryInterface.bulkDelete('user_student_informations', null, {});
         await queryInterface.bulkInsert('user_student_informations', data, {});
     },
 

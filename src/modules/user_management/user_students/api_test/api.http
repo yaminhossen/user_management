@@ -39,6 +39,18 @@ Authorization: {{token}}
     "image": "/assets/dashboard/images/avatar.png"
 }
 
+
+# login
+###
+POST {{hostname}}/login HTTP/1.1 
+content-type: application/json
+Authorization: {{token}}
+
+{
+    "email": "student1@gmail.com",
+    "password": "12345678"
+}
+
 # delete
 ###
 POST  {{hostname}}/soft-delete HTTP/1.1

@@ -56,7 +56,12 @@ module.exports = {
             'A-',
         );
 
-        queryInterface.bulkDelete('user_student_educational_backgrounds');
+        await queryInterface.bulkDelete(
+            'user_student_educational_backgrounds',
+            null,
+            {},
+        );
+
         await queryInterface.bulkInsert(
             'user_student_educational_backgrounds',
             data,

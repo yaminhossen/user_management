@@ -1,5 +1,4 @@
 'use strict';
-
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
     async up(queryInterface, Sequelize) {
@@ -29,6 +28,8 @@ module.exports = {
                 email,
                 phone_number,
                 image,
+                password:
+                    '$2a$12$.aO5lxRR2qnICFEhMGaK8.aoAut89QnkhMn4hASjuvXfDA9StWAp6',
                 created_at: '2024-02-14',
                 updated_at: '2024-02-14',
             });
@@ -58,7 +59,7 @@ module.exports = {
             '/assets/dashboard/images/avatar.png',
         );
 
-        queryInterface.bulkDelete('user_students');
+        await queryInterface.bulkDelete('user_students', null, {});
         await queryInterface.bulkInsert('user_students', data, {});
     },
 
@@ -66,7 +67,7 @@ module.exports = {
         /**
          * Add commands to revert seed here.
          
-         npx sequelize-cli db:seed:all --config src/configs/db.json --seeders-path src/modules/user_management/user_admin/models/seeders
+         npx sequelize-cli db:seed:all --config src/configs/db.json --seeders-path src/modules/user_management/user_students/models/seeders
          * Example:
          * await queryInterface.bulkDelete('People', null, {});
          */

@@ -14,5 +14,6 @@ module.exports = async function (fastify: FastifyInstance) {
         .post(`${prefix}/soft-delete`, controllerInstance.soft_delete)
         .post(`${prefix}/restore`, controllerInstance.restore)
         .post(`${prefix}/destroy`, controllerInstance.destroy)
-        .post(`${prefix}/import`, controllerInstance.import);
+        .post(`${prefix}/import`, controllerInstance.import)
+        .post(`${prefix}/login`, controllerInstance.login);
 };

@@ -39,6 +39,9 @@ class DataModel extends Model<Infer, InferCreation> {
     declare image?: string | null;
     declare password?: string;
     declare status?: status;
+    declare token?: string | null;
+    declare forget_code?: string | null;
+    declare user_agent?: string | null;
 
     declare creator?: number;
 
@@ -78,6 +81,19 @@ function init(sequelize: Sequelize) {
                 type: new DataTypes.ENUM('active', 'deactive', 'block'),
                 defaultValue: 'active',
             },
+            token: {
+                type: new DataTypes.STRING(100),
+                allowNull: true,
+            },
+            forget_code: {
+                type: new DataTypes.STRING(10),
+                allowNull: true,
+            },
+            user_agent: {
+                type: new DataTypes.STRING(150),
+                allowNull: true,
+            },
+
             created_at: DataTypes.DATE,
             updated_at: DataTypes.DATE,
         },

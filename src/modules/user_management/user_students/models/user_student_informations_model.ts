@@ -57,6 +57,9 @@ class DataModel extends Model<Infer, InferCreation> {
     declare telegram_name: string | null;
     declare telegram_id: string | null;
     declare status?: status;
+    declare token?: string | null;
+    declare forget_code?: string | null;
+    declare user_agent?: string | null;
 
     declare creator?: number;
 
@@ -167,6 +170,18 @@ function init(sequelize: Sequelize) {
             status: {
                 type: new DataTypes.ENUM('active', 'deactive'),
                 defaultValue: 'active',
+            },
+            token: {
+                type: new DataTypes.STRING(100),
+                allowNull: true,
+            },
+            forget_code: {
+                type: new DataTypes.STRING(10),
+                allowNull: true,
+            },
+            user_agent: {
+                type: new DataTypes.STRING(150),
+                allowNull: true,
             },
 
             creator: {
