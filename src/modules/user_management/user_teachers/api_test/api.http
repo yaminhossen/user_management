@@ -20,7 +20,7 @@ Authorization: {{token}}
     "email": "yamin@gamil.com",
     "phone_number": "01779876546",
     "image": "/assets/dashboard/images/avatar.png",
-    "password": "1234"
+    "password": "12345678"
 }
 
 
@@ -31,11 +31,12 @@ content-type: application/json
 Authorization: {{token}}
 
 {
-    "id": 4,
-    "name": "Habib",
-    "email": "habib@gamil.com",
+    "id": 6,
+    "name": "teacher6",
+    "email": "teacher6@gamil.com",
     "phone_number": "01779876546",
-    "image": "/assets/dashboard/images/avatar.png"
+    "image": "/assets/dashboard/images/avatar.png",
+    "password": "12345678"
 }
 
 # delete

@@ -58,13 +58,16 @@ async function store(
     let models = await db();
     let body = req.body as anyObject;
     let data = new models.UserParentsModel();
+    const bcrypt = require('bcrypt');
+    const saltRounds = 10;
+    let password = await bcrypt.hash(body.password, saltRounds);
 
     let inputs: InferCreationAttributes<typeof data> = {
         name: body.name,
         email: body.email,
         phone_number: body.phone_number,
         image: body.image,
-        password: body.password,
+        password: password,
     };
 
     /** print request data into console */

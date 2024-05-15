@@ -28,11 +28,6 @@ async function validate(req: Request) {
         .isEmpty()
         .withMessage('the phone_number field is required')
         .run(req);
-    await body('image')
-        .not()
-        .isEmpty()
-        .withMessage('the image field is required')
-        .run(req);
     await body('password')
         .not()
         .isEmpty()
@@ -69,13 +64,16 @@ async function store(
     let body = req.body as anyObject;
     let data = new models.UserStaffsModel();
     let user_staff = new models.UserStaffInformationsModel();
+    const bcrypt = require('bcrypt');
+    const saltRounds = 10;
+    let password = await bcrypt.hash(body.password, saltRounds);
 
     let inputs: InferCreationAttributes<typeof data> = {
         name: body.name,
         email: body.email,
         phone_number: body.phone_number,
         image: body.image,
-        password: body.password,
+        password: password,
     };
     let user_staff_information_inputs: InferCreationAttributes<
         typeof user_staff
