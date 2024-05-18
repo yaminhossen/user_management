@@ -51,7 +51,21 @@ Authorization: {{token}}
     "password": "12345678"
 }
 
-# delete
+# logout
+###
+POST {{hostname}}/logout HTTP/1.1
+content-type: application/json
+
+{}
+
+# forget mail
+###
+POST {{hostname}}/forget HTTP/1.1
+content-type: application/json
+
+{}
+
+# soft delete
 ###
 POST  {{hostname}}/soft-delete HTTP/1.1
 content-type: application/json

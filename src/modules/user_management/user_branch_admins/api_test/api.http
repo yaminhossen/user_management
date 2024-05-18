@@ -41,7 +41,32 @@ Authorization: {{token}}
     "password": "1234"
 }
 
-# delete
+# login
+###
+POST {{hostname}}/login HTTP/1.1 
+content-type: application/json
+Authorization: {{token}}
+
+{
+    "email": "user1@gmail.com",
+    "password": "12345678"
+}
+
+# logout
+###
+POST {{hostname}}/logout HTTP/1.1
+content-type: application/json
+
+{}
+
+# forget mail
+###
+POST {{hostname}}/forget HTTP/1.1
+content-type: application/json
+
+{}
+
+# soft delete
 ###
 POST  {{hostname}}/soft-delete HTTP/1.1
 content-type: application/json
