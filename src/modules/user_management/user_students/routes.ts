@@ -17,5 +17,6 @@ module.exports = async function (fastify: FastifyInstance) {
         .post(`${prefix}/import`, controllerInstance.import)
         .post(`${prefix}/login`, controllerInstance.login)
         .post(`${prefix}/forget`, controllerInstance.forget)
+        .post(`${prefix}/change-password`, controllerInstance.change_password)
         .post(`${prefix}/logout`, controllerInstance.logout);
 };

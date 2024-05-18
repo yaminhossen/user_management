@@ -16,6 +16,7 @@ import data_import from './services/import';
 import login from './services/login';
 import logout from './services/logout';
 import forget from './services/forget';
+import change_password from './services/change_password';
 
 export default function (fastify: FastifyInstance) {
     return {
@@ -74,6 +75,13 @@ export default function (fastify: FastifyInstance) {
             res.code(data.status).send(data);
         },
 
+        change_password: async function (
+            req: FastifyRequest,
+            res: FastifyReply,
+        ) {
+            let data = await change_password(fastify, req);
+            res.code(data.status).send(data);
+        },
         // export: async function (req: FastifyRequest, res: FastifyReply) {},
     };
 }

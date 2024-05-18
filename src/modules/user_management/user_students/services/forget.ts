@@ -39,7 +39,7 @@ async function forget(
 
         const mailOptions = {
             from: 'schoolforget@kalyanprokashoni.com',
-            to: 'myphoto288@gmail.com',
+            to: 'jh9955689@gmail.com',
             subject: `forgot password`,
             text: `yout code for forgetting password is: ${forget_code}`,
         };
