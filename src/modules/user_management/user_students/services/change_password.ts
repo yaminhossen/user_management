@@ -23,6 +23,7 @@ async function validate(req: Request) {
         .isEmpty()
         .withMessage('the password field is required')
         .run(req);
+
     await body('confirm_password')
         .not()
         .isEmpty()

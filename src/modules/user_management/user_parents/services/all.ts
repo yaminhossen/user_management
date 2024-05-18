@@ -1,8 +1,8 @@
-import { FindAndCountOptions, Model, literal } from 'sequelize';
+import { FindAndCountOptions } from 'sequelize';
 import db from '../models/db';
 import { FastifyInstance, FastifyRequest } from 'fastify';
 import response from '../helpers/response';
-import { body, validationResult, query, param } from 'express-validator';
+import { validationResult, query } from 'express-validator';
 import {
     anyObject,
     responseObject,
