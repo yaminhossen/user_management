@@ -15,6 +15,7 @@ import destroy from './services/destroy';
 import data_import from './services/import';
 import admins from './services/admins';
 import admin from './services/admin';
+import staffs from './services/staffs';
 
 export default function (fastify: FastifyInstance) {
     return {
@@ -65,6 +66,11 @@ export default function (fastify: FastifyInstance) {
 
         admin: async function (req: FastifyRequest, res: FastifyReply) {
             let data = await admin(fastify, req);
+            res.code(data.status).send(data);
+        },
+
+        staffs: async function (req: FastifyRequest, res: FastifyReply) {
+            let data = await staffs(fastify, req);
             res.code(data.status).send(data);
         },
 
