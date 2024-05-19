@@ -3,6 +3,11 @@ import {
     Sequelize,
 } from 'sequelize';
 import * as branches_model from './branches_model';
+import * as branch_admins_model from './branch_admins_model';
+import * as branch_parents_model from './branch_parents_model';
+import * as branch_staffs_model from './branch_staffs_model';
+import * as branch_students_model from './branch_students_model';
+import * as branch_teachers_model from './branch_teachers_model';
 // import * as project_model from '../../user_admin copy/models/project_model';
 require('dotenv').config();
 
@@ -21,11 +26,21 @@ const sequelize = new Sequelize(
 
 interface models {
     BranchesModel: typeof branches_model.DataModel;
+    BranchAdminsModel: typeof branch_admins_model.DataModel;
+    BranchParentsModel: typeof branch_parents_model.DataModel;
+    BranchStaffsModel: typeof branch_staffs_model.DataModel;
+    BranchStudentsModel: typeof branch_students_model.DataModel;
+    BranchTeachersModel: typeof branch_teachers_model.DataModel;
     // Project: typeof project_model.DataModel;
     sequelize: Sequelize;
 }
 const db = async function (): Promise<models> {
     const BranchesModel = branches_model.init(sequelize);
+    const BranchAdminsModel = branch_admins_model.init(sequelize);
+    const BranchParentsModel = branch_parents_model.init(sequelize);
+    const BranchStaffsModel = branch_staffs_model.init(sequelize);
+    const BranchStudentsModel = branch_students_model.init(sequelize);
+    const BranchTeachersModel = branch_teachers_model.init(sequelize);
     // const Project = project_model.init(sequelize);
 
     await sequelize.sync();
@@ -57,6 +72,11 @@ const db = async function (): Promise<models> {
 
     let models: models = {
         BranchesModel,
+        BranchAdminsModel,
+        BranchParentsModel,
+        BranchStaffsModel,
+        BranchStudentsModel,
+        BranchTeachersModel,
         // Project,
 
         sequelize,
