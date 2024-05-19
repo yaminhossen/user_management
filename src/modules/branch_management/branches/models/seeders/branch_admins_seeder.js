@@ -26,11 +26,11 @@ module.exports = {
         }
         /** admin connected with three branch */
         set_data(1, 1, 'active', 1);
-        // set_data(1, 2, 'deactive', 1);
-        // set_data(1, 3, 'active', 1);
+        set_data(2, 1, 'deactive', 1);
+        set_data(3, 1, 'active', 1);
 
-        set_data(2, 2, 'active', 2);
-        set_data(3, 3, 'active', 3);
+        set_data(4, 2, 'active', 2);
+        set_data(5, 3, 'active', 3);
 
         await queryInterface.bulkDelete('branch_admins', null, {});
         await queryInterface.bulkInsert('branch_admins', data, {});
@@ -40,7 +40,7 @@ module.exports = {
         /**
          * Add commands to revert seed here.
          
-         npx sequelize-cli db:seed:all --config src/configs/db.json --seeders-path src/modules/user_management/user_admin/models/seeders
+         npx sequelize-cli db:seed:all --config src/configs/db.json --seeders-path src/modules/branch_management/branches/models/seeders
          * Example:
          * await queryInterface.bulkDelete('People', null, {});
          */

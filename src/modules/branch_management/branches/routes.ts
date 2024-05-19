@@ -15,23 +15,40 @@ module.exports = async function (fastify: FastifyInstance) {
         .post(`${prefix}/restore`, controllerInstance.restore)
         .post(`${prefix}/destroy`, controllerInstance.destroy)
         .post(`${prefix}/import`, controllerInstance.import)
-        
-        .post(`${prefix}/admins`, controllerInstance.import)
-        .post(`${prefix}/admins/:admin_id`, controllerInstance.import)
-        
-        .post(`${prefix}/staffs`, controllerInstance.import)
-        .post(`${prefix}/staffs/:staff_id`, controllerInstance.import)
-        .post(`${prefix}/staffs/:staff_id/informations`, controllerInstance.import)
-        
-        .post(`${prefix}/teachers`, controllerInstance.import)
-        .post(`${prefix}/teachers/:teacher_id`, controllerInstance.import)
-        .post(`${prefix}/teachers/:teacher_id/informations`, controllerInstance.import)
-        
-        .post(`${prefix}/students`, controllerInstance.import)
-        .post(`${prefix}/students/:student_id/educational-background`, controllerInstance.import)
-        .post(`${prefix}/students/:student_id/informations`, controllerInstance.import)
 
-        .post(`${prefix}/parents`, controllerInstance.import)
-        .post(`${prefix}/parents/:parent_id/informations`, controllerInstance.import) 
-        ;
+        .get(`${prefix}/:branch_id/admins`, controllerInstance.admins)
+        .get(`${prefix}/:branch_id/admins/:admin_id`, controllerInstance.import)
+
+        .get(`${prefix}/:branch_id/staffs`, controllerInstance.import)
+        .get(`${prefix}/:branch_id/staffs/:staff_id`, controllerInstance.import)
+        .get(
+            `${prefix}/:branch_id/staffs/:staff_id/informations`,
+            controllerInstance.import,
+        )
+
+        .get(`${prefix}/:branch_id/teachers`, controllerInstance.import)
+        .get(
+            `${prefix}/:branch_id/teachers/:teacher_id`,
+            controllerInstance.import,
+        )
+        .get(
+            `${prefix}/:branch_id/teachers/:teacher_id/informations`,
+            controllerInstance.import,
+        )
+
+        .get(`${prefix}/:branch_id/students`, controllerInstance.import)
+        .get(
+            `${prefix}/:branch_id/students/:student_id/educational-background`,
+            controllerInstance.import,
+        )
+        .get(
+            `${prefix}/:branch_id/students/:student_id/informations`,
+            controllerInstance.import,
+        )
+
+        .get(`${prefix}/:branch_id/parents`, controllerInstance.import)
+        .get(
+            `${prefix}/:branch_id/parents/:parent_id/informations`,
+            controllerInstance.import,
+        );
 };
