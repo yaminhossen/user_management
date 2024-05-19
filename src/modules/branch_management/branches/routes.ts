@@ -14,5 +14,24 @@ module.exports = async function (fastify: FastifyInstance) {
         .post(`${prefix}/soft-delete`, controllerInstance.soft_delete)
         .post(`${prefix}/restore`, controllerInstance.restore)
         .post(`${prefix}/destroy`, controllerInstance.destroy)
-        .post(`${prefix}/import`, controllerInstance.import);
+        .post(`${prefix}/import`, controllerInstance.import)
+        
+        .post(`${prefix}/admins`, controllerInstance.import)
+        .post(`${prefix}/admins/:admin_id`, controllerInstance.import)
+        
+        .post(`${prefix}/staffs`, controllerInstance.import)
+        .post(`${prefix}/staffs/:staff_id`, controllerInstance.import)
+        .post(`${prefix}/staffs/:staff_id/informations`, controllerInstance.import)
+        
+        .post(`${prefix}/teachers`, controllerInstance.import)
+        .post(`${prefix}/teachers/:teacher_id`, controllerInstance.import)
+        .post(`${prefix}/teachers/:teacher_id/informations`, controllerInstance.import)
+        
+        .post(`${prefix}/students`, controllerInstance.import)
+        .post(`${prefix}/students/:student_id/educational-background`, controllerInstance.import)
+        .post(`${prefix}/students/:student_id/informations`, controllerInstance.import)
+
+        .post(`${prefix}/parents`, controllerInstance.import)
+        .post(`${prefix}/parents/:parent_id/informations`, controllerInstance.import) 
+        ;
 };
