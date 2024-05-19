@@ -21,6 +21,10 @@ GET {{hostname}}/1/admins/2 HTTP/1.1
 ###
 GET {{hostname}}/1/staffs HTTP/1.1
 
+# get
+###
+GET {{hostname}}/1/staffs/2 HTTP/1.1
+
 # store
 ###
 POST  {{hostname}}/store HTTP/1.1
