@@ -23,8 +23,8 @@ import {
     // ForeignKey,
 } from 'sequelize';
 
-const tableName = 'branches';
-const modelName = 'BranchesModel';
+const tableName = 'branch_building_rooms';
+const modelName = 'BranchBuildingRoomsModel';
 
 type Infer = InferAttributes<DataModel>;
 type InferCreation = InferCreationAttributes<DataModel>;
@@ -33,15 +33,15 @@ type status = 'active' | 'deactive';
 class DataModel extends Model<Infer, InferCreation> {
     declare id?: CreationOptional<number>;
 
-    declare branch_code: string;
-    declare name: string;
-    declare logo: string | null;
-    declare address: string;
-    declare primary_contact: string;
-    declare email: string | null;
-    declare map: string | null;
-    declare lat: string | null;
-    declare lng: string | null;
+    declare branch_id: number;
+    declare room_code: string;
+    declare room_name: string;
+    declare attachment: string;
+    declare photo: string;
+    declare description: string;
+    declare total_seat: number;
+    declare building_id: number;
+    declare total_student: number;
 
     declare status?: status;
     declare creator?: number;
@@ -58,40 +58,40 @@ function init(sequelize: Sequelize) {
                 autoIncrement: true,
                 primaryKey: true,
             },
-            branch_code: {
-                type: new DataTypes.STRING(50),
+            branch_id: {
+                type: new DataTypes.BIGINT(),
                 allowNull: true,
             },
-            name: {
+            room_code: {
                 type: new DataTypes.STRING(40),
                 allowNull: true,
             },
-            logo: {
-                type: new DataTypes.STRING(120),
-                allowNull: true,
-            },
-            address: {
-                type: new DataTypes.STRING(120),
-                allowNull: true,
-            },
-            primary_contact: {
-                type: new DataTypes.STRING(30),
-                allowNull: true,
-            },
-            email: {
+            room_name: {
                 type: new DataTypes.STRING(40),
                 allowNull: true,
             },
-            map: {
-                type: new DataTypes.STRING(120),
+            attachment: {
+                type: new DataTypes.STRING(100),
                 allowNull: true,
             },
-            lat: {
-                type: new DataTypes.STRING(120),
+            photo: {
+                type: new DataTypes.STRING(100),
                 allowNull: true,
             },
-            lng: {
-                type: new DataTypes.STRING(120),
+            description: {
+                type: new DataTypes.TEXT(),
+                allowNull: true,
+            },
+            total_seat: {
+                type: new DataTypes.BIGINT(),
+                allowNull: true,
+            },
+            building_id: {
+                type: new DataTypes.BIGINT(),
+                allowNull: true,
+            },
+            total_student: {
+                type: new DataTypes.BIGINT(),
                 allowNull: true,
             },
 

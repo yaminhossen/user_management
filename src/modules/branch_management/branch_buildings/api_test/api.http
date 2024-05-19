@@ -1,4 +1,4 @@
-@hostname = http://127.0.0.1:5000/api/v1/branches
+@hostname = http://127.0.0.1:5000/api/v1/branch-buildings
 @token = Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidG9rZW4iOiJxNm85anE4ZiIsInVzZXJfYWdlbnQiOiJ2c2NvZGUtcmVzdGNsaWVudCIsImlhdCI6MTcxNTQ5MzE0NH0.XAq9b9sahDzxrjSeuF1OS5WPFTjbhg_28ozJpx6odC4
 
 # all
@@ -15,15 +15,12 @@ POST  {{hostname}}/store HTTP/1.1
 content-type: application/json
 
 {
-    "branch_code": "44",
-    "name": "abir",
-    "logo": "logo.png",
-    "address": "dhaka",
-    "primary_contact": "923840293",
-    "email": "abir@gmail.com",
-    "map": "map location",
-    "lat": "latitude",
-    "lng": "longitude"
+    "branch_id": 4,
+    "building_code": "21-A",
+    "building_name": "TS tower",
+    "attachment": "file.pdf",
+    "photo": "avatar.png",
+    "description": "somelsdjf"
 }
 
 
@@ -33,16 +30,13 @@ POST {{hostname}}/update HTTP/1.1
 content-type: application/json
 
 {
-    "id": "4",
-    "branch_code": "44",
-    "name": "sadik",
-    "logo": "logo.png",
-    "address": "dhaka",
-    "primary_contact": "923840293",
-    "email": "sadik@gmail.com",
-    "map": "map location",
-    "lat": "latitude",
-    "lng": "longitude"
+    "id": 4,
+    "branch_id": "44",
+    "building_code": "abir",
+    "building_name": "logo.png",
+    "attachment": "dhaka",
+    "photo": "923840293",
+    "description": "abir@gmail.com"
 }
 
 # delete
@@ -60,7 +54,7 @@ POST  {{hostname}}/restore HTTP/1.1
 content-type: application/json
 
 {
-    "id": 1
+    # "id": 1
 }
 
 
@@ -70,5 +64,5 @@ POST  {{hostname}}/destroy HTTP/1.1
 content-type: application/json
 
 {
-    "id": 1
+    "id": 4
 }

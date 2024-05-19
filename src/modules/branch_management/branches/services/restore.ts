@@ -1,15 +1,34 @@
-import { Model } from 'sequelize';
 import db from '../models/db';
 import { FastifyInstance, FastifyRequest } from 'fastify';
-import { responseObject } from '../../../common_types/object';
+import { body, validationResult } from 'express-validator';
+import { responseObject, Request } from '../../../common_types/object';
 import response from '../helpers/response';
 import custom_error from '../helpers/custom_error';
 import error_trace from '../helpers/error_trace';
 
+/** validation rules */
+async function validate(req: Request) {
+    await body('id')
+        .not()
+        .isEmpty()
+        .withMessage('the id field is required')
+        .run(req);
+
+    let result = await validationResult(req);
+
+    return result;
+}
 async function restore(
     fastify_instance: FastifyInstance,
     req: FastifyRequest,
 ): Promise<responseObject> {
+    /** validation */
+    let validate_result = await validate(req as Request);
+    if (!validate_result.isEmpty()) {
+        return response(422, 'validation error', validate_result.array());
+    }
+
+    /** initializations */
     let models = await db();
     let body = req.body as { [key: string]: any };
 
@@ -21,11 +40,12 @@ async function restore(
         });
 
         if (data) {
-            await data.update({
-                status: 1,
-            });
+            // await data.update({
+            //     status: 1,
+            // });
+            data.status = 'active';
             await data.save();
-            return response(200, 'data restored', data);
+            return response(205, 'data restored', data);
         } else {
             throw new custom_error('Forbidden', 403, 'operation not possible');
         }

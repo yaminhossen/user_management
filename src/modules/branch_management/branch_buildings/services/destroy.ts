@@ -33,7 +33,7 @@ async function destroy(
     let body = req.body as { [key: string]: any };
 
     try {
-        let data = await models.BranchesModel.findOne({
+        let data = await models.BrancheBuildingsModel.findOne({
             where: {
                 id: body.id,
             },

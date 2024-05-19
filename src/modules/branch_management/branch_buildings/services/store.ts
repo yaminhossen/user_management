@@ -12,52 +12,28 @@ import custom_error from '../helpers/custom_error';
 import error_trace from '../helpers/error_trace';
 
 async function validate(req: Request) {
-    await body('name')
+    await body('branch_id')
         .not()
         .isEmpty()
-        .withMessage('the name field is required')
+        .withMessage('the branch_id field is required')
         .run(req);
 
-    await body('branch_code')
+    await body('building_code')
         .not()
         .isEmpty()
-        .withMessage('the branch_code field is required')
+        .withMessage('the building_code field is required')
         .run(req);
 
-    await body('logo')
+    await body('building_name')
         .not()
         .isEmpty()
-        .withMessage('the logo field is required')
+        .withMessage('the building_name field is required')
         .run(req);
 
-    await body('address')
+    await body('description')
         .not()
         .isEmpty()
-        .withMessage('the address field is required')
-        .run(req);
-
-    await body('email')
-        .not()
-        .isEmpty()
-        .withMessage('the email field is required')
-        .run(req);
-
-    await body('map')
-        .not()
-        .isEmpty()
-        .withMessage('the map field is required')
-        .run(req);
-
-    await body('lat')
-        .not()
-        .isEmpty()
-        .withMessage('the lat field is required')
-        .run(req);
-
-    await body('lng')
-        .not()
-        .isEmpty()
-        .withMessage('the lng field is required')
+        .withMessage('the description field is required')
         .run(req);
 
     let result = await validationResult(req);
@@ -78,18 +54,15 @@ async function store(
     /** initializations */
     let models = await db();
     let body = req.body as anyObject;
-    let data = new models.BranchesModel();
+    let data = new models.BrancheBuildingsModel();
 
     let inputs: InferCreationAttributes<typeof data> = {
-        name: body.name,
-        branch_code: body.branch_code,
-        logo: body.logo,
-        address: body.address,
-        primary_contact: body.primary_contact,
-        email: body.email,
-        map: body.map,
-        lat: body.lat,
-        lng: body.lng,
+        branch_id: body.branch_id,
+        building_code: body.building_code,
+        building_name: body.building_name,
+        attachment: body.attachment,
+        photo: body.photo,
+        description: body.description,
     };
 
     /** print request data into console */
