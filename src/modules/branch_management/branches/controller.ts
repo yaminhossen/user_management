@@ -27,6 +27,7 @@ import staff_information from './services/staff_information';
 import teacher_information from './services/teacher_information';
 import parent_information from './services/parent_information';
 import drivers from './services/drivers';
+import driver from './services/driver';
 
 export default function (fastify: FastifyInstance) {
     return {
@@ -149,6 +150,11 @@ export default function (fastify: FastifyInstance) {
 
         drivers: async function (req: FastifyRequest, res: FastifyReply) {
             let data = await drivers(fastify, req);
+            res.code(data.status).send(data);
+        },
+
+        driver: async function (req: FastifyRequest, res: FastifyReply) {
+            let data = await driver(fastify, req);
             res.code(data.status).send(data);
         },
 

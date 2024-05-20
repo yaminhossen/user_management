@@ -33,40 +33,45 @@ async function details(
         });
 
         if (data) {
-            let transports = await models.BranchTransportDriversModel.findAll({
+            let admin = await models.BranchTransportDriversModel.findOne({
                 where: {
-                    branch_id: data.id,
+                    id: params.driver_id,
                 },
-                attributes: [
-                    'id',
-                    'branch_id',
-                    'name',
-                    'driver_number',
-                    'assistant_number_1',
-                    'assistant_number_2',
-                    'present_address',
-                    'driver_licence',
-                    'permanent_address',
-                    'status',
-                ],
-                include: [
-                    {
-                        model: models.BranchTransportsModel,
-                        as: 'driver_transports',
-                        attributes: [
-                            'id',
-                            'branch_id',
-                            'branch_transport_driver_id',
-                            'title',
-                            'type',
-                            'status',
-                        ],
-                    },
-                ],
             });
-            return response(200, 'transports found', { data, transports });
+            if (admin) {
+                let user = await models.BranchTransportsModel.findAll({
+                    where: {
+                        branch_transport_driver_id: admin.id,
+                    },
+                    attributes: [
+                        'id',
+                        'branch_id',
+                        'branch_transport_driver_id',
+                        'title',
+                        'type',
+                        'status',
+                    ],
+                });
+                if (user) {
+                    return response(200, 'driver found', { data, user });
+                } else {
+                    throw new custom_error(
+                        'not found',
+                        404,
+                        'driver not found',
+                    );
+                }
+            } else {
+                /**if branch admin not found */
+                throw new custom_error(
+                    'not found',
+                    404,
+                    'branch admin not found',
+                );
+            }
         } else {
-            throw new custom_error('not found', 404, 'transports not found');
+            /**if branch not fournd */
+            throw new custom_error('not found', 404, 'branch not found');
         }
     } catch (error: any) {
         let uid = await error_trace(models, error, req.url, req.params);

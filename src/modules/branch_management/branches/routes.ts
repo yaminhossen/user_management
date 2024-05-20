@@ -52,5 +52,9 @@ module.exports = async function (fastify: FastifyInstance) {
             controllerInstance.parent_information,
         )
 
-        .get(`${prefix}/:branch_id/drivers`, controllerInstance.drivers);
+        .get(`${prefix}/:branch_id/drivers`, controllerInstance.drivers)
+        .get(
+            `${prefix}/:branch_id/drivers/:driver_id`,
+            controllerInstance.driver,
+        );
 };

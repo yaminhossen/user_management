@@ -212,3 +212,6 @@
 {"level":60,"time":1716199252909,"pid":13572,"hostname":"DESKTOP-9421701","file":"","time":"5/20/2024 4:00:52 PM","message":"You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '-10, 10' at line 1"}
 {"level":60,"time":1716202424690,"pid":8020,"hostname":"DESKTOP-9421701","file":"services\\drivers.ts:50:19)","time":"5/20/2024 4:53:44 PM","message":"Unknown column 'BranchTransportDriversModel.branch_transport_driver_id' in 'field list'"}
 {"level":60,"time":1716202589784,"pid":11352,"hostname":"DESKTOP-9421701","file":"services\\drivers.ts:50:19)","time":"5/20/2024 4:56:29 PM","message":"Unknown column 'BranchTransportDriversModel.branch_transport_driver_id' in 'field list'"}
+{"level":60,"time":1716209011660,"pid":5332,"hostname":"DESKTOP-9421701","file":"services\\driver.ts:81:19)","time":"5/20/2024 6:43:31 PM","message":"Unknown column 'branch_code' in 'field list'"}
+{"level":60,"time":1716209017952,"pid":5332,"hostname":"DESKTOP-9421701","file":"services\\driver.ts:81:19)","time":"5/20/2024 6:43:37 PM","message":"Unknown column 'branch_code' in 'field list'"}
+{"level":60,"time":1716209113988,"pid":7112,"hostname":"DESKTOP-9421701","file":"services\\driver.ts:81:19)","time":"5/20/2024 6:45:13 PM","message":"Unknown column 'branch_code' in 'field list'"}
