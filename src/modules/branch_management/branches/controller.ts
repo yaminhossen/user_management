@@ -20,6 +20,9 @@ import staff from './services/staff';
 import teachers from './services/teachers';
 import teacher from './services/teacher';
 import students from './services/students';
+import background from './services/student_edu_background';
+import student_information from './services/student_information';
+import staff_information from './services/staff_information';
 
 export default function (fastify: FastifyInstance) {
     return {
@@ -95,6 +98,27 @@ export default function (fastify: FastifyInstance) {
 
         students: async function (req: FastifyRequest, res: FastifyReply) {
             let data = await students(fastify, req);
+            res.code(data.status).send(data);
+        },
+
+        background: async function (req: FastifyRequest, res: FastifyReply) {
+            let data = await background(fastify, req);
+            res.code(data.status).send(data);
+        },
+
+        student_information: async function (
+            req: FastifyRequest,
+            res: FastifyReply,
+        ) {
+            let data = await student_information(fastify, req);
+            res.code(data.status).send(data);
+        },
+
+        staff_information: async function (
+            req: FastifyRequest,
+            res: FastifyReply,
+        ) {
+            let data = await staff_information(fastify, req);
             res.code(data.status).send(data);
         },
 

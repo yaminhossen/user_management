@@ -25,9 +25,9 @@ module.exports = {
             });
         }
 
-        set_data(1, 1, 'spoken', 'addmission issues');
-        set_data(2, 2, 'english', 'next week mocktest');
-        set_data(3, 3, 'it', 'project meating');
+        set_data(1, 1, 'rode no', 'section 6 A');
+        set_data(2, 2, 'house no', '33');
+        set_data(3, 3, 'building no', '102');
 
         queryInterface.bulkDelete('branch_informations');
         await queryInterface.bulkInsert('branch_informations', data, {});

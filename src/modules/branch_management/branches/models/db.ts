@@ -12,6 +12,9 @@ import * as user_admins_model from '../../../user_management/user_admin/models/u
 import * as user_staffs_model from '../../../user_management/user_staffs/models/user_staffs_model';
 import * as user_teachers_model from '../../../user_management/user_teachers/models/user_teacher_model';
 import * as user_students_model from '../../../user_management/user_students/models/user_students_model';
+import * as user_student_educational_backgrounds_model from '../../../user_management/user_students/models/user_student_educational_backgrounds_model';
+import * as user_student_informations_model from '../../../user_management/user_students/models/user_student_informations_model';
+import * as user_staff_informations_model from '../../../user_management/user_staffs/models/user_staff_informations_model';
 // import * as project_model from '../../user_admin copy/models/project_model';
 require('dotenv').config();
 
@@ -39,6 +42,9 @@ interface models {
     UserStaffsModel: typeof user_staffs_model.DataModel;
     UserTeachersModel: typeof user_teachers_model.DataModel;
     UserStudentsModel: typeof user_students_model.DataModel;
+    UserStudentEducationalBackgroundsModel: typeof user_student_educational_backgrounds_model.DataModel;
+    UserStudentInformationsModel: typeof user_student_informations_model.DataModel;
+    UserStaffsInformationsModel: typeof user_staff_informations_model.DataModel;
     // Project: typeof project_model.DataModel;
     sequelize: Sequelize;
 }
@@ -53,6 +59,12 @@ const db = async function (): Promise<models> {
     const UserStaffsModel = user_staffs_model.init(sequelize);
     const UserTeachersModel = user_teachers_model.init(sequelize);
     const UserStudentsModel = user_students_model.init(sequelize);
+    const UserStudentEducationalBackgroundsModel =
+        user_student_educational_backgrounds_model.init(sequelize);
+    const UserStudentInformationsModel =
+        user_student_informations_model.init(sequelize);
+    const UserStaffsInformationsModel =
+        user_staff_informations_model.init(sequelize);
     // const Project = project_model.init(sequelize);
 
     await sequelize.sync();
@@ -113,6 +125,9 @@ const db = async function (): Promise<models> {
         UserStaffsModel,
         UserTeachersModel,
         UserStudentsModel,
+        UserStudentEducationalBackgroundsModel,
+        UserStudentInformationsModel,
+        UserStaffsInformationsModel,
         // Project,
 
         sequelize,

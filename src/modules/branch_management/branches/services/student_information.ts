@@ -20,26 +20,45 @@ async function details(
         });
 
         if (data) {
-            let admin = await models.BranchTeachersModel.findOne({
+            let admin = await models.BranchStudentsModel.findOne({
                 where: {
-                    user_teacher_id: params.teacher_id,
+                    user_student_id: params.student_id,
                 },
             });
             if (admin) {
-                let user = await models.UserStaffsModel.findOne({
+                let user = await models.UserStudentsModel.findOne({
                     where: {
-                        id: admin.user_teacher_id,
+                        id: admin.user_student_id,
                     },
-                    attributes: [
-                        'id',
-                        'name',
-                        'email',
-                        'phone_number',
-                        'image',
-                    ],
                 });
                 if (user) {
-                    return response(200, 'data found', { data, user });
+                    let information =
+                        await models.UserStudentInformationsModel.findOne({
+                            where: {
+                                user_student_id: user.id,
+                            },
+                            attributes: [
+                                'id',
+                                'user_student_id',
+                                'permanent_address',
+                                'date_of_birth',
+                                'gender',
+                                'nationality',
+                                'city',
+                            ],
+                        });
+                    if (information) {
+                        return response(200, 'data found', {
+                            data,
+                            information,
+                        });
+                    } else {
+                        throw new custom_error(
+                            'not found',
+                            404,
+                            'information not found',
+                        );
+                    }
                 } else {
                     throw new custom_error('not found', 404, 'user not found');
                 }

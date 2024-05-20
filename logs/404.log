@@ -222,3 +222,5 @@
 {"level":60,"time":1716096161345,"pid":18328,"hostname":"DESKTOP-9421701","error":"404","url":"/api/v1/user-teachers?orderByCol=id&orderByAsc=true&show_active_data=true&paginate=10"}
 {"level":60,"time":1716097615690,"pid":8452,"hostname":"DESKTOP-9421701","error":"404","url":"/api/v1/branches/destroys"}
 {"level":60,"time":1716116034243,"pid":2452,"hostname":"DESKTOP-9421701","error":"404","url":"/api/v1/branches/1/admins"}
+{"level":60,"time":1716181793874,"pid":10632,"hostname":"DESKTOP-9421701","error":"404","url":"/api/v1/branches/3/students/3"}
+{"level":60,"time":1716181795427,"pid":10632,"hostname":"DESKTOP-9421701","error":"404","url":"/api/v1/branches/3/students/3"}
