@@ -42,12 +42,28 @@
 # echo "branch-informations seed end"
 # echo ""
 
+# echo ""
+# echo "branch-transports seed start"
+# API_URL="http://127.0.0.1:5000/api/v1/branch-transports?orderByCol=id&orderByAsc=true&show_active_data=true&paginate=10&page=0"
+# response=$(curl -s "$API_URL")
+# npx sequelize-cli db:seed:all --config src/configs/db.json --seeders-path src/modules/branch_management/branch_transports/models/seeders
+# echo "branch-transports seed end"
+# echo ""
+
+# echo ""
+# echo "branch-transport-drivers seed start"
+# API_URL="http://127.0.0.1:5000/api/v1/branch-transport-drivers?orderByCol=id&orderByAsc=true&show_active_data=true&paginate=10&page=0"
+# response=$(curl -s "$API_URL")
+# npx sequelize-cli db:seed:all --config src/configs/db.json --seeders-path src/modules/branch_management/branch_transport_drivers/models/seeders
+# echo "branch-transport-drivers seed end"
+# echo ""
+
 echo ""
-echo "branch-transports seed start"
-API_URL="http://127.0.0.1:5000/api/v1/branch-transports?orderByCol=id&orderByAsc=true&show_active_data=true&paginate=10&page=0"
+echo "branch-building-room-beds seed start"
+API_URL="http://127.0.0.1:5000/api/v1/branch-building-room-beds?orderByCol=id&orderByAsc=true&show_active_data=true&paginate=10&page=0"
 response=$(curl -s "$API_URL")
-npx sequelize-cli db:seed:all --config src/configs/db.json --seeders-path src/modules/branch_management/branch_transports/models/seeders
-echo "branch-transports seed end"
+npx sequelize-cli db:seed:all --config src/configs/db.json --seeders-path src/modules/branch_management/branch_building_room_beds/models/seeders
+echo "branch-building-room-beds seed end"
 echo ""
 
 

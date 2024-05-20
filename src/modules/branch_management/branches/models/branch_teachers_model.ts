@@ -55,15 +55,15 @@ function init(sequelize: Sequelize) {
                 primaryKey: true,
             },
             user_teacher_id: {
-                type: new DataTypes.BIGINT(),
+                type: DataTypes.BIGINT.UNSIGNED,
                 allowNull: true,
             },
             branch_id: {
-                type: new DataTypes.BIGINT(),
+                type: DataTypes.BIGINT.UNSIGNED,
                 allowNull: true,
             },
             class_teacher_id: {
-                type: new DataTypes.BIGINT(),
+                type: DataTypes.BIGINT.UNSIGNED,
                 allowNull: true,
             },
             joining_date: {

@@ -23,8 +23,8 @@ import {
     // ForeignKey,
 } from 'sequelize';
 
-const tableName = 'branch_buildings';
-const modelName = 'BranchBuildingsModel';
+const tableName = 'branch_building_room_beds';
+const modelName = 'BranchBuildingRoomBedsModel';
 
 type Infer = InferAttributes<DataModel>;
 type InferCreation = InferCreationAttributes<DataModel>;
@@ -34,11 +34,11 @@ class DataModel extends Model<Infer, InferCreation> {
     declare id?: CreationOptional<number>;
 
     declare branch_id: number;
-    declare building_code: string;
-    declare building_name: string;
-    declare attachment: string;
-    declare photo: string;
-    declare description: string;
+    declare branch_building_room_id: number;
+    declare branch_building_id: number;
+    declare seat_no: string;
+    declare details: string;
+    declare image: string;
 
     declare status?: status;
     declare creator?: number;
@@ -59,24 +59,24 @@ function init(sequelize: Sequelize) {
                 type: DataTypes.BIGINT.UNSIGNED,
                 allowNull: true,
             },
-            building_code: {
-                type: new DataTypes.STRING(40),
+            branch_building_room_id: {
+                type: DataTypes.BIGINT.UNSIGNED,
                 allowNull: true,
             },
-            building_name: {
-                type: new DataTypes.STRING(40),
+            branch_building_id: {
+                type: DataTypes.BIGINT.UNSIGNED,
                 allowNull: true,
             },
-            attachment: {
-                type: new DataTypes.STRING(100),
+            seat_no: {
+                type: new DataTypes.STRING(10),
                 allowNull: true,
             },
-            photo: {
-                type: new DataTypes.STRING(100),
-                allowNull: true,
-            },
-            description: {
+            details: {
                 type: new DataTypes.TEXT(),
+                allowNull: true,
+            },
+            image: {
+                type: new DataTypes.STRING(100),
                 allowNull: true,
             },
 

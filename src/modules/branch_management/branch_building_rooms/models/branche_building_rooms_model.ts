@@ -59,7 +59,7 @@ function init(sequelize: Sequelize) {
                 primaryKey: true,
             },
             branch_id: {
-                type: new DataTypes.BIGINT(),
+                type: DataTypes.BIGINT.UNSIGNED,
                 allowNull: true,
             },
             room_code: {
@@ -87,7 +87,7 @@ function init(sequelize: Sequelize) {
                 allowNull: true,
             },
             building_id: {
-                type: new DataTypes.BIGINT(),
+                type: DataTypes.BIGINT.UNSIGNED,
                 allowNull: true,
             },
             total_student: {

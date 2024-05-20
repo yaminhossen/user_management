@@ -56,7 +56,7 @@ function init(sequelize: Sequelize) {
                 primaryKey: true,
             },
             user_admin_id: {
-                type: new DataTypes.BIGINT(),
+                type: DataTypes.BIGINT.UNSIGNED,
                 allowNull: true,
             },
             status: {
@@ -64,7 +64,7 @@ function init(sequelize: Sequelize) {
                 allowNull: true,
             },
             branch_id: {
-                type: new DataTypes.BIGINT(),
+                type: DataTypes.BIGINT.UNSIGNED,
                 allowNull: true,
             },
 

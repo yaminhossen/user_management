@@ -23,8 +23,8 @@ import {
     // ForeignKey,
 } from 'sequelize';
 
-const tableName = 'branch_buildings';
-const modelName = 'BranchBuildingsModel';
+const tableName = 'branch_transport_drivers';
+const modelName = 'BranchTransportDriversModel';
 
 type Infer = InferAttributes<DataModel>;
 type InferCreation = InferCreationAttributes<DataModel>;
@@ -34,11 +34,13 @@ class DataModel extends Model<Infer, InferCreation> {
     declare id?: CreationOptional<number>;
 
     declare branch_id: number;
-    declare building_code: string;
-    declare building_name: string;
-    declare attachment: string;
-    declare photo: string;
-    declare description: string;
+    declare name: string;
+    declare driver_number: string;
+    declare assistant_number_1: string;
+    declare assistant_number_2: string;
+    declare present_address: string;
+    declare driver_licence: string;
+    declare permanent_address: string;
 
     declare status?: status;
     declare creator?: number;
@@ -59,24 +61,32 @@ function init(sequelize: Sequelize) {
                 type: DataTypes.BIGINT.UNSIGNED,
                 allowNull: true,
             },
-            building_code: {
+            name: {
                 type: new DataTypes.STRING(40),
                 allowNull: true,
             },
-            building_name: {
+            driver_number: {
+                type: new DataTypes.STRING(20),
+                allowNull: true,
+            },
+            assistant_number_1: {
+                type: new DataTypes.STRING(20),
+                allowNull: true,
+            },
+            assistant_number_2: {
+                type: new DataTypes.STRING(20),
+                allowNull: true,
+            },
+            present_address: {
+                type: new DataTypes.STRING(100),
+                allowNull: true,
+            },
+            driver_licence: {
                 type: new DataTypes.STRING(40),
                 allowNull: true,
             },
-            attachment: {
+            permanent_address: {
                 type: new DataTypes.STRING(100),
-                allowNull: true,
-            },
-            photo: {
-                type: new DataTypes.STRING(100),
-                allowNull: true,
-            },
-            description: {
-                type: new DataTypes.TEXT(),
                 allowNull: true,
             },
 
