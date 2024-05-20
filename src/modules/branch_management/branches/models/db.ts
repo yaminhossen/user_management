@@ -10,6 +10,8 @@ import * as branch_students_model from './branch_students_model';
 import * as branch_teachers_model from './branch_teachers_model';
 import * as user_admins_model from '../../../user_management/user_admin/models/user_admins_model';
 import * as user_staffs_model from '../../../user_management/user_staffs/models/user_staffs_model';
+import * as user_teachers_model from '../../../user_management/user_teachers/models/user_teacher_model';
+import * as user_students_model from '../../../user_management/user_students/models/user_students_model';
 // import * as project_model from '../../user_admin copy/models/project_model';
 require('dotenv').config();
 
@@ -35,6 +37,8 @@ interface models {
     BranchTeachersModel: typeof branch_teachers_model.DataModel;
     UserAdminsModel: typeof user_admins_model.DataModel;
     UserStaffsModel: typeof user_staffs_model.DataModel;
+    UserTeachersModel: typeof user_teachers_model.DataModel;
+    UserStudentsModel: typeof user_students_model.DataModel;
     // Project: typeof project_model.DataModel;
     sequelize: Sequelize;
 }
@@ -47,6 +51,8 @@ const db = async function (): Promise<models> {
     const BranchTeachersModel = branch_teachers_model.init(sequelize);
     const UserAdminsModel = user_admins_model.init(sequelize);
     const UserStaffsModel = user_staffs_model.init(sequelize);
+    const UserTeachersModel = user_teachers_model.init(sequelize);
+    const UserStudentsModel = user_students_model.init(sequelize);
     // const Project = project_model.init(sequelize);
 
     await sequelize.sync();
@@ -59,6 +65,16 @@ const db = async function (): Promise<models> {
     BranchStaffsModel.belongsTo(UserStaffsModel, {
         foreignKey: 'user_staff_id',
         as: 'user_staff',
+    });
+
+    BranchTeachersModel.belongsTo(UserTeachersModel, {
+        foreignKey: 'user_teacher_id',
+        as: 'user_teacher',
+    });
+
+    BranchStudentsModel.belongsTo(UserStudentsModel, {
+        foreignKey: 'user_student_id',
+        as: 'user_student',
     });
 
     // Project.hasOne(User, {
@@ -95,6 +111,8 @@ const db = async function (): Promise<models> {
         BranchTeachersModel,
         UserAdminsModel,
         UserStaffsModel,
+        UserTeachersModel,
+        UserStudentsModel,
         // Project,
 
         sequelize,

@@ -184,3 +184,5 @@
 {"level":60,"time":1716124159331,"pid":15284,"hostname":"DESKTOP-9421701","file":"services\\staff.ts:63:19)","time":"5/19/2024 7:09:19 PM","message":"WHERE parameter \"user_staff_id\" has invalid \"undefined\" value"}
 {"level":60,"time":1716124160010,"pid":15284,"hostname":"DESKTOP-9421701","file":"services\\staff.ts:63:19)","time":"5/19/2024 7:09:20 PM","message":"WHERE parameter \"user_staff_id\" has invalid \"undefined\" value"}
 {"level":60,"time":1716124160675,"pid":15284,"hostname":"DESKTOP-9421701","file":"services\\staff.ts:63:19)","time":"5/19/2024 7:09:20 PM","message":"WHERE parameter \"user_staff_id\" has invalid \"undefined\" value"}
+{"level":60,"time":1716124320356,"pid":6580,"hostname":"DESKTOP-9421701","file":"services\\staff.ts:48:23)","time":"5/19/2024 7:12:00 PM","message":"branch admin not found"}
+{"level":60,"time":1716180790802,"pid":19548,"hostname":"DESKTOP-9421701","file":"services\\teacher.ts:63:19)","time":"5/20/2024 10:53:10 AM","message":"WHERE parameter \"user_staff_id\" has invalid \"undefined\" value"}

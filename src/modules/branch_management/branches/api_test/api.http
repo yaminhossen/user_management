@@ -23,7 +23,23 @@ GET {{hostname}}/1/staffs HTTP/1.1
 
 # get
 ###
-GET {{hostname}}/1/staffs/2 HTTP/1.1
+GET {{hostname}}/3/staffs/3 HTTP/1.1
+
+# get
+###
+GET {{hostname}}/1/teachers HTTP/1.1
+
+# get
+###
+GET {{hostname}}/3/teachers/3 HTTP/1.1
+
+# get
+###
+GET {{hostname}}/1/students HTTP/1.1
+
+# get
+###
+GET {{hostname}}/3/teachers/3 HTTP/1.1
 
 # store
 ###

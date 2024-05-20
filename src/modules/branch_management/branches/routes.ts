@@ -26,17 +26,17 @@ module.exports = async function (fastify: FastifyInstance) {
             controllerInstance.import,
         )
 
-        .get(`${prefix}/:branch_id/teachers`, controllerInstance.import)
+        .get(`${prefix}/:branch_id/teachers`, controllerInstance.teachers)
         .get(
             `${prefix}/:branch_id/teachers/:teacher_id`,
-            controllerInstance.import,
+            controllerInstance.teacher,
         )
         .get(
             `${prefix}/:branch_id/teachers/:teacher_id/informations`,
             controllerInstance.import,
         )
 
-        .get(`${prefix}/:branch_id/students`, controllerInstance.import)
+        .get(`${prefix}/:branch_id/students`, controllerInstance.students)
         .get(
             `${prefix}/:branch_id/students/:student_id/educational-background`,
             controllerInstance.import,

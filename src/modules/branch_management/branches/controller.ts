@@ -17,6 +17,9 @@ import admins from './services/admins';
 import admin from './services/admin';
 import staffs from './services/staffs';
 import staff from './services/staff';
+import teachers from './services/teachers';
+import teacher from './services/teacher';
+import students from './services/students';
 
 export default function (fastify: FastifyInstance) {
     return {
@@ -77,6 +80,21 @@ export default function (fastify: FastifyInstance) {
 
         staff: async function (req: FastifyRequest, res: FastifyReply) {
             let data = await staff(fastify, req);
+            res.code(data.status).send(data);
+        },
+
+        teachers: async function (req: FastifyRequest, res: FastifyReply) {
+            let data = await teachers(fastify, req);
+            res.code(data.status).send(data);
+        },
+
+        teacher: async function (req: FastifyRequest, res: FastifyReply) {
+            let data = await teacher(fastify, req);
+            res.code(data.status).send(data);
+        },
+
+        students: async function (req: FastifyRequest, res: FastifyReply) {
+            let data = await students(fastify, req);
             res.code(data.status).send(data);
         },
 
