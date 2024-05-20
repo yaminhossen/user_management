@@ -215,3 +215,5 @@
 {"level":60,"time":1716209011660,"pid":5332,"hostname":"DESKTOP-9421701","file":"services\\driver.ts:81:19)","time":"5/20/2024 6:43:31 PM","message":"Unknown column 'branch_code' in 'field list'"}
 {"level":60,"time":1716209017952,"pid":5332,"hostname":"DESKTOP-9421701","file":"services\\driver.ts:81:19)","time":"5/20/2024 6:43:37 PM","message":"Unknown column 'branch_code' in 'field list'"}
 {"level":60,"time":1716209113988,"pid":7112,"hostname":"DESKTOP-9421701","file":"services\\driver.ts:81:19)","time":"5/20/2024 6:45:13 PM","message":"Unknown column 'branch_code' in 'field list'"}
+{"level":60,"time":1716211242423,"pid":17568,"hostname":"DESKTOP-9421701","file":"services\\staffs.ts:64:19)","time":"5/20/2024 7:20:42 PM","message":"Unknown column 'BranchStaffsModel.user_parent_id' in 'field list'"}
+{"level":60,"time":1716211244905,"pid":17568,"hostname":"DESKTOP-9421701","file":"services\\staffs.ts:64:19)","time":"5/20/2024 7:20:44 PM","message":"Unknown column 'BranchStaffsModel.user_parent_id' in 'field list'"}

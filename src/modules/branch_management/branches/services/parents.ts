@@ -17,6 +17,19 @@ async function details(
             where: {
                 id: params.branch_id,
             },
+            attributes: [
+                'id',
+                'branch_code',
+                'name',
+                'logo',
+                'address',
+                'primary_contact',
+                'email',
+                'map',
+                'lat',
+                'lng',
+                'status',
+            ],
         });
 
         if (data) {
@@ -24,6 +37,7 @@ async function details(
                 where: {
                     branch_id: data.id,
                 },
+                attributes: ['id', 'user_parent_id', 'branch_id', 'status'],
                 include: [
                     {
                         model: models.UserParentsModel,
