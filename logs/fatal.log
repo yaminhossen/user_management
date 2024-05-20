@@ -204,3 +204,4 @@
 {"level":60,"time":1716188547561,"pid":20284,"hostname":"DESKTOP-9421701","file":"services\\staff_information.ts:82:19)","time":"5/20/2024 1:02:27 PM","message":"Unknown column 'permenent_address' in 'field list'"}
 {"level":60,"time":1716188547735,"pid":20284,"hostname":"DESKTOP-9421701","file":"services\\staff_information.ts:82:19)","time":"5/20/2024 1:02:27 PM","message":"Unknown column 'permenent_address' in 'field list'"}
 {"level":60,"time":1716188548278,"pid":20284,"hostname":"DESKTOP-9421701","file":"services\\staff_information.ts:82:19)","time":"5/20/2024 1:02:28 PM","message":"Unknown column 'permenent_address' in 'field list'"}
+{"level":60,"time":1716189479942,"pid":1612,"hostname":"DESKTOP-9421701","file":"services\\parent_information.ts:82:19)","time":"5/20/2024 1:17:59 PM","message":"WHERE parameter \"user_parent_id\" has invalid \"undefined\" value"}

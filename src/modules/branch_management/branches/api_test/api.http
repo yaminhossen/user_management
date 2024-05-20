@@ -39,6 +39,10 @@ GET {{hostname}}/3/teachers/3 HTTP/1.1
 
 # get
 ###
+GET {{hostname}}/3/teachers/3/informations HTTP/1.1
+
+# get
+###
 GET {{hostname}}/1/students HTTP/1.1
 
 # get
@@ -48,6 +52,15 @@ GET {{hostname}}/3/students/3/educational-background HTTP/1.1
 # get
 ###
 GET {{hostname}}/3/students/3/informations HTTP/1.1
+
+# get
+###
+GET {{hostname}}/1/parents HTTP/1.1
+
+# get
+###
+GET {{hostname}}/3/parents/3/informations HTTP/1.1
+
 
 # store
 ###

@@ -20,9 +20,12 @@ import staff from './services/staff';
 import teachers from './services/teachers';
 import teacher from './services/teacher';
 import students from './services/students';
+import parents from './services/parents';
 import background from './services/student_edu_background';
 import student_information from './services/student_information';
 import staff_information from './services/staff_information';
+import teacher_information from './services/teacher_information';
+import parent_information from './services/parent_information';
 
 export default function (fastify: FastifyInstance) {
     return {
@@ -101,6 +104,11 @@ export default function (fastify: FastifyInstance) {
             res.code(data.status).send(data);
         },
 
+        parents: async function (req: FastifyRequest, res: FastifyReply) {
+            let data = await parents(fastify, req);
+            res.code(data.status).send(data);
+        },
+
         background: async function (req: FastifyRequest, res: FastifyReply) {
             let data = await background(fastify, req);
             res.code(data.status).send(data);
@@ -119,6 +127,22 @@ export default function (fastify: FastifyInstance) {
             res: FastifyReply,
         ) {
             let data = await staff_information(fastify, req);
+            res.code(data.status).send(data);
+        },
+
+        teacher_information: async function (
+            req: FastifyRequest,
+            res: FastifyReply,
+        ) {
+            let data = await teacher_information(fastify, req);
+            res.code(data.status).send(data);
+        },
+
+        parent_information: async function (
+            req: FastifyRequest,
+            res: FastifyReply,
+        ) {
+            let data = await parent_information(fastify, req);
             res.code(data.status).send(data);
         },
 

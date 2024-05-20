@@ -224,3 +224,4 @@
 {"level":60,"time":1716116034243,"pid":2452,"hostname":"DESKTOP-9421701","error":"404","url":"/api/v1/branches/1/admins"}
 {"level":60,"time":1716181793874,"pid":10632,"hostname":"DESKTOP-9421701","error":"404","url":"/api/v1/branches/3/students/3"}
 {"level":60,"time":1716181795427,"pid":10632,"hostname":"DESKTOP-9421701","error":"404","url":"/api/v1/branches/3/students/3"}
+{"level":60,"time":1716189461701,"pid":1612,"hostname":"DESKTOP-9421701","error":"404","url":"/api/v1/branches/3/parents/3"}

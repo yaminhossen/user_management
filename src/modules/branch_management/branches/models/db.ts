@@ -8,6 +8,7 @@ import * as branch_parents_model from './branch_parents_model';
 import * as branch_staffs_model from './branch_staffs_model';
 import * as branch_students_model from './branch_students_model';
 import * as branch_teachers_model from './branch_teachers_model';
+import * as user_parents_model from '../../../user_management/user_parents/models/user_parents_model';
 import * as user_admins_model from '../../../user_management/user_admin/models/user_admins_model';
 import * as user_staffs_model from '../../../user_management/user_staffs/models/user_staffs_model';
 import * as user_teachers_model from '../../../user_management/user_teachers/models/user_teacher_model';
@@ -15,6 +16,8 @@ import * as user_students_model from '../../../user_management/user_students/mod
 import * as user_student_educational_backgrounds_model from '../../../user_management/user_students/models/user_student_educational_backgrounds_model';
 import * as user_student_informations_model from '../../../user_management/user_students/models/user_student_informations_model';
 import * as user_staff_informations_model from '../../../user_management/user_staffs/models/user_staff_informations_model';
+import * as user_teacher_informations_model from '../../../user_management/user_teachers/models/user_teacher_informations_model';
+import * as user_parent_informations_model from '../../../user_management/user_parents/models/user_parent_informations_model';
 // import * as project_model from '../../user_admin copy/models/project_model';
 require('dotenv').config();
 
@@ -42,9 +45,12 @@ interface models {
     UserStaffsModel: typeof user_staffs_model.DataModel;
     UserTeachersModel: typeof user_teachers_model.DataModel;
     UserStudentsModel: typeof user_students_model.DataModel;
+    UserParentsModel: typeof user_parents_model.DataModel;
     UserStudentEducationalBackgroundsModel: typeof user_student_educational_backgrounds_model.DataModel;
     UserStudentInformationsModel: typeof user_student_informations_model.DataModel;
     UserStaffsInformationsModel: typeof user_staff_informations_model.DataModel;
+    UserteacherInformationsModel: typeof user_teacher_informations_model.DataModel;
+    UserParentInformationsModel: typeof user_parent_informations_model.DataModel;
     // Project: typeof project_model.DataModel;
     sequelize: Sequelize;
 }
@@ -59,12 +65,17 @@ const db = async function (): Promise<models> {
     const UserStaffsModel = user_staffs_model.init(sequelize);
     const UserTeachersModel = user_teachers_model.init(sequelize);
     const UserStudentsModel = user_students_model.init(sequelize);
+    const UserParentsModel = user_parents_model.init(sequelize);
     const UserStudentEducationalBackgroundsModel =
         user_student_educational_backgrounds_model.init(sequelize);
     const UserStudentInformationsModel =
         user_student_informations_model.init(sequelize);
     const UserStaffsInformationsModel =
         user_staff_informations_model.init(sequelize);
+    const UserteacherInformationsModel =
+        user_teacher_informations_model.init(sequelize);
+    const UserParentInformationsModel =
+        user_parent_informations_model.init(sequelize);
     // const Project = project_model.init(sequelize);
 
     await sequelize.sync();
@@ -87,6 +98,11 @@ const db = async function (): Promise<models> {
     BranchStudentsModel.belongsTo(UserStudentsModel, {
         foreignKey: 'user_student_id',
         as: 'user_student',
+    });
+
+    BranchParentsModel.belongsTo(UserParentsModel, {
+        foreignKey: 'user_parent_id',
+        as: 'user_parent',
     });
 
     // Project.hasOne(User, {
@@ -125,9 +141,12 @@ const db = async function (): Promise<models> {
         UserStaffsModel,
         UserTeachersModel,
         UserStudentsModel,
+        UserParentsModel,
         UserStudentEducationalBackgroundsModel,
         UserStudentInformationsModel,
         UserStaffsInformationsModel,
+        UserteacherInformationsModel,
+        UserParentInformationsModel,
         // Project,
 
         sequelize,
