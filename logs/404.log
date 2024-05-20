@@ -225,3 +225,8 @@
 {"level":60,"time":1716181793874,"pid":10632,"hostname":"DESKTOP-9421701","error":"404","url":"/api/v1/branches/3/students/3"}
 {"level":60,"time":1716181795427,"pid":10632,"hostname":"DESKTOP-9421701","error":"404","url":"/api/v1/branches/3/students/3"}
 {"level":60,"time":1716189461701,"pid":1612,"hostname":"DESKTOP-9421701","error":"404","url":"/api/v1/branches/3/parents/3"}
+{"level":60,"time":1716195492653,"pid":10752,"hostname":"DESKTOP-9421701","error":"404","url":"/api/v1/branch-transports?orderByCol=id&orderByAsc=true&show_active_data=true&paginate=10&page=0"}
+{"level":60,"time":1716195531612,"pid":10752,"hostname":"DESKTOP-9421701","error":"404","url":"/api/v1/branch-transports?orderByCol=id&orderByAsc=true&show_active_data=true&paginate=10&page=0"}
+{"level":60,"time":1716195605495,"pid":10752,"hostname":"DESKTOP-9421701","error":"404","url":"/api/v1/branch-transports?orderByCol=id&orderByAsc=true&show_active_data=true&paginate=10"}
+{"level":60,"time":1716195606503,"pid":10752,"hostname":"DESKTOP-9421701","error":"404","url":"/api/v1/branch-transports?orderByCol=id&orderByAsc=true&show_active_data=true&paginate=10"}
+{"level":60,"time":1716195607041,"pid":10752,"hostname":"DESKTOP-9421701","error":"404","url":"/api/v1/branch-transports?orderByCol=id&orderByAsc=true&show_active_data=true&paginate=10"}
