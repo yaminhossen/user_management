@@ -18,6 +18,8 @@ import * as user_student_informations_model from '../../../user_management/user_
 import * as user_staff_informations_model from '../../../user_management/user_staffs/models/user_staff_informations_model';
 import * as user_teacher_informations_model from '../../../user_management/user_teachers/models/user_teacher_informations_model';
 import * as user_parent_informations_model from '../../../user_management/user_parents/models/user_parent_informations_model';
+import * as branch_transport_drivers_model from '../../../branch_management/branch_transport_drivers/models/branch_transport_drivers_model';
+import * as branch_transports_model from '../../../branch_management/branch_transports/models/branch_transports_model';
 // import * as project_model from '../../user_admin copy/models/project_model';
 require('dotenv').config();
 
@@ -51,6 +53,8 @@ interface models {
     UserStaffsInformationsModel: typeof user_staff_informations_model.DataModel;
     UserteacherInformationsModel: typeof user_teacher_informations_model.DataModel;
     UserParentInformationsModel: typeof user_parent_informations_model.DataModel;
+    BranchTransportDriversModel: typeof branch_transport_drivers_model.DataModel;
+    BranchTransportsModel: typeof branch_transports_model.DataModel;
     // Project: typeof project_model.DataModel;
     sequelize: Sequelize;
 }
@@ -76,6 +80,9 @@ const db = async function (): Promise<models> {
         user_teacher_informations_model.init(sequelize);
     const UserParentInformationsModel =
         user_parent_informations_model.init(sequelize);
+    const BranchTransportDriversModel =
+        branch_transport_drivers_model.init(sequelize);
+    const BranchTransportsModel = branch_transports_model.init(sequelize);
     // const Project = project_model.init(sequelize);
 
     await sequelize.sync();
@@ -103,6 +110,11 @@ const db = async function (): Promise<models> {
     BranchParentsModel.belongsTo(UserParentsModel, {
         foreignKey: 'user_parent_id',
         as: 'user_parent',
+    });
+
+    BranchTransportDriversModel.hasMany(BranchTransportsModel, {
+        foreignKey: 'branch_transport_driver_id',
+        as: 'driver_transports',
     });
 
     // Project.hasOne(User, {
@@ -147,6 +159,8 @@ const db = async function (): Promise<models> {
         UserStaffsInformationsModel,
         UserteacherInformationsModel,
         UserParentInformationsModel,
+        BranchTransportDriversModel,
+        BranchTransportsModel,
         // Project,
 
         sequelize,
