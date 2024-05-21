@@ -23,26 +23,34 @@ import {
     // ForeignKey,
 } from 'sequelize';
 
-const tableName = 'user_login_histories';
-const modelName = 'UserLoginHistoriesModel';
+const tableName = 'user_student_parents';
+const modelName = 'UserStudentParentsModel';
 
 type Infer = InferAttributes<DataModel>;
 type InferCreation = InferCreationAttributes<DataModel>;
 type status = 'active' | 'deactive';
+type relation =
+    | 'father'
+    | 'mother'
+    | 'husband'
+    | 'brother'
+    | 'sister'
+    | 'uncle';
+type is_parent = 'yes' | 'no';
 
 class DataModel extends Model<Infer, InferCreation> {
     declare id?: CreationOptional<number>;
 
-    declare user_id: number;
-    declare user_table_name: string;
-    declare date: Date;
-    declare device: string | null;
-    declare false_attempt_count?: number;
-    declare status?: status;
-    declare token?: string | null;
-    declare forget_code?: string | null;
-    declare user_agent?: string | null;
+    declare user_student_id: number;
+    declare name: string;
+    declare phone: string;
+    declare occupation: string;
+    declare email: string;
+    declare photo: string;
+    declare relation: relation;
+    declare is_parent: is_parent;
 
+    declare status?: status;
     declare creator?: number;
 
     declare created_at?: CreationOptional<Date>;
@@ -57,45 +65,50 @@ function init(sequelize: Sequelize) {
                 autoIncrement: true,
                 primaryKey: true,
             },
-            user_id: {
+            user_student_id: {
                 type: DataTypes.BIGINT.UNSIGNED,
                 allowNull: true,
             },
-            user_table_name: {
-                type: new DataTypes.STRING(80),
+            name: {
+                type: new DataTypes.STRING(100),
                 allowNull: true,
             },
-            date: {
-                type: new DataTypes.DATE(),
+            phone: {
+                type: new DataTypes.STRING(20),
                 allowNull: true,
             },
-            device: {
-                type: new DataTypes.TEXT(),
+            occupation: {
+                type: new DataTypes.STRING(100),
+                allowNull: true,
+            },
+            email: {
+                type: new DataTypes.STRING(25),
+                allowNull: true,
+            },
+            photo: {
+                type: new DataTypes.STRING(100),
+                allowNull: true,
+            },
+            relation: {
+                type: new DataTypes.ENUM(
+                    'father',
+                    'mother',
+                    'husband',
+                    'brother',
+                    'sister',
+                    'uncle',
+                ),
+                allowNull: true,
+            },
+            is_parent: {
+                type: new DataTypes.ENUM('yes', 'no'),
                 allowNull: true,
             },
 
-            false_attempt_count: {
-                type: new DataTypes.BIGINT(),
-                allowNull: true,
-                defaultValue: 0,
-            },
             status: {
                 type: new DataTypes.ENUM('active', 'deactive'),
                 defaultValue: 'active',
             },
-            token: {
-                type: new DataTypes.STRING(100),
-                allowNull: true,
-            },
-            forget_code: {
-                type: new DataTypes.STRING(10),
-                allowNull: true,
-            },
-            user_agent: {
-                type: new DataTypes.STRING(150),
-                allowNull: true,
-            },
-
             creator: {
                 type: new DataTypes.TINYINT(),
                 allowNull: true,

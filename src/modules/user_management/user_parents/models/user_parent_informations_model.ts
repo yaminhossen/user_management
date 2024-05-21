@@ -59,7 +59,7 @@ function init(sequelize: Sequelize) {
                 primaryKey: true,
             },
             user_parent_id: {
-                type: new DataTypes.BIGINT(),
+                type: DataTypes.BIGINT.UNSIGNED,
                 allowNull: true,
             },
             parmenent_address: {
