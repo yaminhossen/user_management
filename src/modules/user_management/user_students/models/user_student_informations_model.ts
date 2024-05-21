@@ -33,6 +33,7 @@ type status = 'active' | 'deactive';
 class DataModel extends Model<Infer, InferCreation> {
     declare id?: CreationOptional<number>;
 
+    declare branch_id: number;
     declare user_student_id: number;
     declare present_address: string;
     declare permanent_address: string;
@@ -44,23 +45,21 @@ class DataModel extends Model<Infer, InferCreation> {
     declare zip_code: string | null;
     declare post_code: string | null;
     declare country: string | null;
-    declare personal_contact_number: string | null;
-    declare parent_contact_number: string | null;
-    declare emergency_contact_number: string | null;
-    declare emergency_contact_name: string | null;
-    declare emergency_contact_relation: string | null;
-    declare parent_relationship: string | null;
     declare medical_condition: string | null;
     declare current_medications: string | null;
-    declare speacial_skills: string | null;
-    declare language_proficency: string | null;
     declare telegram_name: string | null;
     declare telegram_id: string | null;
-    declare status?: status;
+    declare student_id: string | null;
+    declare qr_code: string | null;
+    declare blood_group: string | null;
+    declare student_expire_date: string | null;
+    declare admission_date: string | null;
+
     declare token?: string | null;
     declare forget_code?: string | null;
     declare user_agent?: string | null;
 
+    declare status?: status;
     declare creator?: number;
 
     declare created_at?: CreationOptional<Date>;
@@ -74,6 +73,10 @@ function init(sequelize: Sequelize) {
                 type: DataTypes.INTEGER.UNSIGNED,
                 autoIncrement: true,
                 primaryKey: true,
+            },
+            branch_id: {
+                type: DataTypes.BIGINT.UNSIGNED,
+                allowNull: true,
             },
             user_student_id: {
                 type: DataTypes.BIGINT.UNSIGNED,
@@ -119,44 +122,12 @@ function init(sequelize: Sequelize) {
                 type: new DataTypes.STRING(50),
                 allowNull: true,
             },
-            personal_contact_number: {
-                type: new DataTypes.STRING(30),
-                allowNull: true,
-            },
-            parent_contact_number: {
-                type: new DataTypes.STRING(30),
-                allowNull: true,
-            },
-            emergency_contact_number: {
-                type: new DataTypes.STRING(30),
-                allowNull: true,
-            },
-            emergency_contact_name: {
-                type: new DataTypes.STRING(20),
-                allowNull: true,
-            },
-            emergency_contact_relation: {
-                type: new DataTypes.STRING(30),
-                allowNull: true,
-            },
-            parent_relationship: {
-                type: new DataTypes.STRING(20),
-                allowNull: true,
-            },
             medical_condition: {
                 type: new DataTypes.STRING(100),
                 allowNull: true,
             },
             current_medications: {
                 type: new DataTypes.STRING(100),
-                allowNull: true,
-            },
-            speacial_skills: {
-                type: new DataTypes.STRING(20),
-                allowNull: true,
-            },
-            language_proficency: {
-                type: new DataTypes.STRING(20),
                 allowNull: true,
             },
             telegram_name: {
@@ -167,10 +138,27 @@ function init(sequelize: Sequelize) {
                 type: new DataTypes.STRING(30),
                 allowNull: true,
             },
-            status: {
-                type: new DataTypes.ENUM('active', 'deactive'),
-                defaultValue: 'active',
+            student_id: {
+                type: new DataTypes.STRING(100),
+                allowNull: true,
             },
+            qr_code: {
+                type: new DataTypes.STRING(100),
+                allowNull: true,
+            },
+            blood_group: {
+                type: new DataTypes.STRING(30),
+                allowNull: true,
+            },
+            student_expire_date: {
+                type: new DataTypes.DATE(),
+                allowNull: true,
+            },
+            admission_date: {
+                type: new DataTypes.DATE(),
+                allowNull: true,
+            },
+
             token: {
                 type: new DataTypes.STRING(100),
                 allowNull: true,
@@ -184,6 +172,10 @@ function init(sequelize: Sequelize) {
                 allowNull: true,
             },
 
+            status: {
+                type: new DataTypes.ENUM('active', 'deactive'),
+                defaultValue: 'active',
+            },
             creator: {
                 type: new DataTypes.TINYINT(),
                 allowNull: true,
