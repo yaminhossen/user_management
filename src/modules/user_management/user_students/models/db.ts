@@ -12,6 +12,7 @@ import * as user_student_transports_model from './user_student_transports_model'
 import * as user_student_contact_numbers_model from './user_student_contact_numbers_model';
 import * as user_student_skills_model from './user_student_skills_model';
 import * as user_student_languages_model from './user_student_languages_model';
+import * as user_student_document_titles_model from './user_student_document_titles_model';
 // import * as project_model from '../../user_admin copy/models/project_model';
 require('dotenv').config();
 
@@ -39,6 +40,7 @@ interface models {
     UserStudentContactNumbersModel: typeof user_student_contact_numbers_model.DataModel;
     UserStudentSkillsModel: typeof user_student_skills_model.DataModel;
     UserStudentLanguagesModel: typeof user_student_languages_model.DataModel;
+    UserStudentDocumentTitlesModel: typeof user_student_document_titles_model.DataModel;
     // Project: typeof project_model.DataModel;
     sequelize: Sequelize;
 }
@@ -59,6 +61,8 @@ const db = async function (): Promise<models> {
     const UserStudentSkillsModel = user_student_skills_model.init(sequelize);
     const UserStudentLanguagesModel =
         user_student_languages_model.init(sequelize);
+    const UserStudentDocumentTitlesModel =
+        user_student_document_titles_model.init(sequelize);
     // const Project = project_model.init(sequelize);
 
     await sequelize.sync({ force: false });
@@ -92,6 +96,7 @@ const db = async function (): Promise<models> {
         UserStudentContactNumbersModel,
         UserStudentLanguagesModel,
         UserStudentSkillsModel,
+        UserStudentDocumentTitlesModel,
         // Project,
 
         sequelize,
