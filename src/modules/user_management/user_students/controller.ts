@@ -17,6 +17,7 @@ import login from './services/login';
 import logout from './services/logout';
 import forget from './services/forget';
 import change_password from './services/change_password';
+import profile from './services/student_profile';
 
 export default function (fastify: FastifyInstance) {
     return {
@@ -72,6 +73,11 @@ export default function (fastify: FastifyInstance) {
 
         forget: async function (req: FastifyRequest, res: FastifyReply) {
             let data = await forget(fastify, req);
+            res.code(data.status).send(data);
+        },
+
+        profile: async function (req: FastifyRequest, res: FastifyReply) {
+            let data = await profile(fastify, req);
             res.code(data.status).send(data);
         },
 
