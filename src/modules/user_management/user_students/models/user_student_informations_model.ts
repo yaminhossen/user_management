@@ -54,6 +54,17 @@ class DataModel extends Model<Infer, InferCreation> {
     declare blood_group: string | null;
     declare student_expire_date: string | null;
     declare admission_date: string | null;
+    declare addmission_no: string | null;
+    declare role_no: string | null;
+    declare class_section: string | null;
+    declare student_category: string | null;
+    declare religion: string | null;
+    declare cast: string | null;
+    declare student_house: string | null;
+    declare living_house_type: string | null;
+    declare height: number;
+    declare weight: number;
+    declare as_on_date: string;
 
     declare token?: string | null;
     declare forget_code?: string | null;
@@ -155,6 +166,50 @@ function init(sequelize: Sequelize) {
                 allowNull: true,
             },
             admission_date: {
+                type: new DataTypes.DATE(),
+                allowNull: true,
+            },
+            addmission_no: {
+                type: new DataTypes.STRING(30),
+                allowNull: true,
+            },
+            role_no: {
+                type: new DataTypes.STRING(30),
+                allowNull: true,
+            },
+            class_section: {
+                type: new DataTypes.STRING(30),
+                allowNull: true,
+            },
+            student_category: {
+                type: new DataTypes.STRING(30),
+                allowNull: true,
+            },
+            religion: {
+                type: new DataTypes.STRING(30),
+                allowNull: true,
+            },
+            cast: {
+                type: new DataTypes.STRING(30),
+                allowNull: true,
+            },
+            student_house: {
+                type: new DataTypes.STRING(50),
+                allowNull: true,
+            },
+            living_house_type: {
+                type: new DataTypes.STRING(40),
+                allowNull: true,
+            },
+            height: {
+                type: new DataTypes.FLOAT(),
+                allowNull: true,
+            },
+            weight: {
+                type: new DataTypes.FLOAT(),
+                allowNull: true,
+            },
+            as_on_date: {
                 type: new DataTypes.DATE(),
                 allowNull: true,
             },
