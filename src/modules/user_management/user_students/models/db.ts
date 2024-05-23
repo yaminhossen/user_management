@@ -95,16 +95,10 @@ const db = async function (): Promise<models> {
 
     UserStudentsModel.belongsToMany(UserStudentsModel, {
         through: 'user_student_siblings',
+        foreignKey: 'user_student_id',
         otherKey: 'sibling_student_id',
-        sourceKey: 'id',
-        targetKey: 'user_student_id',
         as: 'user_siblings',
     });
-
-    // UserStudentsModel.belongsToMany(UserStudentsModel, {
-    //     through: UserStudentSiblingsModel,
-    //     as: 'bb',
-    // });
 
     let models: models = {
         UserStudentsModel,

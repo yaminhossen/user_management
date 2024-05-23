@@ -17,6 +17,16 @@ async function details(
     let params = req.params as any;
 
     try {
+        let student = await models.UserStudentsModel.findOne({
+            where: {
+                id: params.id,
+            },
+            include: {
+                model: models.UserStudentsModel,
+                as: 'user_siblings',
+                // through: { attributes: [] },
+            },
+        });
         let background =
             await models.UserStudentEducationalBackgroundsModel.findAll({
                 where: {
@@ -116,17 +126,7 @@ async function details(
                 'creator',
             ],
         });
-        let siblingss = await models.UserStudentsModel.findOne({
-            where: {
-                id: params.id,
-            },
-            include: [
-                {
-                    model: models.UserStudentsModel,
-                    as: 'user_siblings',
-                },
-            ],
-        });
+
         let hostel = await models.UserStudentHostelsModel.findOne({
             where: {
                 user_student_id: params.id,
@@ -156,6 +156,7 @@ async function details(
                     'creator',
                 ],
             });
+
         let transport = await models.UserStudentTransportsModel.findAll({
             where: {
                 user_student_id: params.id,
@@ -170,6 +171,7 @@ async function details(
                 'creator',
             ],
         });
+
         let language = await models.UserStudentLanguagesModel.findAll({
             where: {
                 user_student_id: params.id,
@@ -184,6 +186,7 @@ async function details(
                 'creator',
             ],
         });
+
         let skills = await models.UserStudentSkillsModel.findAll({
             where: {
                 user_student_id: params.id,
@@ -206,12 +209,12 @@ async function details(
         // }
         // let siblingss = 'aaa';
         return response(200, 'student profile', {
+            student,
             background,
             information,
             document_value,
             document_title,
             parent,
-            siblingss,
             hostel,
             contact_number,
             transport,
