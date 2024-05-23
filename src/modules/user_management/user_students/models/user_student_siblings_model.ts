@@ -23,28 +23,18 @@ import {
     // ForeignKey,
 } from 'sequelize';
 
-const tableName = 'user_student_parents';
-const modelName = 'UserStudentParentsModel';
+const tableName = 'user_student_siblings';
+const modelName = 'UserStudentSiblingsModel';
 
 type Infer = InferAttributes<DataModel>;
 type InferCreation = InferCreationAttributes<DataModel>;
 type status = 'active' | 'deactive';
-type relation =
-    | 'father'
-    | 'mother'
-    | 'husband'
-    | 'brother'
-    | 'sister'
-    | 'uncle';
-type is_parent = 1 | 0;
 
 class DataModel extends Model<Infer, InferCreation> {
     declare id?: CreationOptional<number>;
 
     declare user_student_id: number;
-    declare relation: relation;
-    declare is_parent: is_parent;
-    declare user_student_parent_id: number;
+    declare sibling_student_id: number;
 
     declare status?: status;
     declare creator?: number;
@@ -65,22 +55,7 @@ function init(sequelize: Sequelize) {
                 type: DataTypes.BIGINT.UNSIGNED,
                 allowNull: true,
             },
-            relation: {
-                type: new DataTypes.ENUM(
-                    'father',
-                    'mother',
-                    'husband',
-                    'brother',
-                    'sister',
-                    'uncle',
-                ),
-                allowNull: true,
-            },
-            is_parent: {
-                type: new DataTypes.ENUM('1', '0'),
-                allowNull: true,
-            },
-            user_student_parent_id: {
+            sibling_student_id: {
                 type: DataTypes.BIGINT.UNSIGNED,
                 allowNull: true,
             },

@@ -18,7 +18,7 @@ async function details(
 
     try {
         let background =
-            await models.UserStudentEducationalBackgroundsModel.findOne({
+            await models.UserStudentEducationalBackgroundsModel.findAll({
                 where: {
                     user_student_id: params.id,
                 },
@@ -73,7 +73,7 @@ async function details(
             ],
         });
         let document_value =
-            await models.UserStudentDocumentValuesModel.findOne({
+            await models.UserStudentDocumentValuesModel.findAll({
                 where: {
                     user_student_id: params.id,
                 },
@@ -92,7 +92,7 @@ async function details(
                 ],
             });
         let document_title =
-            await models.UserStudentDocumentTitlesModel.findOne({
+            await models.UserStudentDocumentTitlesModel.findAll({
                 where: {
                     user_student_id: params.id,
                 },
@@ -104,22 +104,27 @@ async function details(
                     'creator',
                 ],
             });
-        let parent = await models.UserStudentParentsModel.findOne({
+        let parent = await models.UserStudentParentsModel.findAll({
             where: {
                 user_student_id: params.id,
             },
             attributes: [
                 'id',
                 'user_student_id',
-                'name',
-                'phone',
-                'occupation',
-                'email',
-                'photo',
-                'relation',
                 'is_parent',
                 'status',
                 'creator',
+            ],
+        });
+        let siblingss = await models.UserStudentsModel.findOne({
+            where: {
+                id: params.id,
+            },
+            include: [
+                {
+                    model: models.UserStudentsModel,
+                    as: 'user_siblings',
+                },
             ],
         });
         let hostel = await models.UserStudentHostelsModel.findOne({
@@ -137,7 +142,7 @@ async function details(
             ],
         });
         let contact_number =
-            await models.UserStudentContactNumbersModel.findOne({
+            await models.UserStudentContactNumbersModel.findAll({
                 where: {
                     user_student_id: params.id,
                 },
@@ -151,7 +156,7 @@ async function details(
                     'creator',
                 ],
             });
-        let transport = await models.UserStudentTransportsModel.findOne({
+        let transport = await models.UserStudentTransportsModel.findAll({
             where: {
                 user_student_id: params.id,
             },
@@ -165,7 +170,7 @@ async function details(
                 'creator',
             ],
         });
-        let language = await models.UserStudentLanguagesModel.findOne({
+        let language = await models.UserStudentLanguagesModel.findAll({
             where: {
                 user_student_id: params.id,
             },
@@ -179,7 +184,7 @@ async function details(
                 'creator',
             ],
         });
-        let skills = await models.UserStudentSkillsModel.findOne({
+        let skills = await models.UserStudentSkillsModel.findAll({
             where: {
                 user_student_id: params.id,
             },
@@ -199,12 +204,14 @@ async function details(
         // } else {
         //     throw new custom_error('not found', 404, 'data not found');
         // }
+        // let siblingss = 'aaa';
         return response(200, 'student profile', {
             background,
             information,
             document_value,
             document_title,
             parent,
+            siblingss,
             hostel,
             contact_number,
             transport,

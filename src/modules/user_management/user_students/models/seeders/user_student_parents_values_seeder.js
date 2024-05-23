@@ -17,61 +17,39 @@ module.exports = {
         function set_data(
             id,
             user_student_id,
-            name,
-            phone,
-            occupation,
-            email,
-            photo,
             relation,
             is_parent,
+            user_student_parent_id,
         ) {
             data.push({
                 id,
                 user_student_id,
-                name,
-                phone,
-                occupation,
-                email,
-                photo,
                 relation,
                 is_parent,
+                user_student_parent_id,
                 created_at: '2024-02-14',
                 updated_at: '2024-02-14',
             });
         }
-        set_data(
-            1,
-            1,
-            'parents1',
-            '01789738477',
-            'Engineer',
-            'parent1@gmail.com',
-            'avatar.png',
-            'father',
-            'yes',
-        );
-        set_data(
-            2,
-            2,
-            'parents2',
-            '01789738478',
-            'Doctor',
-            'parent2@gmail.com',
-            'avatar.png',
-            'uncle',
-            'no',
-        );
-        set_data(
-            3,
-            3,
-            'parents3',
-            '01789738479',
-            'Farmer',
-            'parent3@gmail.com',
-            'avatar.png',
-            'father',
-            'yes',
-        );
+        set_data(1, 1, 'father', '1', 1);
+        set_data(2, 1, 'brother', '0', 2);
+        set_data(3, 1, 'uncle', '0', 3);
+
+        set_data(4, 3, 'father', '1', 1);
+        set_data(5, 3, 'brother', '0', 2);
+        set_data(6, 3, 'uncle', '0', 3);
+
+        set_data(7, 5, 'father', '1', 1);
+        set_data(8, 5, 'brother', '0', 2);
+        set_data(9, 5, 'uncle', '0', 3);
+
+        set_data(10, 2, 'father', '1', 4);
+        set_data(11, 2, 'brother', '0', 5);
+        set_data(12, 2, 'uncle', '0', 6);
+
+        set_data(13, 4, 'father', '1', 7);
+        set_data(14, 4, 'brother', '0', 8);
+        set_data(15, 4, 'uncle', '0', 9);
 
         await queryInterface.bulkDelete('user_student_parents', null, {});
 

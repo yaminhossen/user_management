@@ -13,6 +13,7 @@ import * as user_student_contact_numbers_model from './user_student_contact_numb
 import * as user_student_skills_model from './user_student_skills_model';
 import * as user_student_languages_model from './user_student_languages_model';
 import * as user_student_document_titles_model from './user_student_document_titles_model';
+import * as user_student_siblings_model from './user_student_siblings_model';
 // import * as project_model from '../../user_admin copy/models/project_model';
 require('dotenv').config();
 
@@ -41,6 +42,7 @@ interface models {
     UserStudentSkillsModel: typeof user_student_skills_model.DataModel;
     UserStudentLanguagesModel: typeof user_student_languages_model.DataModel;
     UserStudentDocumentTitlesModel: typeof user_student_document_titles_model.DataModel;
+    UserStudentSiblingsModel: typeof user_student_siblings_model.DataModel;
     // Project: typeof project_model.DataModel;
     sequelize: Sequelize;
 }
@@ -63,6 +65,8 @@ const db = async function (): Promise<models> {
         user_student_languages_model.init(sequelize);
     const UserStudentDocumentTitlesModel =
         user_student_document_titles_model.init(sequelize);
+    const UserStudentSiblingsModel =
+        user_student_siblings_model.init(sequelize);
     // const Project = project_model.init(sequelize);
 
     await sequelize.sync({ force: false });
@@ -71,20 +75,37 @@ const db = async function (): Promise<models> {
         foreignKey: 'user_student_id',
         as: 'educational_background',
     });
+
     UserStudentsModel.hasOne(UserStudentInformationsModel, {
         sourceKey: 'id',
         foreignKey: 'user_student_id',
         as: 'student_info',
     });
+
     UserStudentsModel.hasMany(UserStudentInformationsModel, {
         sourceKey: 'id',
         foreignKey: 'user_student_id',
         as: 'student_infos',
     });
+
     UserStudentInformationsModel.belongsTo(UserStudentsModel, {
         foreignKey: 'user_student_id',
         as: 'student',
     });
+
+    UserStudentsModel.belongsToMany(UserStudentsModel, {
+        through: 'user_student_siblings',
+        otherKey: 'sibling_student_id',
+        sourceKey: 'id',
+        targetKey: 'user_student_id',
+        as: 'user_siblings',
+    });
+
+    // UserStudentsModel.belongsToMany(UserStudentsModel, {
+    //     through: UserStudentSiblingsModel,
+    //     as: 'bb',
+    // });
+
     let models: models = {
         UserStudentsModel,
         UserStudentEducationalBackgroundsModel,
@@ -97,6 +118,7 @@ const db = async function (): Promise<models> {
         UserStudentLanguagesModel,
         UserStudentSkillsModel,
         UserStudentDocumentTitlesModel,
+        UserStudentSiblingsModel,
         // Project,
 
         sequelize,
