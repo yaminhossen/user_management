@@ -24,8 +24,8 @@ import {
 } from 'sequelize';
 
 // import {DataModel as Project} from "./project_model"
-const tableName = 'branch_class_fee_types';
-const modelName = 'BranchClassFeeTypesModel';
+const tableName = 'branch_class_students';
+const modelName = 'BranchClassStudentsModel';
 
 type Infer = InferAttributes<DataModel>;
 type InferCreation = InferCreationAttributes<DataModel>;
@@ -36,8 +36,8 @@ class DataModel extends Model<Infer, InferCreation> {
 
     declare branch_id: number;
     declare branch_class_id: number;
-    declare name: string;
-    declare description: string;
+    declare branch_student_id: number;
+    declare branch_class_section_id: number;
 
     declare status?: status;
     declare creator?: number;
@@ -62,12 +62,12 @@ function init(sequelize: Sequelize) {
                 type: DataTypes.BIGINT.UNSIGNED,
                 allowNull: true,
             },
-            name: {
-                type: new DataTypes.STRING(120),
+            branch_student_id: {
+                type: DataTypes.BIGINT.UNSIGNED,
                 allowNull: true,
             },
-            description: {
-                type: new DataTypes.TEXT(),
+            branch_class_section_id: {
+                type: DataTypes.BIGINT.UNSIGNED,
                 allowNull: true,
             },
 

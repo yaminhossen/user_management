@@ -59,15 +59,15 @@ function init(sequelize: Sequelize) {
                 primaryKey: true,
             },
             branch_id: {
-                type: new DataTypes.BIGINT(),
+                type: DataTypes.BIGINT.UNSIGNED,
                 allowNull: true,
             },
             branch_class_id: {
-                type: new DataTypes.BIGINT(),
+                type: DataTypes.BIGINT.UNSIGNED,
                 allowNull: true,
             },
             branch_class_fee_id: {
-                type: new DataTypes.BIGINT(),
+                type: DataTypes.BIGINT.UNSIGNED,
                 allowNull: true,
             },
             title: {
