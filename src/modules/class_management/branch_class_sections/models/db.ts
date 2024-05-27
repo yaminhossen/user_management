@@ -2,8 +2,7 @@ import {
     // Model,
     Sequelize,
 } from 'sequelize';
-import * as branch_class_subjects_model from './branch_class_subjects_model';
-import * as branch_class_subject_teachers_model from './branch_class_subject_teachers_model';
+import * as branch_class_sections_model from './branch_class_sections_model';
 // import * as project_model from '../../user_admin copy/models/project_model';
 require('dotenv').config();
 
@@ -21,16 +20,13 @@ const sequelize = new Sequelize(
 );
 
 interface models {
-    BranchClassSubjectsModel: typeof branch_class_subjects_model.DataModel;
-    BranchClassSubjectTeachersModel: typeof branch_class_subject_teachers_model.DataModel;
+    BranchClassSectionsModel: typeof branch_class_sections_model.DataModel;
     // Project: typeof project_model.DataModel;
     sequelize: Sequelize;
 }
 const db = async function (): Promise<models> {
-    const BranchClassSubjectsModel =
-        branch_class_subjects_model.init(sequelize);
-    const BranchClassSubjectTeachersModel =
-        branch_class_subject_teachers_model.init(sequelize);
+    const BranchClassSectionsModel =
+        branch_class_sections_model.init(sequelize);
     // const Project = project_model.init(sequelize);
 
     await sequelize.sync();
@@ -61,8 +57,7 @@ const db = async function (): Promise<models> {
     // });
 
     let models: models = {
-        BranchClassSubjectsModel,
-        BranchClassSubjectTeachersModel,
+        BranchClassSectionsModel,
         // Project,
 
         sequelize,
