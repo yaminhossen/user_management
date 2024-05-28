@@ -31,10 +31,10 @@ async function validate(req: Request) {
         .withMessage('the branch_student_id field is required')
         .run(req);
 
-    await body('student_evaluation_criteria_id')
+    await body('evaluation_date')
         .not()
         .isEmpty()
-        .withMessage('the student_evaluation_criteria_id field is required')
+        .withMessage('the evaluation_date field is required')
         .run(req);
 
     await body('score')
@@ -68,12 +68,12 @@ async function update(
     /** initializations */
     let models = await db();
     let body = req.body as anyObject;
-    let model = new models.StudentEvaluationsModel();
+    let model = new models.StudentOverallEvaluationsModel();
 
     let inputs: InferCreationAttributes<typeof model> = {
         branch_id: body.branch_id,
-        branch_student_id: body.branch_student_id,
-        student_evaluation_criteria_id: body.student_evaluation_criteria_id,
+        branch_student_id: body.branch_class_id,
+        evaluation_date: body.evaluation_date,
         score: body.score,
     };
 
@@ -83,7 +83,9 @@ async function update(
 
     /** store data into database */
     try {
-        let data = await models.StudentEvaluationsModel.findByPk(body.id);
+        let data = await models.StudentOverallEvaluationsModel.findByPk(
+            body.id,
+        );
         if (data) {
             data.update(inputs);
             await data.save();

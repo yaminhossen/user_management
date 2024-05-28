@@ -19,28 +19,16 @@ async function validate(req: Request) {
         .withMessage('the id field is required')
         .run(req);
 
-    await body('branch_id')
+    await body('name')
         .not()
         .isEmpty()
-        .withMessage('the branch_id field is required')
+        .withMessage('the name field is required')
         .run(req);
 
-    await body('branch_student_id')
+    await body('max_score')
         .not()
         .isEmpty()
-        .withMessage('the branch_student_id field is required')
-        .run(req);
-
-    await body('student_evaluation_criteria_id')
-        .not()
-        .isEmpty()
-        .withMessage('the student_evaluation_criteria_id field is required')
-        .run(req);
-
-    await body('score')
-        .not()
-        .isEmpty()
-        .withMessage('the score field is required')
+        .withMessage('the max_score field is required')
         .run(req);
 
     let result = await validationResult(req);
@@ -68,13 +56,11 @@ async function update(
     /** initializations */
     let models = await db();
     let body = req.body as anyObject;
-    let model = new models.StudentEvaluationsModel();
+    let model = new models.StudentEvaluationCriteriasModel();
 
     let inputs: InferCreationAttributes<typeof model> = {
-        branch_id: body.branch_id,
-        branch_student_id: body.branch_student_id,
-        student_evaluation_criteria_id: body.student_evaluation_criteria_id,
-        score: body.score,
+        name: body.name,
+        max_score: body.max_score,
     };
 
     /** print request data into console */
@@ -83,7 +69,9 @@ async function update(
 
     /** store data into database */
     try {
-        let data = await models.StudentEvaluationsModel.findByPk(body.id);
+        let data = await models.StudentEvaluationCriteriasModel.findByPk(
+            body.id,
+        );
         if (data) {
             data.update(inputs);
             await data.save();
