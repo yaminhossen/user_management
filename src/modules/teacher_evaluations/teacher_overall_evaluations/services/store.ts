@@ -13,22 +13,16 @@ import error_trace from '../helpers/error_trace';
 
 /** validation rules */
 async function validate(req: Request) {
-    await body('id')
-        .not()
-        .isEmpty()
-        .withMessage('the id field is required')
-        .run(req);
-
     await body('branch_id')
         .not()
         .isEmpty()
         .withMessage('the branch_id field is required')
         .run(req);
 
-    await body('branch_student_id')
+    await body('branch_teacher_id')
         .not()
         .isEmpty()
-        .withMessage('the branch_student_id field is required')
+        .withMessage('the branch_teacher_id field is required')
         .run(req);
 
     await body('evaluation_date')
@@ -47,15 +41,13 @@ async function validate(req: Request) {
 
     return result;
 }
-
-// async function update(
+// async function store(
 //     fastify_instance: FastifyInstance,
 //     req: FastifyRequest,
 // ): Promise<responseObject> {
 //     throw new Error('500 test');
 // }
-
-async function update(
+async function store(
     fastify_instance: FastifyInstance,
     req: FastifyRequest,
 ): Promise<responseObject> {
@@ -68,11 +60,11 @@ async function update(
     /** initializations */
     let models = await db();
     let body = req.body as anyObject;
-    let model = new models.StudentOverallEvaluationsModel();
+    let data = new models.TeacherOverallEvaluationsModel();
 
-    let inputs: InferCreationAttributes<typeof model> = {
+    let inputs: InferCreationAttributes<typeof data> = {
         branch_id: body.branch_id,
-        branch_student_id: body.branch_student_id,
+        branch_teacher_id: body.branch_teacher_id,
         evaluation_date: body.evaluation_date,
         score: body.score,
     };
@@ -83,29 +75,12 @@ async function update(
 
     /** store data into database */
     try {
-        let data = await models.StudentOverallEvaluationsModel.findByPk(
-            body.id,
-        );
-        if (data) {
-            data.update(inputs);
-            await data.save();
-            return response(201, 'data updated', data);
-        } else {
-            throw new custom_error(
-                'data not found',
-                404,
-                'operation not possible',
-            );
-        }
+        (await data.update(inputs)).save();
+        return response(201, 'data created', data);
     } catch (error: any) {
         let uid = await error_trace(models, error, req.url, req.body);
-        if (error instanceof custom_error) {
-            error.uid = uid;
-        } else {
-            throw new custom_error('server error', 500, error.message, uid);
-        }
-        throw error;
+        throw new custom_error('server error', 500, error.message, uid);
     }
 }
 
-export default update;
+export default store;
