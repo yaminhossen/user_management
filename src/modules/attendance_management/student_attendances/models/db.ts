@@ -2,7 +2,7 @@ import {
     // Model,
     Sequelize,
 } from 'sequelize';
-import * as branch_building_room_beds_model from './branch_building_room_beds_model';
+import * as student_attendances_model from './student_attendances_model';
 // import * as project_model from '../../user_admin copy/models/project_model';
 require('dotenv').config();
 
@@ -20,13 +20,12 @@ const sequelize = new Sequelize(
 );
 
 interface models {
-    BranchBuildingRoomBedsModel: typeof branch_building_room_beds_model.DataModel;
+    StudentAttendancesModel: typeof student_attendances_model.DataModel;
     // Project: typeof project_model.DataModel;
     sequelize: Sequelize;
 }
 const db = async function (): Promise<models> {
-    const BranchBuildingRoomBedsModel =
-        branch_building_room_beds_model.init(sequelize);
+    const StudentAttendancesModel = student_attendances_model.init(sequelize);
     // const Project = project_model.init(sequelize);
 
     await sequelize.sync();
@@ -57,7 +56,7 @@ const db = async function (): Promise<models> {
     // });
 
     let models: models = {
-        BranchBuildingRoomBedsModel,
+        StudentAttendancesModel,
         // Project,
 
         sequelize,

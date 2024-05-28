@@ -14,23 +14,31 @@ module.exports = {
          */
 
         let data = [];
-        function set_data(id, branch_id, title, value) {
+        function set_data(
+            id,
+            branch_id,
+            branch_teacher_id,
+            kpi_name,
+            evaluation_date,
+            kpi_value,
+        ) {
             data.push({
                 id,
                 branch_id,
-                title,
-                value,
+                branch_teacher_id,
+                kpi_name,
+                evaluation_date,
+                kpi_value,
                 created_at: '2024-02-14',
                 updated_at: '2024-02-14',
             });
         }
+        set_data(1, 1, 1, 'Rulles & regulation', '2024-02-14', 78.6);
+        set_data(2, 2, 2, 'charecteristics', '2024-02-14', 75.8);
+        set_data(3, 3, 3, 'attendance', '2024-02-14', 80);
 
-        set_data(1, 1, 'rode no', 'section 6 A');
-        set_data(2, 2, 'house no', '33');
-        set_data(3, 3, 'building no', '102');
-
-        await queryInterface.bulkDelete('branch_informations', null, {});
-        await queryInterface.bulkInsert('branch_informations', data, {});
+        await queryInterface.bulkDelete('teacher_kpi_reports', null, {});
+        await queryInterface.bulkInsert('teacher_kpi_reports', data, {});
     },
 
     async down(queryInterface, Sequelize) {
@@ -41,6 +49,6 @@ module.exports = {
          * Example:
          * await queryInterface.bulkDelete('People', null, {});
          */
-        await queryInterface.bulkDelete('branch_informations', null, {});
+        await queryInterface.bulkDelete('teacher_kpi_reports', null, {});
     },
 };

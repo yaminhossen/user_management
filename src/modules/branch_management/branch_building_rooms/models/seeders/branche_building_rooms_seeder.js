@@ -79,7 +79,7 @@ module.exports = {
             88,
         );
 
-        queryInterface.bulkDelete('branch_building_rooms');
+        await queryInterface.bulkDelete('branch_building_rooms', null, {});
         await queryInterface.bulkInsert('branch_building_rooms', data, {});
     },
 

@@ -64,7 +64,7 @@ module.exports = {
             'This is near by mirpur',
         );
 
-        queryInterface.bulkDelete('branch_buildings');
+        await queryInterface.bulkDelete('branch_buildings', null, {});
         await queryInterface.bulkInsert('branch_buildings', data, {});
     },
 

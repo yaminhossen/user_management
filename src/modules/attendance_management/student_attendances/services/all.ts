@@ -29,7 +29,7 @@ async function all(
     let query: FindAndCountOptions = {
         order: [[orderByCol, orderByAsc == 'true' ? 'ASC' : 'DESC']],
         where: {
-            status: show_active_data == 'true' ? 'active' : 'deactive',
+            status: show_active_data == 'true' ? 'present' : 'absent',
         },
         // include: [models.Project],
     };
@@ -53,7 +53,7 @@ async function all(
     try {
         let data = await (fastify_instance as anyObject).paginate(
             req,
-            models.BrancheContactsModel,
+            models.StudentAttendancesModel,
             paginate,
             query,
         );
