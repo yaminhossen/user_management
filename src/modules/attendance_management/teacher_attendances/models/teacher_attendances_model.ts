@@ -28,7 +28,8 @@ const modelName = 'TeacherAttendancesModel';
 
 type Infer = InferAttributes<DataModel>;
 type InferCreation = InferCreationAttributes<DataModel>;
-type status = 'present' | 'absent' | 'late' | 'leave';
+type attendance_status = 'present' | 'absent' | 'late' | 'leave';
+type status = 'active' | 'deactive';
 
 class DataModel extends Model<Infer, InferCreation> {
     declare id?: CreationOptional<number>;
@@ -38,6 +39,7 @@ class DataModel extends Model<Infer, InferCreation> {
     declare start_time: string;
     declare end_time: string;
     declare date: string;
+    declare attendance_status: attendance_status;
     declare overtime_hours: number;
     declare fine_amount: number;
     declare reward_amount: number;
@@ -77,6 +79,10 @@ function init(sequelize: Sequelize) {
                 type: DataTypes.DATE,
                 allowNull: true,
             },
+            attendance_status: {
+                type: new DataTypes.ENUM('present', 'absent', 'late', 'leave'),
+                allowNull: true,
+            },
             overtime_hours: {
                 type: DataTypes.FLOAT.UNSIGNED,
                 allowNull: true,
@@ -91,8 +97,8 @@ function init(sequelize: Sequelize) {
             },
 
             status: {
-                type: new DataTypes.ENUM('present', 'absent', 'late', 'leave'),
-                defaultValue: 'present',
+                type: new DataTypes.ENUM('active', 'deactive'),
+                defaultValue: 'active',
             },
             creator: {
                 type: new DataTypes.TINYINT(),

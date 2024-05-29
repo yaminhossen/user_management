@@ -28,7 +28,8 @@ const modelName = 'LeaveApplicationsModel';
 
 type Infer = InferAttributes<DataModel>;
 type InferCreation = InferCreationAttributes<DataModel>;
-type status = 'pending' | 'approved' | 'rejected';
+type leave_status = 'pending' | 'approved' | 'rejected';
+type status = 'active' | 'deactive';
 
 class DataModel extends Model<Infer, InferCreation> {
     declare id?: CreationOptional<number>;
@@ -41,6 +42,7 @@ class DataModel extends Model<Infer, InferCreation> {
     declare start_date: string;
     declare end_date: string;
     declare reason: string;
+    declare leave_status: leave_status;
     declare attachments: string;
     declare total_days: number;
     declare approved_start_date: string;
@@ -93,6 +95,10 @@ function init(sequelize: Sequelize) {
                 type: DataTypes.TEXT,
                 allowNull: true,
             },
+            leave_status: {
+                type: DataTypes.ENUM('pending', 'approved', 'rejected'),
+                allowNull: true,
+            },
             attachments: {
                 type: DataTypes.STRING(200),
                 allowNull: true,
@@ -111,8 +117,8 @@ function init(sequelize: Sequelize) {
             },
 
             status: {
-                type: new DataTypes.ENUM('pending', 'approved', 'rejected'),
-                allowNull: true,
+                type: new DataTypes.ENUM('active', 'deactive'),
+                defaultValue: 'active',
             },
             creator: {
                 type: new DataTypes.TINYINT(),

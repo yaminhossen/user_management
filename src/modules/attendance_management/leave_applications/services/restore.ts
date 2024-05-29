@@ -43,7 +43,7 @@ async function restore(
             // await data.update({
             //     status: 1,
             // });
-            data.status = 'approved';
+            data.status = 'active';
             await data.save();
             return response(205, 'data restored', data);
         } else {

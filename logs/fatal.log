@@ -66,3 +66,4 @@
 {"level":60,"time":1716962468763,"pid":12740,"hostname":"DESKTOP-9421701","file":"","time":"5/29/2024 12:01:08 PM","message":"Invalid default value for 'status'"}
 {"level":60,"time":1716962476171,"pid":12740,"hostname":"DESKTOP-9421701","file":"","time":"5/29/2024 12:01:16 PM","message":"Invalid default value for 'status'"}
 {"level":60,"time":1716962679890,"pid":4620,"hostname":"DESKTOP-9421701","file":"","time":"5/29/2024 12:04:39 PM","message":"You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '-10, 10' at line 1"}
+{"level":60,"time":1716966126246,"pid":14568,"hostname":"DESKTOP-9421701","file":"","time":"5/29/2024 1:02:06 PM","message":"You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '-10, 10' at line 1"}

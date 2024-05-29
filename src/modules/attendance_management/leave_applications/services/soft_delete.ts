@@ -43,7 +43,7 @@ async function soft_delete(
             // await data.update({
             //     status: 0,
             // });
-            data.status = 'rejected';
+            data.status = 'deactive';
             await data.save();
             return response(200, 'data deactivated', data);
         } else {

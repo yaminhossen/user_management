@@ -48,6 +48,12 @@ async function validate(req: Request) {
         .withMessage('the date field is required')
         .run(req);
 
+    await body('attendance_status')
+        .not()
+        .isEmpty()
+        .withMessage('the attendance_status field is required')
+        .run(req);
+
     await body('overtime_hours')
         .not()
         .isEmpty()
@@ -92,6 +98,7 @@ async function update(
         start_time: body.start_time,
         end_time: body.end_time,
         date: body.date,
+        attendance_status: body.attendance_status,
         overtime_hours: body.overtime_hours,
         fine_amount: body.fine_amount,
         reward_amount: body.reward_amount,

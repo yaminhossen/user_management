@@ -60,10 +60,10 @@ async function validate(req: Request) {
         .withMessage('the reason field is required')
         .run(req);
 
-    await body('status')
+    await body('leave_status')
         .not()
         .isEmpty()
-        .withMessage('the status field is required')
+        .withMessage('the leave_status field is required')
         .run(req);
 
     await body('attachments')
@@ -119,7 +119,7 @@ async function store(
         start_date: body.start_date,
         end_date: body.end_date,
         reason: body.reason,
-        status: body.status,
+        leave_status: body.leave_status,
         attachments: body.attachments,
         total_days: body.total_days,
         approved_start_date: body.approved_start_date,

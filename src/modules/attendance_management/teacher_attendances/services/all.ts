@@ -29,7 +29,7 @@ async function all(
     let query: FindAndCountOptions = {
         order: [[orderByCol, orderByAsc == 'true' ? 'ASC' : 'DESC']],
         where: {
-            status: show_active_data == 'true' ? 'present' : 'absent',
+            status: show_active_data == 'true' ? 'active' : 'deactive',
         },
         // include: [models.Project],
     };
