@@ -18,10 +18,10 @@ async function validate(req: Request) {
         .withMessage('the branch_id field is required')
         .run(req);
 
-    await body('branch_teacher_id')
+    await body('branch_staff_id')
         .not()
         .isEmpty()
-        .withMessage('the branch_teacher_id field is required')
+        .withMessage('the branch_staff_id field is required')
         .run(req);
 
     await body('start_time')
@@ -78,11 +78,11 @@ async function store(
     /** initializations */
     let models = await db();
     let body = req.body as anyObject;
-    let data = new models.TeacherAttendancesModel();
+    let data = new models.StaffAttendancesModel();
 
     let inputs: InferCreationAttributes<typeof data> = {
         branch_id: body.branch_id,
-        branch_teacher_id: body.branch_teacher_id,
+        branch_staff_id: body.branch_staff_id,
         start_time: body.start_time,
         end_time: body.end_time,
         date: body.date,

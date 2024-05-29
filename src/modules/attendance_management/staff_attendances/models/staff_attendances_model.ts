@@ -23,8 +23,8 @@ import {
     // ForeignKey,
 } from 'sequelize';
 
-const tableName = 'teacher_attendances';
-const modelName = 'TeacherAttendancesModel';
+const tableName = 'staff_attendances';
+const modelName = 'StaffAttendancesModel';
 
 type Infer = InferAttributes<DataModel>;
 type InferCreation = InferCreationAttributes<DataModel>;
@@ -34,7 +34,7 @@ class DataModel extends Model<Infer, InferCreation> {
     declare id?: CreationOptional<number>;
 
     declare branch_id: number;
-    declare branch_teacher_id: number;
+    declare branch_staff_id: number;
     declare start_time: string;
     declare end_time: string;
     declare date: string;
@@ -61,7 +61,7 @@ function init(sequelize: Sequelize) {
                 type: new DataTypes.BIGINT().UNSIGNED,
                 allowNull: true,
             },
-            branch_teacher_id: {
+            branch_staff_id: {
                 type: new DataTypes.BIGINT().UNSIGNED,
                 allowNull: true,
             },

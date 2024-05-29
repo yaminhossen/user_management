@@ -23,24 +23,19 @@ import {
     // ForeignKey,
 } from 'sequelize';
 
-const tableName = 'teacher_attendances';
-const modelName = 'TeacherAttendancesModel';
+const tableName = 'leave_types';
+const modelName = 'LeaveTypesModel';
 
 type Infer = InferAttributes<DataModel>;
 type InferCreation = InferCreationAttributes<DataModel>;
-type status = 'present' | 'absent' | 'late' | 'leave';
+type status = 'active' | 'deactive';
 
 class DataModel extends Model<Infer, InferCreation> {
     declare id?: CreationOptional<number>;
 
     declare branch_id: number;
-    declare branch_teacher_id: number;
-    declare start_time: string;
-    declare end_time: string;
-    declare date: string;
-    declare overtime_hours: number;
-    declare fine_amount: number;
-    declare reward_amount: number;
+    declare title: string;
+    declare description: string;
 
     declare status?: status;
     declare creator?: number;
@@ -61,38 +56,18 @@ function init(sequelize: Sequelize) {
                 type: new DataTypes.BIGINT().UNSIGNED,
                 allowNull: true,
             },
-            branch_teacher_id: {
-                type: new DataTypes.BIGINT().UNSIGNED,
+            title: {
+                type: DataTypes.STRING(300),
                 allowNull: true,
             },
-            start_time: {
-                type: DataTypes.TIME,
-                allowNull: true,
-            },
-            end_time: {
-                type: DataTypes.TIME,
-                allowNull: true,
-            },
-            date: {
-                type: DataTypes.DATE,
-                allowNull: true,
-            },
-            overtime_hours: {
-                type: DataTypes.FLOAT.UNSIGNED,
-                allowNull: true,
-            },
-            fine_amount: {
-                type: DataTypes.FLOAT.UNSIGNED,
-                allowNull: true,
-            },
-            reward_amount: {
-                type: DataTypes.FLOAT.UNSIGNED,
+            description: {
+                type: DataTypes.TEXT,
                 allowNull: true,
             },
 
             status: {
-                type: new DataTypes.ENUM('present', 'absent', 'late', 'leave'),
-                defaultValue: 'present',
+                type: new DataTypes.ENUM('active', 'deactive'),
+                defaultValue: 'active',
             },
             creator: {
                 type: new DataTypes.TINYINT(),

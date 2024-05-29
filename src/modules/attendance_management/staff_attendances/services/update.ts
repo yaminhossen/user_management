@@ -12,16 +12,22 @@ import custom_error from '../helpers/custom_error';
 import error_trace from '../helpers/error_trace';
 
 async function validate(req: Request) {
+    await body('id')
+        .not()
+        .isEmpty()
+        .withMessage('the id field is required')
+        .run(req);
+
     await body('branch_id')
         .not()
         .isEmpty()
         .withMessage('the branch_id field is required')
         .run(req);
 
-    await body('branch_teacher_id')
+    await body('branch_staff_id')
         .not()
         .isEmpty()
-        .withMessage('the branch_teacher_id field is required')
+        .withMessage('the branch_staff_id field is required')
         .run(req);
 
     await body('start_time')
@@ -65,7 +71,7 @@ async function validate(req: Request) {
     return result;
 }
 
-async function store(
+async function update(
     fastify_instance: FastifyInstance,
     req: FastifyRequest,
 ): Promise<responseObject> {
@@ -78,11 +84,11 @@ async function store(
     /** initializations */
     let models = await db();
     let body = req.body as anyObject;
-    let data = new models.TeacherAttendancesModel();
+    let model = new models.StaffAttendancesModel();
 
-    let inputs: InferCreationAttributes<typeof data> = {
+    let inputs: InferCreationAttributes<typeof model> = {
         branch_id: body.branch_id,
-        branch_teacher_id: body.branch_teacher_id,
+        branch_staff_id: body.branch_staff_id,
         start_time: body.start_time,
         end_time: body.end_time,
         date: body.date,
@@ -97,12 +103,23 @@ async function store(
 
     /** store data into database */
     try {
-        (await data.update(inputs)).save();
-        return response(200, 'data created', data);
+        let data = await models.StaffAttendancesModel.findByPk(body.id);
+        if (data) {
+            data.update(inputs);
+            await data.save();
+            return response(200, 'data updated', data);
+        } else {
+            throw new custom_error('Forbidden', 403, 'operation not possible');
+        }
     } catch (error: any) {
         let uid = await error_trace(models, error, req.url, req.body);
-        throw new custom_error('server error', 500, error.message, uid);
+        if (error instanceof custom_error) {
+            error.uid = uid;
+        } else {
+            throw new custom_error('server error', 500, error.message, uid);
+        }
+        throw error;
     }
 }
 
-export default store;
+export default update;
