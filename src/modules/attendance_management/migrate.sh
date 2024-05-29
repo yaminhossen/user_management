@@ -10,13 +10,13 @@
 # echo "student attendances seed end"
 # echo ""
 
-echo ""
-echo "teacher attendances seed start"
-API_URL="http://127.0.0.1:5000/api/v1/teacher-attendances?orderByCol=id&orderByAsc=true&show_active_data=true&paginate=10&page=0"
-response=$(curl -s "$API_URL")
-npx sequelize-cli db:seed:all --config src/configs/db.json --seeders-path src/modules/attendance_management/teacher_attendances/models/seeders
-echo "teacher attendances seed end"
-echo ""
+# echo ""
+# echo "teacher attendances seed start"
+# API_URL="http://127.0.0.1:5000/api/v1/teacher-attendances?orderByCol=id&orderByAsc=true&show_active_data=true&paginate=10&page=0"
+# response=$(curl -s "$API_URL")
+# npx sequelize-cli db:seed:all --config src/configs/db.json --seeders-path src/modules/attendance_management/teacher_attendances/models/seeders
+# echo "teacher attendances seed end"
+# echo ""
 
 # echo ""
 # echo "staff attendances seed start"
@@ -41,6 +41,14 @@ echo ""
 # npx sequelize-cli db:seed:all --config src/configs/db.json --seeders-path src/modules/attendance_management/leave_applications/models/seeders
 # echo "leave applications seed end"
 # echo ""
+
+echo ""
+echo "leave application-paids seed start"
+API_URL="http://127.0.0.1:5000/api/v1/leave-application-paids?orderByCol=id&orderByAsc=true&show_active_data=true&paginate=10&page=0"
+response=$(curl -s "$API_URL")
+npx sequelize-cli db:seed:all --config src/configs/db.json --seeders-path src/modules/attendance_management/leave_application_paids/models/seeders
+echo "leave application-paids seed end"
+echo ""
 
 
 
