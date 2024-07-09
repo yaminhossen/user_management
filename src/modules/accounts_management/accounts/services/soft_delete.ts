@@ -33,7 +33,7 @@ async function soft_delete(
     let body = req.body as { [key: string]: any };
 
     try {
-        let data = await models.LeaveApplicationPaidsModel.findOne({
+        let data = await models.AccontsModel.findOne({
             where: {
                 id: body.id,
             },
@@ -45,7 +45,7 @@ async function soft_delete(
             // });
             data.status = 'deactive';
             await data.save();
-            return response(205, 'data deactivated', data);
+            return response(200, 'data deactivated', data);
         } else {
             throw new custom_error('Forbidden', 403, 'operation not possible');
         }
