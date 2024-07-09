@@ -24,52 +24,16 @@ async function validate(req: Request) {
         .withMessage('the branch_id field is required')
         .run(req);
 
-    await body('branch_student_id')
+    await body('title')
         .not()
         .isEmpty()
-        .withMessage('the branch_student_id field is required')
+        .withMessage('the title field is required')
         .run(req);
 
-    await body('start_time')
+    await body('description')
         .not()
         .isEmpty()
-        .withMessage('the start_time field is required')
-        .run(req);
-
-    await body('end_time')
-        .not()
-        .isEmpty()
-        .withMessage('the end_time field is required')
-        .run(req);
-
-    await body('date')
-        .not()
-        .isEmpty()
-        .withMessage('the date field is required')
-        .run(req);
-
-    await body('attendance_status')
-        .not()
-        .isEmpty()
-        .withMessage('the attendance_status field is required')
-        .run(req);
-
-    await body('overtime_hours')
-        .not()
-        .isEmpty()
-        .withMessage('the overtime_hours field is required')
-        .run(req);
-
-    await body('fine_amount')
-        .not()
-        .isEmpty()
-        .withMessage('the fine_amount field is required')
-        .run(req);
-
-    await body('reward_amount')
-        .not()
-        .isEmpty()
-        .withMessage('the reward_amount field is required')
+        .withMessage('the description field is required')
         .run(req);
 
     let result = await validationResult(req);

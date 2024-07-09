@@ -1,0 +1,4 @@
+{"level":60,"time":1720517087967,"pid":14716,"hostname":"DESKTOP-9421701","file":"","time":"7/9/2024 3:24:47 PM","message":"You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '-10, 10' at line 1"}
+{"level":60,"time":1720517140731,"pid":14716,"hostname":"DESKTOP-9421701","file":"","time":"7/9/2024 3:25:40 PM","message":"You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '-10, 10' at line 1"}
+{"level":60,"time":1720518484363,"pid":14716,"hostname":"DESKTOP-9421701","file":"","time":"7/9/2024 3:48:04 PM","message":"Unexpected token } in JSON at position 97"}
+{"level":60,"time":1720518522671,"pid":14716,"hostname":"DESKTOP-9421701","file":"","time":"7/9/2024 3:48:42 PM","message":"Unexpected token } in JSON at position 97"}

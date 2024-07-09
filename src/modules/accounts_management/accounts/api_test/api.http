@@ -16,11 +16,8 @@ content-type: application/json
 
 {
     "branch_id": 4,
-    "building_code": "21-A",
-    "building_name": "TS tower",
-    "attachment": "file.pdf",
-    "photo": "avatar.png",
-    "description": "somelsdjf"
+    "title": "cellphin",
+    "description": "This is sellfin accoutn"
 }
 
 
@@ -31,12 +28,9 @@ content-type: application/json
 
 {
     "id": 4,
-    "branch_id": "44",
-    "building_code": "abir",
-    "building_name": "logo.png",
-    "attachment": "dhaka",
-    "photo": "923840293",
-    "description": "abir@gmail.com"
+    "branch_id": "4",
+    "title": "sellfin",
+    "description": "This is sellfin account"
 }
 
 # delete
@@ -45,7 +39,7 @@ POST  {{hostname}}/soft-delete HTTP/1.1
 content-type: application/json
 
 {
-    # "id": 1
+    # "id": 4
 }
 
 # restore
@@ -54,7 +48,7 @@ POST  {{hostname}}/restore HTTP/1.1
 content-type: application/json
 
 {
-    "id": 1
+    "id": 4
 }
 
 
