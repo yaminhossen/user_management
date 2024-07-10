@@ -2,3 +2,5 @@
 {"level":60,"time":1720517140731,"pid":14716,"hostname":"DESKTOP-9421701","file":"","time":"7/9/2024 3:25:40 PM","message":"You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '-10, 10' at line 1"}
 {"level":60,"time":1720518484363,"pid":14716,"hostname":"DESKTOP-9421701","file":"","time":"7/9/2024 3:48:04 PM","message":"Unexpected token } in JSON at position 97"}
 {"level":60,"time":1720518522671,"pid":14716,"hostname":"DESKTOP-9421701","file":"","time":"7/9/2024 3:48:42 PM","message":"Unexpected token } in JSON at position 97"}
+{"level":60,"time":1720519593462,"pid":12796,"hostname":"DESKTOP-9421701","file":"","time":"7/9/2024 4:06:33 PM","message":"You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '-10, 10' at line 1"}
+{"level":60,"time":1720587106991,"pid":15256,"hostname":"DESKTOP-9421701","file":"services\\details.ts:25:19)","time":"7/10/2024 10:51:46 AM","message":"data not found"}

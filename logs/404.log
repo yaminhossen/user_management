@@ -1,0 +1,4 @@
+{"level":60,"time":1720589805874,"pid":7592,"hostname":"DESKTOP-9421701","error":"404","url":"/api/v1/account-periods?orderByCol=id&orderByAsc=true&show_active_data=true&paginate=10&page=0"}
+{"level":60,"time":1720589847446,"pid":10408,"hostname":"DESKTOP-9421701","error":"404","url":"/api/v1/account-periods?orderByCol=id&orderByAsc=true&show_active_data=true&paginate=10&page=0"}
+{"level":60,"time":1720589882981,"pid":10408,"hostname":"DESKTOP-9421701","error":"404","url":"/api/v1/account-periods?orderByCol=id&orderByAsc=true&show_active_data=true&paginate=10&page=0"}
+{"level":60,"time":1720589898337,"pid":10408,"hostname":"DESKTOP-9421701","error":"404","url":"/api/v1/account-periods?orderByCol=id&orderByAsc=true&show_active_data=true&paginate=10"}

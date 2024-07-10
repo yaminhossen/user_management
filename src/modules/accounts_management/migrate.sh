@@ -10,12 +10,20 @@
 # echo "accounts seed end"
 # echo ""
 
+# echo ""
+# echo "account categories seed start"
+# API_URL="http://127.0.0.1:5000/api/v1/account-categories?orderByCol=id&orderByAsc=true&show_active_data=true&paginate=10&page=0"
+# response=$(curl -s "$API_URL")
+# npx sequelize-cli db:seed:all --config src/configs/db.json --seeders-path src/modules/accounts_management/account_categories/models/seeders
+# echo "account categories seed end"
+# echo ""
+
 echo ""
-echo "account categories seed start"
-API_URL="http://127.0.0.1:5000/api/v1/account-categories?orderByCol=id&orderByAsc=true&show_active_data=true&paginate=10&page=0"
+echo "account periods seed start"
+API_URL="http://127.0.0.1:5000/api/v1/account-periods?orderByCol=id&orderByAsc=true&show_active_data=true&paginate=10&page=0"
 response=$(curl -s "$API_URL")
-npx sequelize-cli db:seed:all --config src/configs/db.json --seeders-path src/modules/accounts_management/account_categories/models/seeders
-echo "account categories seed end"
+npx sequelize-cli db:seed:all --config src/configs/db.json --seeders-path src/modules/accounts_management/account_periods/models/seeders
+echo "account periods seed end"
 echo ""
 
 
