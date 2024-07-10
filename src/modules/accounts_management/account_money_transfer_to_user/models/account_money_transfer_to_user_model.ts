@@ -40,10 +40,6 @@ class DataModel extends Model<Infer, InferCreation> {
     declare teacher_id: number;
     declare staff_id: number;
     declare amount: number;
-    declare amount_in_text: string;
-    declare is_approved: is_approved;
-    declare attachment: string;
-    declare description: string;
     declare date: string;
 
     declare status?: status;
@@ -85,24 +81,8 @@ function init(sequelize: Sequelize) {
                 type: DataTypes.BIGINT().UNSIGNED,
                 allowNull: true,
             },
-            amount_in_text: {
-                type: DataTypes.STRING(100),
-                allowNull: true,
-            },
-            is_approved: {
-                type: DataTypes.ENUM('pending', 'accepted', 'rejected'),
-                allowNull: true,
-            },
             date: {
                 type: DataTypes.DATE,
-                allowNull: true,
-            },
-            description: {
-                type: DataTypes.TEXT,
-                allowNull: true,
-            },
-            attachment: {
-                type: DataTypes.STRING(50),
                 allowNull: true,
             },
 

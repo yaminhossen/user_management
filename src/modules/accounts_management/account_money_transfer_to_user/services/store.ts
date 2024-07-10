@@ -48,28 +48,10 @@ async function validate(req: Request) {
         .withMessage('the amount field is required')
         .run(req);
 
-    await body('amount_in_text')
-        .not()
-        .isEmpty()
-        .withMessage('the amount_in_text field is required')
-        .run(req);
-
-    await body('is_approved')
-        .not()
-        .isEmpty()
-        .withMessage('the is_approved field is required')
-        .run(req);
-
     await body('date')
         .not()
         .isEmpty()
         .withMessage('the date field is required')
-        .run(req);
-
-    await body('attachement')
-        .not()
-        .isEmpty()
-        .withMessage('the attachement field is required')
         .run(req);
 
     let result = await validationResult(req);
@@ -90,7 +72,7 @@ async function store(
     /** initializations */
     let models = await db();
     let body = req.body as anyObject;
-    let data = new models.AccountVouchersModel();
+    let data = new models.AccountMoneyTransferToUser();
 
     let inputs: InferCreationAttributes<typeof data> = {
         branch_id: body.branch_id,
@@ -99,11 +81,7 @@ async function store(
         teacher_id: body.teacher_id,
         staff_id: body.staff_id,
         amount: body.amount,
-        amount_in_text: body.amount_in_text,
-        is_approved: body.is_approved,
         date: body.date,
-        attachment: body.attachment,
-        description: body.description,
     };
 
     /** print request data into console */

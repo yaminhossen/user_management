@@ -34,12 +34,20 @@
 # echo "budgets seed end"
 # echo ""
 
+# echo ""
+# echo "account vouchers seed start"
+# API_URL="http://127.0.0.1:5000/api/v1/account-vouchers?orderByCol=id&orderByAsc=true&show_active_data=true&paginate=10&page=0"
+# response=$(curl -s "$API_URL")
+# npx sequelize-cli db:seed:all --config src/configs/db.json --seeders-path src/modules/accounts_management/account_vouchers/models/seeders
+# echo "account vouchers seed end"
+# echo ""
+
 echo ""
-echo "account vouchers seed start"
-API_URL="http://127.0.0.1:5000/api/v1/account-vouchers?orderByCol=id&orderByAsc=true&show_active_data=true&paginate=10&page=0"
+echo "account money transfer to user seed start"
+API_URL="http://127.0.0.1:5000/api/v1/account-money-transfer-to-user?orderByCol=id&orderByAsc=true&show_active_data=true&paginate=10&page=0"
 response=$(curl -s "$API_URL")
-npx sequelize-cli db:seed:all --config src/configs/db.json --seeders-path src/modules/accounts_management/account_vouchers/models/seeders
-echo "account vouchers seed end"
+npx sequelize-cli db:seed:all --config src/configs/db.json --seeders-path src/modules/accounts_management/account_money_transfer_to_user/models/seeders
+echo "account money transfer to user seed end"
 echo ""
 
 

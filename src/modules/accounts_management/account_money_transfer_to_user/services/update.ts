@@ -48,28 +48,10 @@ async function validate(req: Request) {
         .withMessage('the amount field is required')
         .run(req);
 
-    await body('amount_in_text')
-        .not()
-        .isEmpty()
-        .withMessage('the amount_in_text field is required')
-        .run(req);
-
-    await body('is_approved')
-        .not()
-        .isEmpty()
-        .withMessage('the is_approved field is required')
-        .run(req);
-
     await body('date')
         .not()
         .isEmpty()
         .withMessage('the date field is required')
-        .run(req);
-
-    await body('attachement')
-        .not()
-        .isEmpty()
-        .withMessage('the attachement field is required')
         .run(req);
 
     let result = await validationResult(req);
@@ -90,7 +72,7 @@ async function update(
     /** initializations */
     let models = await db();
     let body = req.body as anyObject;
-    let model = new models.AccountVouchersModel();
+    let model = new models.AccountMoneyTransferToUser();
 
     let inputs: InferCreationAttributes<typeof model> = {
         branch_id: body.branch_id,
@@ -99,11 +81,7 @@ async function update(
         teacher_id: body.teacher_id,
         staff_id: body.staff_id,
         amount: body.amount,
-        amount_in_text: body.amount_in_text,
-        is_approved: body.is_approved,
         date: body.date,
-        attachment: body.attachment,
-        description: body.description,
     };
 
     /** print request data into console */
@@ -112,7 +90,7 @@ async function update(
 
     /** store data into database */
     try {
-        let data = await models.AccountVouchersModel.findByPk(body.id);
+        let data = await models.AccountMoneyTransferToUser.findByPk(body.id);
         if (data) {
             data.update(inputs);
             await data.save();
