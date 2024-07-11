@@ -1,0 +1,5 @@
+{"level":60,"time":1720614965344,"pid":7440,"hostname":"DESKTOP-9421701","error":"404","url":"/api/v1/account-fees-collections-details?orderByCol=id&orderByAsc=true&show_active_data=true&paginate=10&page=0"}
+{"level":60,"time":1720615014379,"pid":7440,"hostname":"DESKTOP-9421701","error":"404","url":"/api/v1/account-fees-collections-details?orderByCol=id&orderByAsc=true&show_active_data=true&paginate=10&page=0"}
+{"level":60,"time":1720615022698,"pid":7440,"hostname":"DESKTOP-9421701","error":"404","url":"/api/v1/account-fees-collections-details?orderByCol=id&orderByAsc=true&show_active_data=true&paginate=10&page=0"}
+{"level":60,"time":1720615025758,"pid":7440,"hostname":"DESKTOP-9421701","error":"404","url":"/api/v1/account-fees-collections-details?orderByCol=id&orderByAsc=true&show_active_data=true&paginate=10&page=0"}
+{"level":60,"time":1720679590824,"pid":13308,"hostname":"DESKTOP-9421701","error":"404","url":"/api/v1/account-logs?orderByCol=id&orderByAsc=true&show_active_data=true&paginate=10&page=0"}

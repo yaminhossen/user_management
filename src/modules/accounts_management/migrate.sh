@@ -66,12 +66,20 @@
 # echo "investors seed end"
 # echo ""
 
+# echo ""
+# echo "account fees collections details seed start"
+# API_URL="http://127.0.0.1:5000/api/v1/account-fees-collection-details?orderByCol=id&orderByAsc=true&show_active_data=true&paginate=10&page=0"
+# response=$(curl -s "$API_URL")
+# npx sequelize-cli db:seed:all --config src/configs/db.json --seeders-path src/modules/accounts_management/account_fees_collection_details/models/seeders
+# echo "account fees collections details seed end"
+# echo ""
+
 echo ""
-echo "account fees collections details seed start"
-API_URL="http://127.0.0.1:5000/api/v1/account-fees-collection-details?orderByCol=id&orderByAsc=true&show_active_data=true&paginate=10&page=0"
+echo "account logs seed start"
+API_URL="http://127.0.0.1:5000/api/v1/account-logs?orderByCol=id&orderByAsc=true&show_active_data=true&paginate=10&page=0"
 response=$(curl -s "$API_URL")
-npx sequelize-cli db:seed:all --config src/configs/db.json --seeders-path src/modules/accounts_management/account_fees_collection_details/models/seeders
-echo "account fees collections details seed end"
+npx sequelize-cli db:seed:all --config src/configs/db.json --seeders-path src/modules/accounts_management/account_logs/models/seeders
+echo "account logs seed end"
 echo ""
 
 
