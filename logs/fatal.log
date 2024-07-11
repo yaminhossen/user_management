@@ -1,1 +1,2 @@
 {"level":60,"time":1720686160180,"pid":9784,"hostname":"DESKTOP-9421701","file":"","time":"7/11/2024 2:22:40 PM","message":"You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '-10, 10' at line 1"}
+{"level":60,"time":1720688235226,"pid":6592,"hostname":"DESKTOP-9421701","file":"","time":"7/11/2024 2:57:15 PM","message":"You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '-10, 10' at line 1"}

@@ -26,12 +26,20 @@
 # echo "assets seed end"
 # echo ""
 
+# echo ""
+# echo "asset audits seed start"
+# API_URL="http://127.0.0.1:5000/api/v1/asset-audits?orderByCol=id&orderByAsc=true&show_active_data=true&paginate=10&page=0"
+# response=$(curl -s "$API_URL")
+# npx sequelize-cli db:seed:all --config src/configs/db.json --seeders-path src/modules/asset_management/asset_audits/models/seeders
+# echo "asset audits seed end"
+# echo ""
+
 echo ""
-echo "asset audits seed start"
-API_URL="http://127.0.0.1:5000/api/v1/asset-audits?orderByCol=id&orderByAsc=true&show_active_data=true&paginate=10&page=0"
+echo "asset audit items seed start"
+API_URL="http://127.0.0.1:5000/api/v1/asset-audit-items?orderByCol=id&orderByAsc=true&show_active_data=true&paginate=10&page=0"
 response=$(curl -s "$API_URL")
-npx sequelize-cli db:seed:all --config src/configs/db.json --seeders-path src/modules/asset_management/asset_audits/models/seeders
-echo "asset audits seed end"
+npx sequelize-cli db:seed:all --config src/configs/db.json --seeders-path src/modules/asset_management/asset_audit_items/models/seeders
+echo "asset audit items seed end"
 echo ""
 
 
