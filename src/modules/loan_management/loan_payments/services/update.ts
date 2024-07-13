@@ -17,65 +17,45 @@ async function validate(req: Request) {
         .isEmpty()
         .withMessage('the branch_id field is required')
         .run(req);
-    await body('branch_teacher_id')
+    await body('loan_id')
         .not()
         .isEmpty()
-        .withMessage('the branch_teacher_id field is required')
+        .withMessage('the loan_id field is required')
         .run(req);
-    await body('branch_staff_id')
+    await body('account_log_id')
         .not()
         .isEmpty()
-        .withMessage('the branch_staff_id field is required')
+        .withMessage('the account_log_id field is required')
         .run(req);
-    await body('loan_type_id')
+    await body('date')
         .not()
         .isEmpty()
-        .withMessage('the loan_type_id field is required')
+        .withMessage('the date field is required')
         .run(req);
-    await body('need_date')
+    await body('amount')
         .not()
         .isEmpty()
-        .withMessage('the need_date field is required')
+        .withMessage('the amount field is required')
         .run(req);
-    await body('application_date')
+    await body('next_payment_date')
         .not()
         .isEmpty()
-        .withMessage('the application_date field is required')
+        .withMessage('the next_payment_date field is required')
         .run(req);
-    await body('reason')
+    await body('rest_amount')
         .not()
         .isEmpty()
-        .withMessage('the reason field is required')
+        .withMessage('the rest_amount field is required')
         .run(req);
-    await body('loan_status')
+    await body('paid_amount')
         .not()
         .isEmpty()
-        .withMessage('the loan_status field is required')
+        .withMessage('the paid_amount field is required')
         .run(req);
-    await body('attachements')
+    await body('received_by')
         .not()
         .isEmpty()
-        .withMessage('the attachements field is required')
-        .run(req);
-    await body('will_pay_date')
-        .not()
-        .isEmpty()
-        .withMessage('the will_pay_date field is required')
-        .run(req);
-    await body('request_amount')
-        .not()
-        .isEmpty()
-        .withMessage('the request_amount field is required')
-        .run(req);
-    await body('pay_amount')
-        .not()
-        .isEmpty()
-        .withMessage('the pay_amount field is required')
-        .run(req);
-    await body('given_date')
-        .not()
-        .isEmpty()
-        .withMessage('the given_date field is required')
+        .withMessage('the received_by field is required')
         .run(req);
 
     let result = await validationResult(req);
@@ -96,22 +76,18 @@ async function update(
     /** initializations */
     let models = await db();
     let body = req.body as anyObject;
-    let model = new models.LoanApplicationsModel();
+    let model = new models.LoanPaymentsModel();
 
     let inputs: InferCreationAttributes<typeof model> = {
         branch_id: body.branch_id,
-        branch_teacher_id: body.branch_teacher_id,
-        branch_staff_id: body.branch_staff_id,
-        loan_type_id: body.loan_type_id,
-        need_date: body.need_date,
-        application_date: body.application_date,
-        reason: body.reason,
-        loan_status: body.loan_status,
-        attachments: body.attachments,
-        will_pay_date: body.will_pay_date,
-        request_amount: body.request_amount,
-        pay_amount: body.pay_amount,
-        given_date: body.given_date,
+        loan_id: body.loan_id,
+        account_log_id: body.account_log_id,
+        date: body.date,
+        amount: body.amount,
+        next_payment_date: body.next_payment_date,
+        rest_amount: body.rest_amount,
+        paid_amount: body.paid_amount,
+        received_by: body.received_by,
     };
 
     /** print request data into console */
@@ -120,7 +96,7 @@ async function update(
 
     /** store data into database */
     try {
-        let data = await models.LoanApplicationsModel.findByPk(body.id);
+        let data = await models.LoanPaymentsModel.findByPk(body.id);
         if (data) {
             data.update(inputs);
             await data.save();
