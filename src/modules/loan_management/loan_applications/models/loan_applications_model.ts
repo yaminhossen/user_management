@@ -28,15 +28,25 @@ const modelName = 'LoanApplicationsModel';
 
 type Infer = InferAttributes<DataModel>;
 type InferCreation = InferCreationAttributes<DataModel>;
-// type type = 'income' | 'expense';
+type loan_status = 'Pending' | 'Approved' | 'Rejected';
 type status = 'active' | 'deactive';
 
 class DataModel extends Model<Infer, InferCreation> {
     declare id?: CreationOptional<number>;
 
     declare branch_id: number;
-    declare title: string;
-    declare description: string;
+    declare branch_teacher_id: number;
+    declare branch_staff_id: number;
+    declare loan_type_id: number;
+    declare need_date: string;
+    declare application_date: string;
+    declare reason: string;
+    declare loan_status: loan_status;
+    declare attachments: string;
+    declare will_pay_date: string;
+    declare request_amount: string;
+    declare pay_amount: string;
+    declare given_date: string;
 
     declare status?: status;
     declare creator?: number;
@@ -57,12 +67,52 @@ function init(sequelize: Sequelize) {
                 type: new DataTypes.BIGINT().UNSIGNED,
                 allowNull: true,
             },
-            title: {
-                type: DataTypes.STRING(40),
+            branch_teacher_id: {
+                type: new DataTypes.BIGINT().UNSIGNED,
                 allowNull: true,
             },
-            description: {
-                type: DataTypes.TEXT,
+            branch_staff_id: {
+                type: new DataTypes.BIGINT().UNSIGNED,
+                allowNull: true,
+            },
+            loan_type_id: {
+                type: new DataTypes.BIGINT().UNSIGNED,
+                allowNull: true,
+            },
+            need_date: {
+                type: DataTypes.DATE,
+                allowNull: true,
+            },
+            application_date: {
+                type: DataTypes.DATE,
+                allowNull: true,
+            },
+            reason: {
+                type: DataTypes.STRING(50),
+                allowNull: true,
+            },
+            loan_status: {
+                type: DataTypes.ENUM('Pending', 'Approved', 'Rejected'),
+                allowNull: true,
+            },
+            attachments: {
+                type: DataTypes.STRING(50),
+                allowNull: true,
+            },
+            will_pay_date: {
+                type: DataTypes.DATE,
+                allowNull: true,
+            },
+            request_amount: {
+                type: DataTypes.BIGINT().UNSIGNED,
+                allowNull: true,
+            },
+            pay_amount: {
+                type: DataTypes.BIGINT().UNSIGNED,
+                allowNull: true,
+            },
+            given_date: {
+                type: DataTypes.DATE,
                 allowNull: true,
             },
 
