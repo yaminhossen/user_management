@@ -18,12 +18,28 @@
 # echo "exam equipments seed end"
 # echo ""
 
+# echo ""
+# echo "exam preparation reports seed start"
+# API_URL="http://127.0.0.1:5000/api/v1/exam-preparation-reports?orderByCol=id&orderByAsc=true&show_active_data=true&paginate=10&page=0"
+# response=$(curl -s "$API_URL")
+# npx sequelize-cli db:seed:all --config src/configs/db.json --seeders-path src/modules/exam_management/exam_preparation_reports/models/seeders
+# echo "exam preparation reports seed end"
+# echo ""
+
+# echo ""
+# echo "exam student marks seed start"
+# API_URL="http://127.0.0.1:5000/api/v1/exam-student-marks?orderByCol=id&orderByAsc=true&show_active_data=true&paginate=10&page=0"
+# response=$(curl -s "$API_URL")
+# npx sequelize-cli db:seed:all --config src/configs/db.json --seeders-path src/modules/exam_management/exam_student_marks/models/seeders
+# echo "exam student marks seed end"
+# echo ""
+
 echo ""
-echo "exam preparation reports seed start"
-API_URL="http://127.0.0.1:5000/api/v1/exam-preparation-reports?orderByCol=id&orderByAsc=true&show_active_data=true&paginate=10&page=0"
+echo "exam routines seed start"
+API_URL="http://127.0.0.1:5000/api/v1/exam-routines?orderByCol=id&orderByAsc=true&show_active_data=true&paginate=10&page=0"
 response=$(curl -s "$API_URL")
-npx sequelize-cli db:seed:all --config src/configs/db.json --seeders-path src/modules/exam_management/exam_preparation_reports/models/seeders
-echo "exam preparation reports seed end"
+npx sequelize-cli db:seed:all --config src/configs/db.json --seeders-path src/modules/exam_management/exam_routines/models/seeders
+echo "exam routines seed end"
 echo ""
 
 
