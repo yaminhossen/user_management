@@ -42,12 +42,20 @@
 # echo "exam routines seed end"
 # echo ""
 
+# echo ""
+# echo "exam hall guard plans seed start"
+# API_URL="http://127.0.0.1:5000/api/v1/exam-hall-guard-plans?orderByCol=id&orderByAsc=true&show_active_data=true&paginate=10&page=0"
+# response=$(curl -s "$API_URL")
+# npx sequelize-cli db:seed:all --config src/configs/db.json --seeders-path src/modules/exam_management/exam_hall_guard_plans/models/seeders
+# echo "exam hall guard plans seed end"
+# echo ""
+
 echo ""
-echo "exam hall guard plans seed start"
-API_URL="http://127.0.0.1:5000/api/v1/exam-hall-guard-plans?orderByCol=id&orderByAsc=true&show_active_data=true&paginate=10&page=0"
+echo "exam students seed start"
+API_URL="http://127.0.0.1:5000/api/v1/exam-students?orderByCol=id&orderByAsc=true&show_active_data=true&paginate=10&page=0"
 response=$(curl -s "$API_URL")
-npx sequelize-cli db:seed:all --config src/configs/db.json --seeders-path src/modules/exam_management/exam_hall_guard_plans/models/seeders
-echo "exam hall guard plans seed end"
+npx sequelize-cli db:seed:all --config src/configs/db.json --seeders-path src/modules/exam_management/exam_students/models/seeders
+echo "exam students seed end"
 echo ""
 
 
