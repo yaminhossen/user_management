@@ -27,6 +27,21 @@ async function validate(req: Request) {
         .isEmpty()
         .withMessage('the class_id field is required')
         .run(req);
+    await body('teacher_id')
+        .not()
+        .isEmpty()
+        .withMessage('the teacher_id field is required')
+        .run(req);
+    await body('building_id')
+        .not()
+        .isEmpty()
+        .withMessage('the building_id field is required')
+        .run(req);
+    await body('room_id')
+        .not()
+        .isEmpty()
+        .withMessage('the room_id field is required')
+        .run(req);
     await body('subject_id')
         .not()
         .isEmpty()
@@ -37,23 +52,13 @@ async function validate(req: Request) {
         .isEmpty()
         .withMessage('the date field is required')
         .run(req);
-    await body('start_time')
-        .not()
-        .isEmpty()
-        .withMessage('the start_time field is required')
-        .run(req);
-    await body('end_time')
-        .not()
-        .isEmpty()
-        .withMessage('the end_time field is required')
-        .run(req);
 
     let result = await validationResult(req);
 
     return result;
 }
 
-async function update(
+async function store(
     fastify_instance: FastifyInstance,
     req: FastifyRequest,
 ): Promise<responseObject> {
@@ -66,16 +71,17 @@ async function update(
     /** initializations */
     let models = await db();
     let body = req.body as anyObject;
-    let model = new models.ExamRoutinesModel();
+    let data = new models.ExamHallGuradPlansModel();
 
-    let inputs: InferCreationAttributes<typeof model> = {
+    let inputs: InferCreationAttributes<typeof data> = {
         branch_id: body.branch_id,
         exam_id: body.exam_id,
         class_id: body.class_id,
+        teacher_id: body.teacher_id,
+        building_id: body.building_id,
+        room_id: body.room_id,
         subject_id: body.subject_id,
         date: body.date,
-        start_time: body.start_time,
-        end_time: body.end_time,
     };
 
     /** print request data into console */
@@ -84,23 +90,12 @@ async function update(
 
     /** store data into database */
     try {
-        let data = await models.ExamRoutinesModel.findByPk(body.id);
-        if (data) {
-            data.update(inputs);
-            await data.save();
-            return response(200, 'data updated', data);
-        } else {
-            throw new custom_error('Forbidden', 403, 'operation not possible');
-        }
+        (await data.update(inputs)).save();
+        return response(200, 'data created', data);
     } catch (error: any) {
         let uid = await error_trace(models, error, req.url, req.body);
-        if (error instanceof custom_error) {
-            error.uid = uid;
-        } else {
-            throw new custom_error('server error', 500, error.message, uid);
-        }
-        throw error;
+        throw new custom_error('server error', 500, error.message, uid);
     }
 }
 
-export default update;
+export default store;

@@ -27,6 +27,21 @@ async function validate(req: Request) {
         .isEmpty()
         .withMessage('the class_id field is required')
         .run(req);
+    await body('teacher_id')
+        .not()
+        .isEmpty()
+        .withMessage('the teacher_id field is required')
+        .run(req);
+    await body('building_id')
+        .not()
+        .isEmpty()
+        .withMessage('the building_id field is required')
+        .run(req);
+    await body('room_id')
+        .not()
+        .isEmpty()
+        .withMessage('the room_id field is required')
+        .run(req);
     await body('subject_id')
         .not()
         .isEmpty()
@@ -36,16 +51,6 @@ async function validate(req: Request) {
         .not()
         .isEmpty()
         .withMessage('the date field is required')
-        .run(req);
-    await body('start_time')
-        .not()
-        .isEmpty()
-        .withMessage('the start_time field is required')
-        .run(req);
-    await body('end_time')
-        .not()
-        .isEmpty()
-        .withMessage('the end_time field is required')
         .run(req);
 
     let result = await validationResult(req);
@@ -66,16 +71,17 @@ async function update(
     /** initializations */
     let models = await db();
     let body = req.body as anyObject;
-    let model = new models.ExamRoutinesModel();
+    let model = new models.ExamHallGuradPlansModel();
 
     let inputs: InferCreationAttributes<typeof model> = {
         branch_id: body.branch_id,
         exam_id: body.exam_id,
         class_id: body.class_id,
+        teacher_id: body.teacher_id,
+        building_id: body.building_id,
+        room_id: body.room_id,
         subject_id: body.subject_id,
         date: body.date,
-        start_time: body.start_time,
-        end_time: body.end_time,
     };
 
     /** print request data into console */
@@ -84,7 +90,7 @@ async function update(
 
     /** store data into database */
     try {
-        let data = await models.ExamRoutinesModel.findByPk(body.id);
+        let data = await models.ExamHallGuradPlansModel.findByPk(body.id);
         if (data) {
             data.update(inputs);
             await data.save();

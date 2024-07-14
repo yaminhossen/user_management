@@ -27,10 +27,10 @@ async function validate(req: Request) {
         .isEmpty()
         .withMessage('the class_id field is required')
         .run(req);
-    await body('student_id')
+    await body('subject_id')
         .not()
         .isEmpty()
-        .withMessage('the student_id field is required')
+        .withMessage('the subject_id field is required')
         .run(req);
     await body('date')
         .not()
